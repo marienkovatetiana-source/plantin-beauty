@@ -75,9 +75,10 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
-  /* Anchor links inside the menu close it so the page can scroll to the target */
+  /* Any link inside the menu closes it. Same-page anchors (e.g. index.html#about while on the home page)
+     don't reload the page, so the menu would otherwise stay open and cover the target. */
   menu.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href^="#"]');
+    var a = e.target.closest('a[href]');
     if (a && a.getAttribute('href') !== '#') closeMenu(false);
   });
 
