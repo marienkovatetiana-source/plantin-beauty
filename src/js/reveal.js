@@ -23,6 +23,10 @@ if (main && !reduce && 'IntersectionObserver' in window) {
     units.filter((u) => !u.hidden && u.tagName !== 'SCRIPT').forEach((u) => items.push(u));
   });
 
+  // measure first, then change classes: one layout pass instead of one per element.
+  // (the reveal transform pushes a block 72px down, hence the offset)
+  const aboveViewport = new Set(items.filter((el) => el.getBoundingClientRect().bottom < -72));
+
   document.documentElement.classList.add('js-reveal');
   items.forEach((el) => el.classList.add('reveal'));
 
@@ -50,7 +54,7 @@ if (main && !reduce && 'IntersectionObserver' in window) {
 
   // blocks already above the viewport on load (e.g. jumped to #contact) are shown at once, without animation
   items.forEach((el) => {
-    if (el.getBoundingClientRect().bottom < 0) {
+    if (aboveViewport.has(el)) {
       el.classList.add('is-in', 'is-instant');
       shown.add(el);
     } else {

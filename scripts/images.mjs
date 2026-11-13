@@ -6,9 +6,9 @@ import sharp from 'sharp';
 
 const SRC = 'originals';
 const OUT = 'src/images/gen';
-const WIDTHS = [480, 960, 1440, 1920];
+const WIDTHS = [480, 640, 960, 1280, 1440, 1920];
 const MAX_WIDTH = 1920;
-const WEBP_QUALITY = 80;
+const WEBP_QUALITY = 76;
 const JPEG_QUALITY = 80;
 
 fs.mkdirSync(OUT, { recursive: true });

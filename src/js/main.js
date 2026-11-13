@@ -1,4 +1,8 @@
 /* Single entry point: Vite bundles all CSS (order matters) and JS into one file each */
+/* Fonts are served from the site itself (npm packages @fontsource) */
+import '@fontsource-variable/inter/wght.css';
+import '@fontsource/anonymous-pro/400.css';
+import '@fontsource/anonymous-pro/700.css';
 import '../css/tokens.css';
 import '../css/base.css';
 import '../css/typography.css';
