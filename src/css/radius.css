@@ -1,0 +1,24 @@
+/* One corner system for the whole site (loaded after all component styles):
+   --radius-s (8px)  controls: buttons, fields, chips, tabs, small labels, avatars
+   --radius-m (12px) surfaces: photos, plates, cards, panels, banners, dialogs
+   Offset "slabs" behind photos use the same radius as the photo, so layers stay in step.
+   Full-width colour bands and section backgrounds stay square: they are not objects. */
+
+/* Photos + their slabs and bars */
+.hero__photo, .cat-hero__photo, .card-category__photo, .card-work__photo, .co-summary__photo,
+.hero__slab, .cat-hero__slab, .team-photo::before, .team-photo img,
+.hero__media::before, .cat-hero__media::before { border-radius: var(--radius-m); }
+.card-category__photo, .card-work__photo, .co-summary__photo { overflow: hidden; }
+
+/* Plates, cards, panels, banners, dialogs */
+.hero__plate, .cat-hero__plate, .plate-hero__plate, .note-box, .cta-banner,
+.price-card, .feature-card, .day-card, .payback, .apply-panel, .cat-book__panel, .visit__panel,
+.review, .course, .faq__help, .co-brief, .co-summary, .cookie, .cookie-dialog__panel,
+.dropdown, .academy__courses { border-radius: var(--radius-m); }
+
+/* Controls and small elements */
+.tab, .step__box, .faq-item__toggle, .master__avatar { border-radius: var(--radius-s); }
+.check__box { border-radius: 4px; }
+
+/* Application drawer: rounded on the side that faces the page */
+@media (min-width: 768px) { .apply__drawer { border-radius: var(--radius-m) 0 0 var(--radius-m); overflow: hidden; } }

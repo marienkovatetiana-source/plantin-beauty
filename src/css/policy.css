@@ -1,0 +1,139 @@
+/* Salon policy. Desktop layout switches on at 1320. */
+
+/* ───────── 01 Intro (also the plate hero of Thank you / Payment not completed) ─────────
+   mobile: white plate on the page · desktop: plate 760 over a periwinkle slab (520 × 260) that starts 16px above the plate */
+.plate-hero { position: relative; background: var(--bg-page); padding: var(--spacing-8) var(--spacing-4) var(--spacing-12); }
+.plate-hero__plate { display: flex; flex-direction: column; gap: var(--spacing-3); padding: var(--spacing-6) var(--spacing-5); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.plate-hero__eyebrow { color: var(--text-tertiary); }
+.plate-hero__cta { display: flex; flex-direction: column; gap: var(--spacing-3); padding-top: var(--spacing-2); }
+.plate-hero__cta .btn { width: 100%; }
+.plate-hero__link { padding-block: var(--spacing-3) 0; }
+.plate-hero__title { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.15; letter-spacing: 0.05em; text-transform: uppercase; }
+.plate-hero__lead { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .plate-hero { padding: 56px var(--side-padding) 72px; }
+  .plate-hero::before { content: ""; position: absolute; left: 0; top: 80px; width: 40px; height: 200px; background: var(--decor-slab); }
+  .plate-hero__plate { position: relative; max-width: 640px; gap: var(--spacing-4); padding: 36px; }
+  .plate-hero__title { font-size: 44px; }
+  .plate-hero__lead { font-size: 18px; }
+  .plate-hero__cta { flex-direction: row; gap: var(--spacing-4); }
+  .plate-hero__cta .btn { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .plate-hero { height: 508px; padding: 136px var(--side-padding) 0; }
+  .plate-hero::before { top: 120px; width: 520px; height: 260px; }
+  .plate-hero__plate { max-width: none; width: 760px; gap: 18px; padding: 40px 48px 44px; }
+  .plate-hero__title { font-size: 52px; }
+  .plate-hero--solo { height: auto; padding-bottom: 120px; }
+}
+
+/* ───────── 02 Cancelling ─────────
+   mobile: head, table as 4 cards, why-text · desktop: head + why-text left (440), table right (680) */
+.pol-cancel { background: var(--bg-page); padding-block: 0 var(--spacing-12); }
+.pol-cancel__layout { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.pol-cancel__why { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+
+.pol-table { width: 100%; border-collapse: collapse; background: var(--bg-surface); }
+.pol-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.pol-table, .pol-table tbody, .pol-table tr { display: block; }
+.pol-table tbody { padding: var(--spacing-2) var(--spacing-5); }
+.pol-table tr { display: flex; flex-direction: column; gap: 6px; padding-block: var(--spacing-5); border-bottom: 1px solid var(--border-subtle); }
+.pol-table tr:last-child { border-bottom: 0; }
+.pol-table tbody th { text-align: left; font-weight: 500; font-size: 16px; line-height: 1.4; color: var(--text-primary); }
+.pol-table td { display: grid; grid-template-columns: 96px 1fr; column-gap: var(--spacing-3); align-items: baseline; font-size: 14px; line-height: 1.45; color: var(--text-primary); }
+.pol-table td::before { content: attr(data-label); font-family: var(--font-display); font-size: 12px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .pol-cancel { padding-block: 0 72px; }
+  .pol-cancel__layout { gap: var(--spacing-6); }
+  .pol-table tbody { padding: var(--spacing-3) var(--spacing-8); }
+  .pol-table td { grid-template-columns: 160px 1fr; font-size: 16px; line-height: 1.5; }
+}
+
+@media (min-width: 1320px) {
+  .pol-cancel { height: 612px; padding-block: 120px 0; }
+  .pol-cancel__layout { display: grid; grid-template-columns: 440px 680px; column-gap: 80px; row-gap: 32px; align-content: start; align-items: start; }
+  .pol-cancel .section-head { grid-column: 1; grid-row: 1; }
+  .pol-cancel__why { grid-column: 1; grid-row: 2; width: 420px; }
+  .pol-table { grid-column: 2; grid-row: 1 / span 2; display: table; }
+  .pol-table thead { position: static; width: auto; height: auto; overflow: visible; clip: auto; display: table-header-group; }
+  .pol-table tbody { display: table-row-group; padding: 0; }
+  .pol-table tr { display: table-row; }
+  .pol-table th, .pol-table td { display: table-cell; padding: 18px 8px 18px 0; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
+  .pol-table tr:last-child th, .pol-table tr:last-child td { border-bottom: 0; }
+  .pol-table thead th, .pol-table thead td { padding: 8px 0; font-family: var(--font-display); font-weight: 400; font-size: 12px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; text-align: left; color: var(--text-secondary); }
+  .pol-table tbody th { width: 216px; font-size: 16px; }
+  .pol-table td { font-size: 16px; line-height: 1.5; }
+  .pol-table td::before { display: none; }
+  /* white table, 40px inner side padding */
+  .pol-table th:first-child, .pol-table td:first-child { padding-left: 40px; }
+  .pol-table th:last-child, .pol-table td:last-child { padding-right: 40px; }
+  .pol-table { border: 0; padding-block: 0; }
+  .pol-table thead tr:first-child > * { padding-top: 32px; }
+  .pol-table tbody tr:last-child > * { padding-bottom: 32px; }
+}
+
+/* ───────── 03 Fees · prepayment · running late (dark band) ───────── */
+.pol-rules { background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.pol-rules__grid { display: flex; flex-direction: column; gap: var(--spacing-8); }
+.pol-rules__item { display: flex; flex-direction: column; gap: 14px; }
+.pol-rules__title { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.pol-rules__item p { font-size: 16px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+
+@media (min-width: 768px) {
+  .pol-rules { padding-block: 72px; }
+  .pol-rules__grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--spacing-8); }
+  .pol-rules__title { font-size: 18px; }
+}
+
+@media (min-width: 1320px) {
+  .pol-rules { padding-block: 120px; }
+  .pol-rules__grid { grid-template-columns: repeat(3, 360px); justify-content: space-between; column-gap: 0; }
+}
+
+/* ───────── 04 Guarantee ───────── */
+.pol-guarantee { background: var(--bg-page); padding-block: var(--spacing-12) var(--spacing-8); }
+.pol-guarantee__layout { display: flex; flex-direction: column; gap: var(--spacing-4); }
+.pol-guarantee__text { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+.pol-guarantee__not { display: flex; flex-direction: column; gap: var(--spacing-3); margin-top: var(--spacing-2); }
+.pol-guarantee__not-title { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.pol-guarantee .bullet-list { gap: var(--spacing-3); }
+
+@media (min-width: 768px) {
+  .pol-guarantee { padding-block: 72px var(--spacing-8); }
+  .pol-guarantee__layout { gap: var(--spacing-6); }
+  .pol-guarantee__text { font-size: 18px; }
+  .pol-guarantee__not-title { font-size: 18px; }
+}
+
+@media (min-width: 1320px) {
+  .pol-guarantee { padding-block: 120px 120px; }
+  .pol-guarantee__layout { display: grid; grid-template-columns: 440px 680px; column-gap: 80px; row-gap: 32px; align-content: start; align-items: start; }
+  .pol-guarantee .section-head { grid-column: 1; grid-row: 1; }
+  .pol-guarantee__text { grid-column: 1; grid-row: 2; width: 420px; }
+  .pol-guarantee__not { grid-column: 2; grid-row: 1 / span 2; margin-top: 8px; gap: 18px; }
+  .pol-guarantee .bullet-list { gap: 18px; }
+}
+
+/* ───────── 05 Questions ───────── */
+.pol-questions { background: var(--bg-page); padding-block: 0 var(--spacing-12); }
+@media (min-width: 768px) { .pol-questions { padding-block: 0 72px; } }
+@media (min-width: 1320px) { .pol-questions { padding-block: 0 120px; } }
+
+/* Privacy & cookies */
+.privacy { display: flex; flex-direction: column; gap: var(--spacing-4); max-width: 760px; }
+.privacy .h2 { margin-top: var(--spacing-6); }
+.privacy a { text-decoration: underline; }
+
+/* Privacy rows: up to 1319 the wrappers are transparent and the page reads as before (one column);
+   from 1320 every section is a row — heading in a 400 column, text and lists to its right (from x 560, 760 wide), 56px padding, 1px rule between sections */
+.privacy__sec, .privacy__body { display: contents; }
+@media (min-width: 1320px) {
+  .privacy { max-width: none; gap: 0; }
+  .privacy__sec { display: grid; grid-template-columns: minmax(280px, 400px) minmax(0, 760px); column-gap: var(--spacing-10); align-items: start; padding-block: 56px; }
+  .privacy__sec + .privacy__sec { border-top: 1px solid var(--border-subtle); }
+  .privacy .h2 { margin-top: 0; }
+  .privacy__body { display: flex; flex-direction: column; gap: var(--spacing-4); }
+}

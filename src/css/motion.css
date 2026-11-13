@@ -1,0 +1,107 @@
+/* Motion: soft transitions for every interactive element (loaded last).
+   1. colour / border / shadow changes on hover and state
+   2. soft appearance and disappearance of things shown with [hidden] (menu, dropdown, cookie banner and dialog, application drawer)
+   3. tab panels, application steps, footer panels and FAQ answers fade / grow in
+   Show/hide uses `display … allow-discrete` + @starting-style, so the element is kept on screen while it fades out.
+   Browsers without support simply switch instantly. Everything is switched off for prefers-reduced-motion. */
+
+:root {
+  --motion-fast: 0.2s;
+  --motion-base: 0.25s;
+  --motion-slow: 0.3s;
+  interpolate-size: allow-keywords; /* lets `height: auto` animate (FAQ) */
+}
+
+/* ───────── 1. hover / state ───────── */
+.lang-switch a, .link-arrow, .cat-hero__crumbs a, .co__crumbs a, .cookie__settings, .site-header__phone,
+.info-row a, .footer__legal a, a.footer-col__line, .footer-social__link {
+  transition: color var(--motion-fast) ease, opacity var(--motion-fast) ease;
+}
+.site-nav__link { transition: color var(--motion-fast) ease; }
+.site-nav__link::after { transition: opacity var(--motion-fast) ease, background-color var(--motion-fast) ease; }
+.icon--chevron { transition: transform var(--motion-fast) ease; }
+.chip__face { transition: box-shadow var(--motion-fast) ease, background-color var(--motion-fast) ease, color var(--motion-fast) ease; }
+.field__input { transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease; }
+.choice { transition: border-color var(--motion-fast) ease, background-color var(--motion-fast) ease; }
+.check__box { transition: background-color var(--motion-fast) ease; }
+.step__box { transition: background-color var(--motion-base) ease, border-color var(--motion-base) ease, color var(--motion-base) ease; }
+.stepper__line { transition: background-color var(--motion-base) ease; }
+.faq-item { transition: background-color var(--motion-base) ease; }
+.faq-item__q { transition: padding var(--motion-base) ease; }
+.faq-item__toggle { transition: background-color var(--motion-fast) ease, border-color var(--motion-fast) ease; }
+.footer-col__plus::before, .footer-col__plus::after { transition: opacity var(--motion-fast) ease; }
+
+/* ───────── 2. show / hide with [hidden] ───────── */
+.mobile-menu { opacity: 1; transition: opacity var(--motion-base) ease, display var(--motion-base) allow-discrete; }
+.mobile-menu[hidden] { display: none; opacity: 0; }
+
+.cookie { opacity: 1; transform: none; transition: opacity var(--motion-slow) ease, transform var(--motion-slow) ease, display var(--motion-slow) allow-discrete; }
+.cookie[hidden] { display: none; opacity: 0; transform: translateY(12px); }
+
+.cookie-dialog { opacity: 1; transition: opacity var(--motion-base) ease, display var(--motion-base) allow-discrete; }
+.cookie-dialog[hidden] { display: none; opacity: 0; }
+.cookie-dialog__panel { transform: none; transition: transform var(--motion-base) ease; }
+.cookie-dialog[hidden] .cookie-dialog__panel { transform: translateY(12px); }
+
+.apply { opacity: 1; transition: opacity var(--motion-slow) ease, display var(--motion-slow) allow-discrete; }
+.apply[hidden] { display: none; opacity: 0; }
+.apply__drawer { transform: none; transition: transform var(--motion-slow) ease; }
+.apply[hidden] .apply__drawer { transform: translateX(100%); }
+
+@media (min-width: 1320px) {
+  .dropdown { opacity: 1; transform: none; transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease, display var(--motion-fast) allow-discrete; }
+  .dropdown[hidden] { display: none; opacity: 0; transform: translateY(-6px); }
+}
+
+@starting-style {
+  .mobile-menu { opacity: 0; }
+  .cookie { opacity: 0; transform: translateY(12px); }
+  .cookie-dialog { opacity: 0; }
+  .cookie-dialog .cookie-dialog__panel { transform: translateY(12px); }
+  .apply { opacity: 0; }
+  .apply .apply__drawer { transform: translateX(100%); }
+}
+@media (min-width: 1320px) {
+  @starting-style { .dropdown { opacity: 0; transform: translateY(-6px); } }
+}
+
+/* ───────── 3. panels that change content ───────── */
+[role="tabpanel"], .apply__step { opacity: 1; transition: opacity var(--motion-base) ease; }
+@starting-style {
+  [role="tabpanel"], .apply__step { opacity: 0; }
+}
+@media (max-width: 767px) {
+  .footer-col__panel { opacity: 1; transition: opacity var(--motion-base) ease; }
+  @starting-style { .footer-col__panel { opacity: 0; } }
+}
+
+/* FAQ answer opens and closes smoothly (native <details>) */
+.faq-item::details-content {
+  height: 0; overflow: clip;
+  transition: height var(--motion-base) ease, content-visibility var(--motion-base) allow-discrete;
+}
+.faq-item[open]::details-content { height: auto; }
+
+/* ───────── 4. scroll reveal (see js/reveal.js) ─────────
+   Blocks of every section (except the first one) rise from below with a stagger when they scroll into view,
+   and gently fade out and drift up once they leave through the top. Time-based (not tied to the scroll position), so nothing jitters.
+   The hidden state exists only when JS has added .js-reveal to <html>, so without JS everything is simply visible. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translate3d(0, 72px, 0) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(0.22, 0.7, 0.2, 1), transform 1s cubic-bezier(0.22, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.js-reveal .reveal.is-in { opacity: 1; transform: none; }
+.js-reveal .reveal.is-in.is-past {
+  opacity: 0.08;
+  transform: translate3d(0, -48px, 0) scale(0.985);
+  transition-duration: 0.6s, 0.7s;
+  transition-delay: 0s;
+}
+.js-reveal .reveal.is-instant { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* :root repeated to out-rank every component selector */
+  :root:root:root *, :root:root:root *::before, :root:root:root *::after { transition-duration: 0.01ms; transition-delay: 0s; animation-duration: 0.01ms; scroll-behavior: auto; }
+}

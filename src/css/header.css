@@ -1,0 +1,115 @@
+/* Header: mobile + tablet 64 (burger), desktop ≥1320 88 (sticky) */
+.site-header {
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: transform 0.25s ease;
+}
+/* Smart header (below 1320): slides away while scrolling down, returns on scroll up (js/header.js) */
+.site-header.is-hidden { transform: translateY(-100%); }
+html { scroll-padding-top: calc(var(--header-height) + 16px); }
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+  height: var(--header-height);
+  padding-inline: var(--spacing-4);
+}
+.site-header__logo { display: block; flex: none; width: 108px; }
+.site-header__logo img { width: 100%; height: auto; }
+.site-header__spacer { flex: 1; }
+
+.menu-button { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+.menu-button .icon { width: 24px; height: 24px; }
+
+/* Nav + actions are desktop only; on mobile they live in the menu panel */
+.site-nav, .site-header__phone, .site-header__book { display: none; }
+
+@media (min-width: 768px) {
+  .site-header__bar { padding-inline: var(--spacing-10); }
+  /* from tablet the header shows "Book now" before the burger (M 48 so it fits the 64px bar) */
+  .site-header__actions { display: flex; align-items: center; gap: var(--spacing-4); }
+  .site-header__book { display: inline-flex; --btn-h: 48px; }
+}
+
+@media (min-width: 1320px) {
+  .site-header.is-hidden { transform: none; }
+  /* Content never wider than a 1440 stage: on wider screens the padding grows, the header background still stretches */
+  .site-header__bar { justify-content: space-between; gap: var(--spacing-8); padding-inline: max(var(--spacing-10), calc((100% - 1440px) / 2 + var(--spacing-10))); }
+  .site-header__logo { width: 131px; }
+  .site-header__spacer, .menu-button { display: none; }
+
+  .site-nav { display: block; }
+  .site-nav__list { display: flex; align-items: center; gap: var(--spacing-8); }
+  .site-nav__link {
+    background: none; border: 0; cursor: pointer; text-align: left;
+    display: flex; flex-direction: column; gap: 6px;
+    padding-top: var(--spacing-2); padding-bottom: var(--spacing-1);
+    font-family: var(--font-display); font-size: 14px; line-height: 1.3;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary);
+  }
+  .site-nav__row { display: flex; align-items: center; gap: 6px; }
+  .site-nav__link::after { content: ""; height: 2px; background: var(--text-primary); opacity: 0; }
+  .site-nav__link:hover { color: var(--text-accent); }
+  .site-nav__link:hover::after { opacity: 1; background: var(--decor-slab); }
+  .site-nav__link[aria-current="page"]::after,
+  .site-nav__link[aria-expanded="true"]::after { opacity: 1; }
+  .site-nav__link[aria-expanded="true"] { color: var(--text-accent); }
+  .site-nav__link[aria-expanded="true"]::after { background: var(--decor-slab); }
+
+  .site-header__actions { display: flex; align-items: center; gap: var(--spacing-6); }
+  .site-header__phone {
+    display: block; font-size: 15px; font-weight: 500; line-height: 1.4;
+    text-decoration: underline; text-underline-position: from-font; white-space: nowrap;
+  }
+  .site-header__phone:hover { color: var(--text-accent); }
+  .site-header__book { --btn-h: 56px; }
+}
+
+/* ---------- Menu row (Treatments dropdown + mobile menu): whole row is a link, min 56px ---------- */
+.menu-rows { display: flex; flex-direction: column; }
+.menu-row {
+  display: flex; align-items: center; gap: var(--spacing-3); min-height: 56px; padding: var(--spacing-4);
+  background: var(--bg-page); border-bottom: 1px solid var(--border-subtle); color: var(--text-primary);
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.menu-row__text { display: flex; flex: 1; flex-direction: column; gap: 2px; min-width: 0; }
+.menu-row__title { font-family: var(--font-display); font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.menu-row__meta { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.menu-row:hover { background: var(--bg-page); box-shadow: 3px 3px 0 var(--decor-slab); }
+.menu-row:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
+
+.icon--chevron { width: 12px; height: 12px; }
+
+/* ---------- Mobile menu: full-screen dialog (below 1320) ---------- */
+.mobile-menu { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: var(--bg-page); }
+.mobile-menu[hidden] { display: none; }
+.mobile-menu__top { flex: none; border-bottom: 1px solid var(--border-subtle); }
+.mobile-menu__body { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--spacing-2); padding: var(--spacing-6) var(--spacing-4) 0; }
+.mobile-menu__label { color: var(--text-secondary); }
+.mobile-menu .menu-rows { gap: var(--spacing-2); } /* rows are separated by 8px in the mobile menu, flush in the dropdown */
+.mobile-menu__more { margin-top: var(--spacing-6); }
+.mobile-menu__actions { flex: none; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); padding: var(--spacing-4) var(--spacing-4) var(--spacing-6); }
+.mobile-menu__actions .btn { width: 100%; height: 56px; }
+html.is-menu-open { overflow: hidden; }
+
+@media (min-width: 768px) {
+  .mobile-menu__body { padding-inline: var(--spacing-10); }
+  .mobile-menu__actions { padding-inline: var(--spacing-10); }
+}
+
+/* ---------- Treatments dropdown (desktop) ---------- */
+@media (min-width: 1320px) {
+  .mobile-menu, .mobile-menu[hidden] { display: none; }
+  .site-nav__item--dropdown { position: relative; }
+  .dropdown {
+    position: absolute; z-index: 60; top: calc(100% + 25px); left: 0; width: 360px;
+    background: var(--bg-page); border: 1px solid var(--border-strong); box-shadow: var(--shadow-raised);
+  }
+  .dropdown[hidden] { display: none; }
+  .dropdown::before { content: ""; position: absolute; left: -1px; right: -1px; bottom: 100%; height: 25px; } /* keeps hover alive across the gap */
+  .dropdown .menu-row:last-child { border-bottom: 0; }
+  .site-nav__link[aria-expanded="true"] .icon--chevron { transform: rotate(180deg); }
+}

@@ -1,0 +1,84 @@
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="site-header__logo" href="index.html">
+        <img src="images/plantin-logo-dark.svg" alt="Plantin Beauty Studio — home" width="108" height="30">
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--dropdown">
+            <!-- "from" prices = lowest price per category -->
+            <button class="site-nav__link" type="button" aria-expanded="false" aria-controls="treatments-menu"{{#if treatmentsCurrent}} aria-current="page"{{/if}}>
+              <span class="site-nav__row">Treatments <svg class="icon icon--chevron" width="12" height="12" aria-hidden="true" focusable="false"><use href="#chevron"/></svg></span>
+            </button>
+            <div class="dropdown" id="treatments-menu" hidden>
+              <ul class="menu-rows">
+              <li><a class="menu-row" href="nails.html"><span class="menu-row__text"><span class="menu-row__title">Nails</span><span class="menu-row__meta">from €40</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+              <li><a class="menu-row" href="lashes-brows.html"><span class="menu-row__text"><span class="menu-row__title">Lashes &amp; Brows</span><span class="menu-row__meta">from €15</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+              <li><a class="menu-row" href="face-body.html"><span class="menu-row__text"><span class="menu-row__title">Face &amp; Body</span><span class="menu-row__meta">from €50</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+              <li><a class="menu-row" href="permanent-make-up.html"><span class="menu-row__text"><span class="menu-row__title">Permanent make-up</span><span class="menu-row__meta">from €139</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="site-nav__link" href="academy.html"{{#if academyCurrent}} aria-current="page"{{/if}}>Academy</a></li>
+          <li><a class="site-nav__link" href="index.html#about">About</a></li>
+          <li><a class="site-nav__link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__spacer"></div>
+
+      <div class="site-header__actions">
+        <div class="lang-switch">
+          <a href="#" lang="nl" hreflang="nl">NL</a>
+          <span class="lang-switch__slash" aria-hidden="true">/</span>
+          <a href="index.html" lang="en" hreflang="en" aria-current="true">EN</a>
+        </div>
+        <a class="site-header__phone" href="tel:+32468264014">+32 468 26 40 14</a>
+        <a class="btn btn--primary site-header__book" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now</a>
+      </div>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-open>
+        <svg class="icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="#menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="mobile-menu__top">
+      <div class="site-header__bar">
+        <a class="site-header__logo" href="index.html">
+          <img src="images/plantin-logo-dark.svg" alt="Plantin Beauty Studio — home" width="108" height="30">
+        </a>
+        <div class="site-header__spacer"></div>
+        <div class="lang-switch">
+          <a href="#" lang="nl" hreflang="nl">NL</a>
+          <span class="lang-switch__slash" aria-hidden="true">/</span>
+          <a href="index.html" lang="en" hreflang="en" aria-current="true">EN</a>
+        </div>
+        <button class="menu-button" type="button" aria-label="Close menu" data-menu-close>
+          <svg class="icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="#close"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu__body">
+      <p class="mobile-menu__label label-s">Treatments</p>
+      <ul class="menu-rows">
+        <li><a class="menu-row" href="nails.html"><span class="menu-row__text"><span class="menu-row__title">Nails</span><span class="menu-row__meta">from €40</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+        <li><a class="menu-row" href="lashes-brows.html"><span class="menu-row__text"><span class="menu-row__title">Lashes &amp; Brows</span><span class="menu-row__meta">from €15</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+        <li><a class="menu-row" href="face-body.html"><span class="menu-row__text"><span class="menu-row__title">Face &amp; Body</span><span class="menu-row__meta">from €50</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+        <li><a class="menu-row" href="permanent-make-up.html"><span class="menu-row__text"><span class="menu-row__title">Permanent make-up</span><span class="menu-row__meta">from €139</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+      </ul>
+      <ul class="menu-rows mobile-menu__more">
+        <li><a class="menu-row" href="academy.html"{{#if academyCurrent}} aria-current="page"{{/if}}><span class="menu-row__text"><span class="menu-row__title">Academy</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+        <li><a class="menu-row" href="index.html#about"><span class="menu-row__text"><span class="menu-row__title">About</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+        <li><a class="menu-row" href="index.html#contact"><span class="menu-row__text"><span class="menu-row__title">Contact</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="mobile-menu__actions">
+      <a class="link-arrow mobile-menu__call" href="tel:+32468264014"><span class="link-arrow__text">Call +32 468 26 40 14</span></a>
+      <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+    </div>
+  </div>

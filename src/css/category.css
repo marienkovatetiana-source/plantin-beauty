@@ -1,0 +1,271 @@
+/* Category page template (Nails)
+   Desktop layout switches on at 1320 (same as the rest of the site). */
+
+/* ───────── shared bits ───────── */
+
+/* Note box (dark callout) */
+.note-box { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-2); padding: var(--spacing-6); background: var(--bg-inverse); color: var(--text-on-inverse); }
+.note-box__title { font-family: var(--font-display); font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.note-box__text { font-size: 16px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+
+/* Tab (price-list groups): 44px tall, selected = filled */
+.tab {
+  height: 44px; padding-inline: var(--spacing-4); background: var(--bg-page); border: 1.5px solid var(--border-strong);
+  font-family: var(--font-display); font-size: 14px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary);
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.tab:hover { box-shadow: var(--state-hover); }
+.tab[aria-selected="true"] { background: var(--action-primary); color: #fff; }
+
+/* ───────── 01 Category hero ─────────
+   mobile 375: photo 335×320 at x40, slab +24/+16, decor bar 40 wide, plate overlaps photo by 64
+   tablet 768: photo from x168, plate 440 wide at x40 (like Home)
+   desktop 1440: photo 1118×618 at x322, plate 620 at x82 / y130, decor bar 82×300 at y190 */
+.cat-hero { --slab: 12px; position: relative; padding-bottom: 40px; }
+.cat-hero__media { position: relative; height: 320px; margin-left: 40px; }
+.cat-hero__media::before { content: ""; position: absolute; top: 0; left: -40px; width: 40px; height: 100%; background: var(--decor-slab-light); }
+.cat-hero__slab { position: absolute; inset: var(--slab) auto auto calc(-1 * var(--slab)); width: 100%; height: 100%; background: var(--decor-slab); }
+.cat-hero__photo { position: absolute; inset: 0; overflow: hidden; }
+.cat-hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+
+.cat-hero__plate {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-3);
+  margin: -64px var(--spacing-4) 0; padding: var(--spacing-6) var(--spacing-5);
+  background: var(--bg-page); box-shadow: var(--shadow-plate);
+}
+.cat-hero__crumbs { display: flex; gap: 0.6em; color: var(--text-tertiary); white-space: pre; }
+.cat-hero__crumbs a:hover { color: var(--text-accent); text-decoration: underline; }
+.cat-hero__title { font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.15; letter-spacing: 0.05em; text-transform: uppercase; }
+.cat-hero__lead { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+.cat-hero__facts { display: flex; flex-wrap: wrap; column-gap: 0.5em; font-size: 14px; line-height: 1.45; }
+.cat-hero__cta { display: flex; flex-wrap: wrap; gap: var(--spacing-3); width: 100%; }
+.cat-hero__cta .btn { flex: 0 0 auto; min-width: 0; }
+@media (max-width: 359px) { .cat-hero__cta .btn { flex: 1 1 100%; } }
+.cat-hero__us { display: none; }
+
+@media (min-width: 768px) {
+  .cat-hero { --slab: 20px; height: 600px; padding-bottom: 0; }
+  .cat-hero__media { position: absolute; top: 0; right: 0; left: 168px; height: 480px; margin: 0; }
+  .cat-hero__media::before { display: none; }
+  .cat-hero__plate { position: absolute; left: 40px; bottom: 40px; width: min(700px, calc(50% + 56px)); margin: 0; gap: var(--spacing-4); padding: 36px; }
+  .cat-hero__plate::before { content: ""; position: absolute; right: 100%; top: 40px; bottom: 40px; width: 40px; background: var(--decor-slab-light); }
+  .cat-hero__title { font-size: 48px; }
+  .cat-hero__facts { font-size: 16px; font-weight: 500; line-height: 1.4; }
+  .cat-hero__cta { width: auto; }
+  .cat-hero__cta .btn { flex: none; }
+  .cat-hero__us { display: inline; }
+}
+
+@media (min-width: 1320px) {
+  .cat-hero { --slab: 24px; --gutter: max(40px, calc((100% - 1200px) / 2)); --plate-left: max(16px, calc(var(--gutter) - 38px)); height: 700px; }
+  /* decor bar lives on the hero itself so the percentage in --plate-left is measured against the hero width */
+  .cat-hero::before { content: ""; position: absolute; left: 0; top: 190px; width: var(--plate-left); height: 300px; background: var(--decor-slab-light); }
+  .cat-hero__media { left: calc(var(--plate-left) + 240px); right: max(0px, calc((100% - 1440px) / 2)); height: 618px; }
+  .cat-hero__photo img { object-position: 50% 36%; }
+  .cat-hero__plate { left: var(--plate-left); top: 130px; bottom: auto; width: 620px; gap: 18px; padding: 40px 48px 44px; }
+  .cat-hero__plate::before { display: none; }
+  .cat-hero__title { font-size: 60px; }
+  .cat-hero__lead { font-size: 18px; }
+  .cat-hero__facts { flex-wrap: nowrap; column-gap: var(--spacing-6); white-space: nowrap; }
+  .cat-hero__sep { display: none; }
+  .cat-hero__cta { gap: var(--spacing-4); padding-top: 6px; }
+}
+
+/* ───────── 02 Which one do I need? ─────────
+   mobile: head, 5 rows, dark note · tablet: rows in 2 columns
+   desktop: head left, note right (440), 2-column rows over a full-width light band */
+.cat-which { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); }
+.cat-which .container { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.cat-which__head { display: flex; flex-direction: column; gap: var(--spacing-5); order: 1; }
+.cat-which__intro { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+.cat-which__list { order: 2; position: relative; display: flex; flex-direction: column; gap: var(--spacing-3); }
+.cat-which__note { order: 3; }
+
+.helper-row {
+  display: flex; align-items: center; gap: var(--spacing-6); padding: 28px var(--spacing-8);
+  background: var(--bg-surface); box-shadow: var(--shadow-plate); transition: box-shadow 0.2s ease;
+}
+.helper-row:hover { box-shadow: var(--state-hover), var(--shadow-plate); }
+.helper-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.helper-row__need { font-family: var(--font-display); font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.helper-row__if { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+.helper-row__price { flex: none; display: flex; align-items: center; gap: var(--spacing-3); }
+
+@media (min-width: 768px) {
+  .cat-which { padding-block: 72px; }
+  .cat-which .container { gap: var(--spacing-8); }
+  .cat-which__list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+  .cat-which__list > li { display: flex; }
+  .cat-which__list .helper-row { flex: 1; }
+  .cat-which__intro { font-size: 18px; }
+}
+
+@media (min-width: 1320px) {
+  .cat-which { padding-block: 120px 97px; }
+  .cat-which .container { display: grid; grid-template-columns: 1fr 440px; grid-template-areas: "head note" "list list"; column-gap: var(--spacing-8); row-gap: 56px; }
+  .cat-which__head { grid-area: head; gap: 24px; }
+  .cat-which__head .section-head { max-width: 440px; }
+  .cat-which__note { grid-area: note; align-self: start; }
+  .cat-which__list { grid-area: list; }
+  /* light band: starts 60px below the first row, runs to the bottom of the section and bleeds to both edges */
+  .cat-which__list::before { content: ""; position: absolute; z-index: -1; left: calc(50% - 50vw); width: 100vw; top: 60px; bottom: -97px; background: var(--decor-slab-light); }
+}
+
+/* ───────── 03 Price list ─────────
+   mobile/tablet: head, note, price card, button + notes (photo hidden)
+   desktop: left 476 (head, note, photo over a light slab), right 628 (price card + booking row) */
+.cat-prices { position: relative; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); }
+.cat-prices .container { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.cat-prices__intro { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.cat-prices__time { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.cat-prices__photo { display: none; }
+.cat-prices__main { display: flex; flex-direction: column; gap: var(--spacing-5); }
+
+.price-card { background: var(--bg-surface); padding: var(--spacing-5) var(--spacing-4) var(--spacing-2); }
+.price-card__tabs { display: flex; gap: var(--spacing-2); padding-bottom: var(--spacing-2); }
+.price-row { display: flex; align-items: flex-start; gap: var(--spacing-4); padding: var(--spacing-4) var(--spacing-1); border-bottom: 1px solid var(--border-subtle); }
+.price-row__service { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.price-row__name { font-weight: 500; font-size: 16px; line-height: 1.4; }
+.price-row__time { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.price-row .price { flex: none; white-space: nowrap; }
+
+.cat-prices__book { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.cat-prices__book .btn { width: 100%; }
+.cat-prices__notes { display: flex; flex-direction: column; gap: var(--spacing-1); }
+.cat-prices__cancel { font-weight: 500; font-size: 16px; line-height: 1.4; }
+.cat-prices__account { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .cat-prices { padding-block: 72px; }
+  .cat-prices .container, .cat-prices__main { gap: var(--spacing-8); }
+  .cat-prices__time { font-size: 16px; line-height: 1.5; }
+  .price-card { padding: var(--spacing-8) var(--spacing-10) var(--spacing-6); box-shadow: var(--shadow-plate); }
+  .price-card__tabs { padding-bottom: var(--spacing-4); }
+  .cat-prices__main { gap: var(--spacing-10); }
+  .cat-prices__book { flex-direction: row; align-items: center; gap: var(--spacing-6); }
+  .cat-prices__book .btn { width: auto; flex: none; }
+  .cat-prices__notes { flex: 1; min-width: 0; }
+}
+
+@media (min-width: 1320px) {
+  .cat-prices { padding-block: 120px; }
+  .cat-prices .container { display: grid; grid-template-columns: 476px 628px; grid-template-areas: "intro main" "photo main"; justify-content: space-between; align-items: start; column-gap: 0; row-gap: 42px; }
+  .cat-prices__intro { grid-area: intro; gap: 64px; }
+  .cat-prices__main { grid-area: main; }
+  .cat-prices__photo { --slab: 16px; --slab-color: var(--decor-slab); grid-area: photo; display: flex; position: relative; isolation: isolate; width: 420px; }
+  .cat-prices__photo .card-work__photo { height: 408px; }
+  /* light slab behind the photo: starts 80px below its top, bleeds to the left viewport edge, ends 210px into the photo */
+  .cat-prices__photo::before { content: ""; position: absolute; z-index: -1; top: 80px; height: 276px; left: calc(600px - 50vw); width: calc(50vw - 390px); background: var(--decor-slab-light); }
+}
+
+/* ───────── 04–05 Included · Before · After ───────── */
+.cat-visit { background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.cat-visit__grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-8); }
+.cat-visit__col { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.cat-visit__title { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.bullet-list { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.bullet-list li { display: flex; gap: 14px; font-size: 16px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+.bullet-list li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 8px; background: var(--text-on-inverse); }
+/* light sections: dark text and square */
+.bullet-list--light li { color: var(--text-primary); }
+.bullet-list--light li::before { background: var(--text-primary); }
+
+@media (min-width: 768px) {
+  .cat-visit { padding-block: 72px; }
+  .cat-visit__grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: var(--spacing-8); row-gap: var(--spacing-10); }
+  .cat-visit__title { font-size: 18px; }
+}
+
+@media (min-width: 1320px) {
+  .cat-visit { padding-block: 120px; }
+  .cat-visit__grid { grid-template-columns: repeat(3, 360px); justify-content: space-between; column-gap: 0; }
+  .cat-visit__col { gap: 40px; } /* title → list: 16 + 8 spacer + 16 */
+  .bullet-list { gap: var(--spacing-4); }
+}
+
+/* ───────── 06 Our work · Masters ─────────
+   photos: horizontal carousel (3 slides) that bleeds to the right edge of the screen; prev/next + counter at every size
+   desktop: two slides + a peek of the third, light slab band behind the first one */
+.cat-work { position: relative; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); --gutter: var(--side-padding); }
+.cat-work .container { display: flex; flex-direction: column; gap: var(--spacing-6); position: relative; }
+
+.cat-work__gallery {
+  position: relative; z-index: 1;
+  display: flex; gap: var(--spacing-8);
+  width: calc(100% + var(--gutter)); margin-right: calc(-1 * var(--gutter));
+  padding: 0 var(--spacing-4) var(--spacing-4) 0; margin-bottom: calc(-1 * var(--spacing-4)); /* padding only keeps the slab from being clipped */
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.cat-work__gallery::-webkit-scrollbar { display: none; }
+.cat-work__gallery .card-work { --slab: 12px; gap: var(--spacing-6); flex: none; width: 327px; scroll-snap-align: start; }
+.cat-work__gallery .card-work__photo { height: 311px; }
+
+.cat-work__masters { display: flex; flex-direction: column; gap: var(--spacing-6); margin-top: var(--spacing-8); }
+.cat-work__masters-title { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.cat-work__masters-list { display: grid; grid-template-columns: 1fr; }
+.cat-work__masters-note { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .cat-work { padding-block: 72px; }
+  .cat-work .container { gap: var(--spacing-8); }
+  .cat-work__gallery .card-work { --slab: 14px; width: 420px; }
+  .cat-work__gallery .card-work__photo { height: 360px; }
+  .cat-work__masters { margin-top: var(--spacing-6); }
+  .cat-work__masters-title { font-size: 18px; }
+  .cat-work__masters-list { grid-template-columns: 1fr 1fr; column-gap: var(--spacing-6); }
+  .cat-work__masters-note { font-size: 16px; line-height: 1.5; }
+}
+
+@media (min-width: 1320px) {
+  .cat-work { padding-block: 120px; --gutter: min(120px, calc((100vw - 1200px) / 2)); }
+  .cat-work .container { gap: 40px; }
+  .cat-work .section-head { margin-bottom: 24px; }
+  .cat-work__gallery .card-work { --slab: 16px; width: 588px; }
+  .cat-work__gallery .card-work__photo { height: 405px; }
+  .cat-work__masters { margin-top: 32px; width: 760px; }
+  /* light slab band behind the first slide: starts 80px below the photo top, from the left screen edge */
+  .cat-work .container::before { content: ""; position: absolute; z-index: 0; left: 0; top: 222px; width: calc((100% - 1200px) / 2 + 260px); height: 300px; background: var(--decor-slab-light); }
+  .cat-work__controls, .cat-work__masters { position: relative; z-index: 1; }
+}
+
+/* FAQ: same component as Home; desktop columns are 420 + 760 here */
+@media (min-width: 1320px) {
+  .cat-faq .faq__layout { grid-template-columns: 420px 760px; column-gap: 20px; }
+  .cat-faq .faq__help { align-self: start; width: 420px; }
+}
+
+/* ───────── 08 Booking strip ───────── */
+.cat-book { background: var(--bg-page); padding-block: var(--spacing-2) var(--spacing-12); }
+.cat-book__panel { display: flex; flex-direction: column; gap: 14px; padding: var(--spacing-6) var(--spacing-5); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.cat-book__copy { display: flex; flex-direction: column; gap: 14px; }
+.cat-book__title { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.18; letter-spacing: 0.05em; text-transform: uppercase; }
+.cat-book__text { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.cat-book__actions { display: flex; flex-direction: column; gap: 14px; }
+.cat-book__actions .btn { width: 100%; }
+.cat-book__link { align-self: flex-start; }
+
+@media (min-width: 768px) {
+  .cat-book { padding-block: var(--spacing-2) 72px; }
+  .cat-book__panel { gap: var(--spacing-5); padding: 36px; }
+  .cat-book__copy { gap: var(--spacing-3); }
+  .cat-book__title { font-size: 32px; }
+  .cat-book__text { font-size: 16px; line-height: 1.5; }
+  .cat-book__actions { flex-direction: row; gap: var(--spacing-4); }
+  .cat-book__actions .btn { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .cat-book { padding-block: 0 120px; }
+  .cat-book__panel {
+    display: grid; grid-template-columns: 1fr auto; grid-template-areas: "copy actions" "link actions";
+    column-gap: var(--spacing-10); row-gap: var(--spacing-3); align-items: start; padding: 48px 56px;
+  }
+  .cat-book__copy { grid-area: copy; }
+  .cat-book__actions { grid-area: actions; align-self: center; }
+  .cat-book__link { grid-area: link; }
+}
+
+/* Gallery with a single photo: no slider controls */
+.slider-controls[hidden] { display: none; }

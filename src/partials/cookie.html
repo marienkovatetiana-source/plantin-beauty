@@ -1,0 +1,27 @@
+
+  <!-- Cookie banner (first visit only; js/cookies.js shows it and remembers the choice) -->
+  <div class="cookie" data-cookie role="region" aria-label="Cookies" hidden>
+    <p class="cookie__text">We use cookies to see which pages help you book. Nothing is shared for advertising without your consent.</p>
+    <div class="cookie__actions">
+      <button class="link-arrow cookie__settings" type="button" data-cookie-settings><span class="link-arrow__text">Settings</span></button>
+      <button class="btn btn--primary cookie__accept" type="button" data-cookie-accept>Accept</button>
+      <button class="btn btn--secondary cookie__necessary" type="button" data-cookie-necessary>Only necessary</button>
+    </div>
+  </div>
+
+  <!-- Preferences dialog -->
+  <div class="cookie-dialog" data-cookie-dialog role="dialog" aria-modal="true" aria-labelledby="cookie-dialog-title" hidden>
+    <div class="cookie-dialog__panel">
+      <h2 class="h3" id="cookie-dialog-title">Cookie settings</h2>
+      <p class="body-s text-secondary">Necessary cookies keep the site working and are always on.</p>
+      <label class="check">
+        <input class="check__input" type="checkbox" name="analytics" data-cookie-analytics>
+        <span class="check__box" aria-hidden="true"></span>
+        <span class="check__text">Analytics — helps us see which pages lead to a booking.</span>
+      </label>
+      <div class="cookie-dialog__actions">
+        <button class="btn btn--primary" type="button" data-cookie-save>Save</button>
+        <button class="btn btn--secondary" type="button" data-cookie-cancel>Cancel</button>
+      </div>
+    </div>
+  </div>

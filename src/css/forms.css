@@ -1,0 +1,45 @@
+/* Form controls: text field, choice option, checkbox (also used by the course application) */
+
+/* Text field: label always visible above, 48px tall, 16px text (no zoom on iOS).
+   Error = 2px red border + message linked with aria-describedby. */
+.field { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.field__label { font-family: var(--font-display); font-size: 14px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary); }
+.field__input {
+  width: 100%; height: 48px; padding: var(--spacing-3) var(--spacing-4);
+  background: var(--bg-page); border: 1px solid var(--border-default); border-radius: var(--radius-s);
+  font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--text-primary);
+}
+.field__input::placeholder { font-weight: 400; color: var(--text-secondary); opacity: 1; }
+.field__input:hover { border-color: var(--border-strong); }
+.field__input:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.field__help { font-size: 12px; line-height: 1.4; color: var(--text-tertiary); }
+.field__error { display: none; font-size: 12px; line-height: 1.4; color: var(--feedback-error); }
+.field.is-invalid .field__input { border: 2px solid var(--feedback-error); padding: 11px 15px; }
+.field.is-invalid .field__error { display: block; }
+.field.is-invalid .field__help { display: none; }
+
+/* Choice option: radio as a full-width card. Selected = dot + 2px border + tint (not colour alone). */
+.choices { display: flex; flex-direction: column; gap: var(--spacing-4); min-width: 0; padding: 0; border: 0; }
+.choice { border-radius: var(--radius-s); position: relative; display: flex; align-items: center; gap: var(--spacing-3); padding: var(--spacing-4); background: var(--bg-page); border: 1px solid var(--border-default); cursor: pointer; }
+.choice:hover { border-color: var(--border-strong); }
+.choice__input { position: absolute; opacity: 0; width: 20px; height: 20px; margin: 0; }
+.choice__radio { flex: none; width: 20px; height: 20px; border: 1.5px solid var(--border-strong); border-radius: 50%; background: var(--bg-page); }
+.choice__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.choice__title { font-size: 16px; font-weight: 500; line-height: 1.4; }
+.choice__meta { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.choice:has(.choice__input:checked) { background: var(--bg-surface); border: 2px solid var(--border-strong); padding: 15px; }
+.choice:has(.choice__input:checked) .choice__radio { border-width: 1.5px; background: radial-gradient(circle, var(--border-strong) 0 5px, var(--bg-page) 5.5px); }
+.choice:has(.choice__input:focus-visible) { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* Checkbox: whole label is clickable, 44px minimum height */
+.check { position: relative; display: flex; align-items: flex-start; gap: var(--spacing-3); min-height: 44px; padding-block: 2px; cursor: pointer; }
+.check__input { position: absolute; opacity: 0; width: 20px; height: 20px; margin: 0; }
+.check__box { position: relative; flex: none; width: 20px; height: 20px; margin-top: 1px; background: var(--bg-page); border: 1.5px solid var(--border-strong); }
+.check__input:checked + .check__box { background: var(--action-primary); }
+.check__input:checked + .check__box::after { content: ""; position: absolute; left: 5px; top: 1px; width: 6px; height: 11px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.check__input:focus-visible + .check__box { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.check__text { font-size: 14px; line-height: 1.45; color: var(--text-primary); }
+
+/* Disabled button — only in forms, until the required fields are valid */
+.btn:disabled { background: var(--bg-muted); border-color: transparent; color: var(--text-secondary); box-shadow: none; cursor: not-allowed; }
+.btn:disabled .icon { opacity: 0.55; }

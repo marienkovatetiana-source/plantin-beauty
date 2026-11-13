@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header treatmentsCurrent=true}}
+
+  <main id="main">
+    <!-- 01 Category hero -->
+    <section class="cat-hero" aria-labelledby="cat-title">
+      <div class="cat-hero__media">
+        <span class="cat-hero__slab" aria-hidden="true"></span>
+        <div class="cat-hero__photo">
+          <img src="images/category-nails-hero.jpg" sizes="(min-width: 1320px) 1118px, (min-width: 768px) 600px, 335px" alt="Hand with a natural pink French manicure resting on denim" width="1280" height="1280" fetchpriority="high">
+        </div>
+      </div>
+
+      <div class="cat-hero__plate">
+        <nav aria-label="Breadcrumb">
+          <ol class="cat-hero__crumbs label-s">
+            <li><a href="index.html#treatments">Treatments</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Nails</li>
+          </ol>
+        </nav>
+        <h1 class="cat-hero__title" id="cat-title">Nails</h1>
+        <p class="cat-hero__lead">Manicure, gel polish, BIAB and gel extensions that last.</p>
+        <p class="cat-hero__facts">
+          <span>from €40</span><span class="cat-hero__sep" aria-hidden="true">·</span>
+          <span>5 treatments</span><span class="cat-hero__sep" aria-hidden="true">·</span>
+          <span>7-day guarantee</span>
+        </p>
+        <div class="cat-hero__cta">
+          <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span>WhatsApp<span class="cat-hero__us"> us</span></span></a>
+        </div>
+        <a class="link-arrow" href="#which"><span class="link-arrow__text">Not sure which one? See below</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+      </div>
+    </section>
+
+    <!-- 02 Which one do I need? -->
+    <section class="cat-which" id="which" aria-labelledby="which-title">
+      <div class="container">
+        <div class="cat-which__head">
+          <div class="section-head">
+            <p class="section-head__eyebrow label-s">Not sure?</p>
+            <h2 class="h2" id="which-title">Which one do I need?</h2>
+          </div>
+          <p class="cat-which__intro">Pick the line that sounds like you.</p>
+        </div>
+
+        <div class="note-box cat-which__note">
+          <h3 class="note-box__title">Already wearing gel nails?</h3>
+          <p class="note-box__text">Please book a refill, not gel polish — it takes longer, and we want enough time to do it properly.</p>
+          <a class="link-arrow link-arrow--inverse" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">Still not sure? Send a photo</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+
+        <ul class="cat-which__list">
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Hygienic Russian manicure</span><span class="helper-row__if">If you want clean, well-groomed nails without polish</span></span><span class="helper-row__price"><span class="price">€40</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Gel polish / BIAB</span><span class="helper-row__if">If you want colour on your own nails for 3–4 weeks</span></span><span class="helper-row__price"><span class="price">€60</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Gel polish / BIAB — ask for BIAB</span><span class="helper-row__if">If you have weak nails and want them stronger</span></span><span class="helper-row__price"><span class="price">€60</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Gel nails refill</span><span class="helper-row__if">If you already wear gel nails and they’ve grown out</span></span><span class="helper-row__price"><span class="price">€70</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Gel nails extension</span><span class="helper-row__if">If you want longer nails or a new shape</span></span><span class="helper-row__price"><span class="price">€85</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+          <li><a class="helper-row" href="#prices"><span class="helper-row__text"><span class="helper-row__need">Pedicure with gel polish</span><span class="helper-row__if">If you want your feet done</span></span><span class="helper-row__price"><span class="price">€55</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 Price list -->
+    <section class="cat-prices" id="prices" aria-labelledby="prices-title">
+      <div class="container">
+        <div class="cat-prices__intro">
+          <div class="section-head">
+            <p class="section-head__eyebrow label-s">Prices</p>
+            <h2 class="h2" id="prices-title">Clear prices, no surprises</h2>
+          </div>
+          <p class="cat-prices__time">Times are the maximum. Experienced masters often finish sooner — you still get the full treatment.</p>
+        </div>
+
+        <figure class="card-work cat-prices__photo">
+          <div class="card-work__photo"><img src="images/nails-gel-biab.jpg" sizes="420px" alt="Hand with short nails in white gel polish with small colourful accents, resting on grey denim" width="768" height="1024" loading="lazy"></div>
+          <figcaption class="card-work__caption">
+            <span class="card-work__title label-s">Gel polish / BIAB</span>
+            <span class="card-work__details body-s">our work · lasts 3–4 weeks</span>
+          </figcaption>
+        </figure>
+
+        <div class="cat-prices__main">
+          <div class="price-card">
+            <div class="price-card__tabs" role="tablist" aria-label="Nail treatments" data-tabs>
+              <button class="tab" type="button" role="tab" id="tab-manicure" aria-selected="true" aria-controls="panel-manicure">Manicure</button>
+              <button class="tab" type="button" role="tab" id="tab-pedicure" aria-selected="false" aria-controls="panel-pedicure" tabindex="-1">Pedicure</button>
+            </div>
+            <ul class="price-list" role="tabpanel" id="panel-manicure" aria-labelledby="tab-manicure">
+              <li class="price-row"><div class="price-row__service"><p class="price-row__name">Hygienic Russian manicure</p><p class="price-row__time">up to 45 min · clean nails, no polish</p></div><p class="price">€40</p></li>
+              <li class="price-row"><div class="price-row__service"><p class="price-row__name">Gel polish / BIAB</p><p class="price-row__time">up to 75 min · colour for 3–4 weeks</p></div><p class="price">€60</p></li>
+              <li class="price-row"><div class="price-row__service"><p class="price-row__name">Gel nails refill</p><p class="price-row__time">up to 90 min · for grown-out gel nails</p></div><p class="price">€70</p></li>
+              <li class="price-row"><div class="price-row__service"><p class="price-row__name">Gel nails extension</p><p class="price-row__time">up to 2 h · length or new shape</p></div><p class="price">€85</p></li>
+            </ul>
+            <ul class="price-list" role="tabpanel" id="panel-pedicure" aria-labelledby="tab-pedicure" hidden>
+              <li class="price-row"><div class="price-row__service"><p class="price-row__name">Pedicure with gel polish</p><p class="price-row__time">up to 75 min · feet + colour</p></div><p class="price">€55</p></li>
+            </ul>
+          </div>
+
+          <div class="cat-prices__book">
+            <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book your slot <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+            <div class="cat-prices__notes">
+              <p class="cat-prices__cancel">Free cancellation up to 24 h before. Later: 50% of the price.</p>
+              <p class="cat-prices__account">Prefer not to create an account? Call or WhatsApp us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04–05 Every visit includes · Before · After -->
+    <section class="cat-visit on-inverse" aria-label="What to expect">
+      <div class="container cat-visit__grid">
+        <div class="cat-visit__col">
+          <h2 class="cat-visit__title">Included in every visit</h2>
+          <ul class="bullet-list">
+            <li>A short consultation</li>
+            <li>Hand care with oil and cream</li>
+            <li>Tips to make it last</li>
+            <li>7-day guarantee</li>
+          </ul>
+        </div>
+        <div class="cat-visit__col">
+          <h2 class="cat-visit__title">Before your visit</h2>
+          <ul class="bullet-list">
+            <li>Don’t remove gel at home — we do it safely</li>
+            <li>Skip the home manicure the day before</li>
+            <li>Running late? WhatsApp us</li>
+          </ul>
+        </div>
+        <div class="cat-visit__col">
+          <h2 class="cat-visit__title">After your visit</h2>
+          <ul class="bullet-list">
+            <li>Everything as usual — dishes, swimming, sport</li>
+            <li>Just don’t pick or peel: strong, not concrete</li>
+            <li>Chipped within 7 days? Send a photo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Our work · Masters -->
+    <section class="cat-work" aria-labelledby="cat-work-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Our work</p>
+          <h2 class="h2" id="cat-work-title">Recent nails from our studio</h2>
+        </div>
+
+        <div class="cat-work__gallery" data-carousel>
+          <figure class="card-work">
+            <div class="card-work__photo"><img src="images/nails-gel-extension.jpg" sizes="(min-width: 1320px) 588px, (min-width: 768px) 420px, 327px" alt="Long almond gel extensions in a soft nude shade" width="1600" height="2005" loading="lazy"></div>
+            <figcaption class="card-work__caption">
+              <span class="card-work__title label-s">Gel extension</span>
+              <span class="card-work__details body-s">our work · almond shape</span>
+            </figcaption>
+          </figure>
+          <figure class="card-work">
+            <div class="card-work__photo"><img src="images/nails-nude-french.jpg" sizes="(min-width: 1320px) 588px, (min-width: 768px) 420px, 327px" alt="Short natural nails with a nude French manicure" width="1600" height="2133" loading="lazy"></div>
+            <figcaption class="card-work__caption">
+              <span class="card-work__title label-s">Nude French</span>
+              <span class="card-work__details body-s">our work</span>
+            </figcaption>
+          </figure>
+          <figure class="card-work">
+            <div class="card-work__photo"><img src="images/nails-pedicure.jpg" sizes="(min-width: 1320px) 588px, (min-width: 768px) 420px, 327px" alt="Pedicure with gel polish" width="1600" height="2133" loading="lazy"></div>
+            <figcaption class="card-work__caption">
+              <span class="card-work__title label-s">Pedicure</span>
+              <span class="card-work__details body-s">our work</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="slider-controls cat-work__controls">
+          <p class="slider-controls__counter label-m" aria-live="polite" data-carousel-counter>1 / 3</p>
+          <button class="slider-controls__btn" type="button" aria-label="Previous photo" data-carousel-prev><svg class="icon icon--arrow-left" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow-left"/></svg></button>
+          <button class="slider-controls__btn" type="button" aria-label="Next photo" data-carousel-next><svg class="icon icon--arrow-right" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+        </div>
+
+        <div class="cat-work__masters">
+          <h3 class="cat-work__masters-title">Who does your nails</h3>
+          <ul class="cat-work__masters-list">
+            <li class="master">
+              <img class="master__avatar" src="images/team/tetiana.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h4 class="master__name">Tetiana</h4>
+                <p class="master__role">Nails · 10+ years · nail art</p>
+              </div>
+            </li>
+            <li class="master">
+              <img class="master__avatar" src="images/team/adriana.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h4 class="master__name">Adriana</h4>
+                <p class="master__role">Nails · 10+ years · speaks Dutch</p>
+              </div>
+            </li>
+          </ul>
+          <p class="cat-work__masters-note">Book with a specific master in the booking widget, or ask on WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FAQ (same component as on Home) -->
+    <section class="faq cat-faq" aria-labelledby="faq-title">
+      <div class="container faq__layout">
+        <div class="section-head faq__head">
+          <p class="section-head__eyebrow label-s">FAQ</p>
+          <h2 class="h2" id="faq-title">Nails questions</h2>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq-item" name="faq" open>
+            <summary class="faq-item__q"><span>How long does gel polish last?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Usually 3–4 weeks. Then come back for a refill or removal — please don’t remove gel at home.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>When should I come back for a refill?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Usually after 3–4 weeks, when the nails have grown out. Book a refill, not gel polish — it takes longer.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Which materials do you use?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Professional gel systems and tools that are sterilised after every client. Ask your master if you have an allergy.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Is gel bad for my nails?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Not when it is applied and removed properly. Don’t pick or peel it, and let us remove it safely.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Can I book two treatments in one visit?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Yes, for example manicure and pedicure. Write to us on WhatsApp and we will find a time for both.</p>
+          </details>
+        </div>
+
+        <div class="faq__help">
+          <h3 class="faq__help-title">Didn't find your answer?</h3>
+          <p class="faq__help-text">Write to us on WhatsApp and we'll answer your question.</p>
+          <a class="link-arrow link-arrow--inverse" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">Ask on WhatsApp</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Booking strip -->
+    <section class="cat-book" aria-labelledby="cat-book-title">
+      <div class="container">
+        <div class="cat-book__panel">
+          <div class="cat-book__copy">
+            <h2 class="cat-book__title" id="cat-book-title">Ready to book?</h2>
+            <p class="cat-book__text">Free cancellation up to 24 h before · 7-day guarantee · Pay at the studio · No account needed: call or WhatsApp us</p>
+          </div>
+          <div class="cat-book__actions">
+            <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+            <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
+          <a class="link-arrow cat-book__link" href="salon-policy.html"><span class="link-arrow__text">Read the salon policy</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+</body>
+</html>

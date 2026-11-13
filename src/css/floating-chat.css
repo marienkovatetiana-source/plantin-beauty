@@ -1,0 +1,15 @@
+/* Floating WhatsApp button (03 · Layered sections → Icon button / Messenger, Soft, L 64):
+   fixed, right 32 / bottom 40, decor/slab fill, 34px icon; hover decor/slab-light + 3px slab. Tablet and desktop only. */
+.floating-chat {
+  display: none; position: fixed; z-index: 40; right: var(--spacing-8); bottom: var(--spacing-10);
+  align-items: center; justify-content: center; width: 64px; height: 64px;
+  background: transparent; border: 1.5px solid var(--action-primary); border-radius: var(--radius-s); transition: box-shadow 0.2s ease, background-color 0.2s ease;   /* outline only, no fill */
+}
+.floating-chat .icon { width: 34px; height: 34px; color: var(--action-primary); }
+.floating-chat:hover { background-color: var(--decor-slab-light); box-shadow: none; }
+.floating-chat:active { background: var(--decor-slab-light); box-shadow: none; transform: scale(0.96); }
+.floating-chat:focus-visible { box-shadow: var(--state-pressed); outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+@media (min-width: 768px) {
+  .floating-chat { display: flex; }
+}

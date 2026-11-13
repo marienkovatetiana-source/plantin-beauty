@@ -1,0 +1,26 @@
+/* Mobile sticky actions (below 768): Book now full width, WhatsApp button floats above it on the right.
+   Shown after the hero has scrolled out (js adds .is-hidden until then). */
+.sticky-bar {
+  position: fixed; z-index: 40; left: 0; right: 0; bottom: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-3); align-items: stretch;
+  pointer-events: none; transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.sticky-bar.is-hidden { transform: translateY(100%); opacity: 0; visibility: hidden; transition: transform 0.25s ease, opacity 0.25s ease, visibility 0s 0.25s; }
+.sticky-bar > * { pointer-events: auto; }
+
+.sticky-bar__chat {
+  align-self: flex-end; margin-right: var(--spacing-4);
+  display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+  background: transparent; border: 1.5px solid var(--action-primary); border-radius: var(--radius-s);   /* outline only, no fill */
+  transition: box-shadow 0.2s ease;
+}
+.sticky-bar__chat .icon { width: 30px; height: 30px; color: var(--action-primary); }
+.sticky-bar__chat:hover { background: var(--decor-slab-light); }
+.sticky-bar__chat:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.sticky-bar__bar { padding: var(--spacing-3) var(--spacing-4); background: var(--bg-page); border-top: 1px solid var(--border-subtle); }
+.sticky-bar__bar .btn { width: 100%; }
+
+@media (min-width: 768px) {
+  .sticky-bar { display: none; }
+}

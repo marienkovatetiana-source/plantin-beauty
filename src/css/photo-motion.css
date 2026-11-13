@@ -1,0 +1,9 @@
+/* Photos that drift after the pointer (js/photo-motion.js sets --mx / --my on the frame).
+   Every photo is kept at 1.06x, so a drift of up to ~3% never shows an edge. The hero photo has its own crop transform (hero.css) and
+   uses the same variables there. The 404 photo and the map are not part of this. */
+.has-motion img { scale: 1.06; will-change: translate; }
+.card-category__photo.has-motion img, .card-work__photo.has-motion img, .co-summary__photo.has-motion img,
+.cat-hero__photo.has-motion img, .team-photo__frame.has-motion img { translate: var(--mx, 0px) var(--my, 0px); }
+.hero__photo.has-motion img { scale: 1.05; }   /* the hero keeps its own transform (crop + --mx / --my) */
+
+.team-photo__frame { display: block; position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: var(--radius-m); }

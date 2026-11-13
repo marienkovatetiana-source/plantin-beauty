@@ -1,0 +1,65 @@
+/* Home · 07 Academy (dark)
+   mobile: photo, white price-list of 4 courses, button · tablet: lead + 2×2 course cards · desktop: photo left over a slate band, text + cards right */
+.academy { background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.academy .container { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.academy .section-head__eyebrow { color: var(--text-on-inverse-muted); }
+.academy__lead { display: none; font-size: 18px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+
+.academy .card-work { --slab: 10px; --slab-color: var(--decor-slab-on-dark); width: calc(100% - var(--slab)); }
+.academy .card-work__photo { height: 231px; }
+.academy .card-work__photo img { object-position: 50% 26%; }
+.academy .card-work__details { color: var(--text-on-inverse-muted); }
+.academy .card-work__caption .label-s { color: var(--text-on-inverse); }
+
+/* Course: mobile = price row, tablet+ = card (the whole thing is one link) */
+.academy__courses { background: var(--bg-surface); color: var(--text-primary); padding: var(--spacing-1) var(--spacing-4); }
+.academy__courses li { display: flex; }
+.academy__courses .course { flex: 1; }
+.course {
+  display: grid; grid-template-columns: 1fr auto; column-gap: var(--spacing-4); align-items: start;
+  padding: var(--spacing-4) var(--spacing-1); border-bottom: 1px solid var(--border-subtle); color: inherit;
+}
+.course__name { grid-column: 1; grid-row: 1; font-size: 16px; font-weight: 500; line-height: 1.4; }
+.course__meta { grid-column: 1; grid-row: 2; margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.course__price { grid-column: 2; grid-row: 1 / span 2; font-family: var(--font-display); font-size: 18px; line-height: 1.3; white-space: nowrap; }
+.course__arrow { display: none; }
+.course:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
+
+.academy .btn { width: 100%; }
+
+@media (min-width: 768px) {
+  .academy { padding-block: 72px; }
+  .academy .container { gap: var(--spacing-8); }
+  .academy__lead { display: block; }
+  .academy .card-work { --slab: 14px; width: 100%; }
+  .academy .card-work__photo { height: 351px; }
+  .academy .card-work__photo img { object-position: 50% 10%; }
+
+  .academy__courses { background: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+  .course {
+    grid-template-columns: 1fr auto; grid-template-rows: auto auto 8px auto; row-gap: var(--spacing-2);
+    padding: var(--spacing-6); background: var(--bg-surface); border: 1.5px solid var(--border-strong);
+    transition: box-shadow 0.2s ease;
+  }
+  .course:hover { box-shadow: var(--slab-s); }
+  .course__name { grid-column: 1 / -1; grid-row: 1; font-family: var(--font-display); font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+  .course__meta { grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
+  .course__price { grid-column: 1; grid-row: 4; }
+  .course__arrow { display: block; grid-column: 2; grid-row: 4; align-self: center; width: 16px; height: 16px; }
+  .academy .btn { width: auto; align-self: flex-start; }
+}
+
+@media (min-width: 1320px) {
+  .academy { padding-block: var(--spacing-30); }
+  .academy .container { display: grid; grid-template-columns: 500px 604px; column-gap: 96px; row-gap: 0; align-items: start; position: relative; }
+  .academy .container { grid-template-rows: auto auto auto 1fr; }
+  .academy .container > * { position: relative; z-index: 1; }
+  .academy .card-work { --slab: 20px; grid-column: 1; grid-row: 1 / span 5; width: 100%; }
+  .academy .card-work__photo { height: 571px; }
+  .academy .card-work__photo img { object-position: 50% 50%; }
+  .academy .section-head { grid-column: 2; grid-row: 1; margin-top: 4px; }
+  .academy__lead { grid-column: 2; grid-row: 2; margin-top: 54px; }
+  .academy__courses { grid-column: 2; grid-row: 3; grid-template-columns: 296px 296px; column-gap: 12px; row-gap: 38px; margin-top: 42px; }
+  .academy .btn { grid-column: 2; grid-row: 4; align-self: start; justify-self: start; }
+  .academy .btn { margin-top: var(--spacing-6); }
+}

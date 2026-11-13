@@ -1,0 +1,108 @@
+
+  <!-- Course application: drawer ≥768, full screen below. js/apply.js opens it from [data-apply-open]. -->
+  <div class="apply" data-apply hidden>
+    <div class="apply__scrim" data-apply-close></div>
+    <form class="apply__drawer" role="dialog" aria-modal="true" aria-label="Apply for a course" novalidate data-apply-form>
+      <div class="apply__top">
+        <p class="apply__title label-m">Apply for a course</p>
+        <button class="apply__close" type="button" aria-label="Close application" data-apply-close><svg class="icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="#close"/></svg></button>
+      </div>
+
+      <ol class="stepper" aria-label="Progress">
+        <li class="step" data-step-dot="1"><span class="step__box"><span class="step__num">1</span><svg class="icon icon--check" width="24" height="24" aria-hidden="true" focusable="false"><use href="#check"/></svg></span><span class="step__label">Course</span></li>
+        <li class="stepper__line" aria-hidden="true"></li>
+        <li class="step" data-step-dot="2"><span class="step__box"><span class="step__num">2</span><svg class="icon icon--check" width="24" height="24" aria-hidden="true" focusable="false"><use href="#check"/></svg></span><span class="step__label">Start</span></li>
+        <li class="stepper__line" aria-hidden="true"></li>
+        <li class="step" data-step-dot="3"><span class="step__box"><span class="step__num">3</span><svg class="icon icon--check" width="24" height="24" aria-hidden="true" focusable="false"><use href="#check"/></svg></span><span class="step__label">Details</span></li>
+        <li class="stepper__line" aria-hidden="true"></li>
+        <li class="step" data-step-dot="4"><span class="step__box"><span class="step__num">4</span><svg class="icon icon--check" width="24" height="24" aria-hidden="true" focusable="false"><use href="#check"/></svg></span><span class="step__label">Sent</span></li>
+      </ol>
+      <p class="visually-hidden" aria-live="polite" data-apply-status></p>
+
+      <div class="apply__content">
+        <!-- Step 1 -->
+        <div class="apply__step" data-step="1">
+          <fieldset class="choices">
+            <legend class="apply__question">Which course?</legend>
+            <label class="choice"><input class="choice__input" type="radio" name="course" value="manicure-pro" data-label="Manicure Pro" data-duration="5 days" data-price="€400" checked><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Manicure Pro</span><span class="choice__meta">5 days · €400</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="course" value="lash-extensions" data-label="Lash extensions" data-duration="2–5 days" data-price="from €160"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Lash extensions</span><span class="choice__meta">2–5 days · from €160</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="course" value="permanent-make-up" data-label="Permanent make-up" data-duration="2–5 days" data-price="from €160"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Permanent make-up</span><span class="choice__meta">2–5 days · from €160</span></span></label>
+          </fieldset>
+          <fieldset class="choices">
+            <legend class="apply__question">Format</legend>
+            <label class="choice"><input class="choice__input" type="radio" name="format" value="group" data-label="group" checked><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Group (up to 6 people)</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="format" value="private" data-label="private" data-price="On request"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Private, one-to-one</span><span class="choice__meta">Dates and price on request</span></span></label>
+          </fieldset>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="apply__step" data-step="2" hidden>
+          <fieldset class="choices">
+            <legend class="apply__question apply__question--l">When would you like to start?</legend>
+            <label class="choice"><input class="choice__input" type="radio" name="start" value="asap" data-label="start asap" checked><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">As soon as possible</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="start" value="1-2-months" data-label="in 1–2 months"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">In 1–2 months</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="start" value="later" data-label="later this year"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Later this year</span></span></label>
+            <label class="choice"><input class="choice__input" type="radio" name="start" value="private" data-label="flexible dates"><span class="choice__radio" aria-hidden="true"></span><span class="choice__text"><span class="choice__title">Private training — flexible dates</span></span></label>
+          </fieldset>
+          <p class="body-s text-secondary">We’ll confirm the exact dates by phone or WhatsApp.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="apply__step" data-step="3" hidden>
+          <div class="field" data-field>
+            <label class="field__label" for="apply-name">Full name</label>
+            <input class="field__input" id="apply-name" name="name" type="text" autocomplete="name" placeholder="e.g. Sofie Peeters" aria-describedby="apply-name-help apply-name-error">
+            <p class="field__help" id="apply-name-help">We’ll use it on your certificate.</p>
+            <p class="field__error" id="apply-name-error">Enter your full name.</p>
+          </div>
+          <div class="field" data-field>
+            <label class="field__label" for="apply-phone">Phone</label>
+            <input class="field__input" id="apply-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+32 470 12 34 56" aria-describedby="apply-phone-help apply-phone-error">
+            <p class="field__help" id="apply-phone-help">We’ll confirm by phone or WhatsApp</p>
+            <p class="field__error" id="apply-phone-error">Enter a phone number we can reach you on, e.g. +32 470 12 34 56.</p>
+          </div>
+          <div class="field" data-field>
+            <label class="field__label" for="apply-email">Email</label>
+            <input class="field__input" id="apply-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="apply-email-help apply-email-error">
+            <p class="field__help" id="apply-email-help">For your confirmation and course details.</p>
+            <p class="field__error" id="apply-email-error">Enter a valid email, e.g. name@example.com.</p>
+          </div>
+          <fieldset class="field apply__experience">
+            <legend class="field__label">Your experience</legend>
+            <div class="chips">
+              <label class="chip"><input class="chip__input" type="radio" name="experience" value="none" checked><span class="chip__face">None</span></label>
+              <label class="chip"><input class="chip__input" type="radio" name="experience" value="some"><span class="chip__face">Some</span></label>
+              <label class="chip"><input class="chip__input" type="radio" name="experience" value="professional"><span class="chip__face">Professional</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label class="field__label" for="apply-message">Message (optional)</label>
+            <textarea class="field__input field__input--area" id="apply-message" name="message" rows="4" placeholder="e.g. questions about the course"></textarea>
+          </div>
+          <label class="check">
+            <input class="check__input" type="checkbox" name="policy">
+            <span class="check__box" aria-hidden="true"></span>
+            <span class="check__text">I have read the <a href="salon-policy.html" target="_blank" rel="noopener"><u>salon policy</u></a> (cancellation and payment).</span>
+          </label>
+        </div>
+
+        <!-- Step 4: sent -->
+        <div class="apply__step apply__step--sent" data-step="4" hidden>
+          <div class="apply__success" aria-hidden="true"><svg class="icon icon--check" width="24" height="24" aria-hidden="true" focusable="false"><use href="#check"/></svg></div>
+          <h2 class="apply__sent-title display-m" tabindex="-1">Thank you<span data-apply-name></span>. Application sent.</h2>
+          <p class="body-m text-secondary">We’ll contact you within one working day to confirm your place and payment.</p>
+          <p class="body-s text-secondary">Questions before that? WhatsApp or call <a href="tel:+32468264014"><u>+32 468 26 40 14</u></a>.</p>
+          <button class="btn btn--secondary apply__back-course" type="button" data-apply-close>Back to the course</button>
+          <a class="link-arrow" href="index.html"><span class="link-arrow__text">Go to homepage</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+
+      <div class="apply__bar" data-apply-bar>
+        <p class="apply__summary"><span class="body-s text-secondary" data-apply-summary></span><span class="price" data-apply-price></span></p>
+        <div class="apply__buttons">
+          <button class="btn btn--secondary" type="button" data-apply-back>Back</button>
+          <button class="btn btn--primary" type="submit" data-apply-next><span data-apply-next-label>Continue</span> <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+        </div>
+      </div>
+    </form>
+  </div>

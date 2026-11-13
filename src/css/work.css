@@ -1,0 +1,90 @@
+/* Home · 05 Our work & reviews
+   mobile: photo carousel (327 slides) + review carousel (280 cards)
+   tablet: photos in 2 columns, reviews in 2 columns
+   desktop: photo collage on the left over a light slab band, rating + 3 reviews on the right (488) */
+.work { background: var(--bg-page); padding-block: var(--spacing-12); }
+.work .container { display: flex; flex-direction: column; gap: var(--spacing-6); position: relative; }
+.work__main, .work__reviews { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-6); min-width: 0; }
+.work__main, .work__reviews { width: 100%; }
+
+/* Photos — mobile carousel; the slab needs 16px on the right and bottom, so the scroller has padding there */
+.work__gallery {
+  display: flex; gap: var(--spacing-8); width: calc(100% + var(--side-padding)); margin-right: calc(-1 * var(--side-padding));
+  padding: 0 var(--spacing-4) var(--spacing-4) 0; margin-bottom: calc(-1 * var(--spacing-4)); /* the padding only keeps the slab from being clipped */
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.work__gallery::-webkit-scrollbar { display: none; }
+.work__gallery .card-work { --slab: 12px; gap: var(--spacing-6); flex: none; width: 327px; scroll-snap-align: start; }
+.work__gallery .card-work__photo { height: 291px; }
+.work__gallery .card-work__title { color: var(--text-primary); }
+
+/* Rating summary */
+.rating { display: flex; align-items: center; gap: var(--spacing-4); white-space: nowrap; }
+.rating__score { font-family: var(--font-display); font-size: 60px; line-height: 1.15; letter-spacing: 0.05em; text-transform: uppercase; }
+.rating__meta { display: flex; flex-direction: column; gap: 2px; }
+.rating__stars { font-size: 16px; line-height: 1.5; }
+.rating__count { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+/* Review cards */
+.work__list { display: flex; gap: var(--spacing-4); width: calc(100% + var(--side-padding)); margin-right: calc(-1 * var(--side-padding)); padding: 0 var(--spacing-4) 12px 0; overflow-x: auto; scrollbar-width: none; }
+.work__list::-webkit-scrollbar { display: none; }
+.review { flex: none; width: 280px; padding: var(--spacing-6); background: var(--bg-surface); }
+.review figure { display: flex; flex-direction: column; gap: var(--spacing-3); margin: 0; }
+.review__top { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-2); white-space: nowrap; }
+.review__who, .review__source { color: var(--text-secondary); }
+/* reviewer name Inter 500 in sentence case; source Inter 13px */
+.review .review__who { font-family: var(--font-text); font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.review .review__source { font-family: var(--font-text); font-size: 13px; font-weight: 450; letter-spacing: 0; text-transform: none; }
+.review__stars { font-size: 14px; line-height: 1.45; }
+.review__quote { font-size: 16px; line-height: 1.5; }
+
+@media (min-width: 768px) {
+  .work { padding-block: 72px; }
+  .work .container, .work__main, .work__reviews { gap: var(--spacing-8); }
+  .work__gallery .card-work + .card-work { margin: 0; }
+  .work__gallery {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px 16px; width: 100%; margin-right: 0; margin-bottom: 0; padding: 0; overflow: visible;
+  }
+  .work__gallery .card-work { --slab: 14px; width: auto; }
+  .work__gallery .card-work__photo { height: 351px; }
+  .work .slider-controls { display: none; } /* both photos are visible, nothing to page through */
+
+  .work__list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); width: 100%; margin-right: 0; padding: 0; overflow: visible; }
+  .review { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .work { padding-block: var(--spacing-30); }
+  .work .container { display: grid; grid-template-columns: 712px 488px; column-gap: 0; row-gap: 104px; align-items: start; }
+  .work .section-head { grid-column: 1 / -1; }
+  .work__main { grid-column: 1; grid-row: 2; gap: var(--spacing-6); }
+  .work__reviews { grid-column: 2; grid-row: 2; margin-top: -12px; gap: var(--spacing-4); }
+  .work__reviews .rating { margin-bottom: var(--spacing-4); }
+  .work__list { display: flex; flex-direction: column; }
+  .work__reviews .link-arrow { margin-top: var(--spacing-4); }
+
+  /* light slab band behind the collage: from the left viewport edge to 610px at 1440 */
+  .work .container::before {
+    content: ""; position: absolute; z-index: 0; left: calc(50% - 50vw); top: 294px; width: calc(50vw - 110px); height: 336px;
+    background: var(--decor-slab-light);
+  }
+  .work__main, .work__reviews { position: relative; z-index: 1; }
+
+  /* collage: big portrait photo + smaller one overlapping its lower right corner */
+  .work__gallery { display: block; position: relative; height: 617px; }
+  .work__gallery .card-work { position: absolute; }
+  .work__gallery .card-work:nth-child(1) { --slab: 16px; left: 0; top: 0; width: 400px; }
+  .work__gallery .card-work:nth-child(1) .card-work__photo { height: 451px; }
+  .work__gallery .card-work:nth-child(2) { --slab: 10px; left: 340px; top: 294px; width: 300px; }
+  .work__gallery .card-work:nth-child(2) .card-work__photo { height: 251px; }
+}
+
+/* "@handle" in the Instagram link is shown from tablet up */
+.work__handle { display: none; }
+@media (min-width: 1320px) { .work__handle { display: inline; } }
+
+/* Review cards on mobile: snap to the cards while swiping (the row already scrolls sideways) */
+.work__list { scroll-snap-type: x mandatory; }
+.work__list .review { scroll-snap-align: start; }
+@media (min-width: 768px) { .work__list { scroll-snap-type: none; } .work { padding-bottom: 40px; } }
+@media (min-width: 1320px) { .work { padding-bottom: 56px; } }

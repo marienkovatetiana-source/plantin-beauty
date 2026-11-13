@@ -1,0 +1,126 @@
+/* Hover accent: deep blue (--accent-deep, #001965) on top of the grey-blue base.
+   Used for menu items, link hovers, button outline + label + chevrons (chevron colour is in components.css),
+   and the outline of icon buttons. Loaded after the component styles. */
+
+/* Menu + links */
+.site-nav__link:hover, .site-nav__link[aria-expanded="true"],
+.site-header__phone:hover, .lang-switch a:hover, .link-arrow:hover, .cat-hero__crumbs a:hover { color: var(--accent-spark); }   /* every link: raspberry pink on hover */
+.site-nav__link:hover::after, .site-nav__link[aria-expanded="true"]::after { background: var(--accent-spark); }
+.menu-row:hover, .menu-row:focus-visible { background: var(--decor-slab-light); box-shadow: inset 4px 0 0 var(--accent-deep); color: var(--accent-deep); }
+.menu-row:hover .menu-row__meta { color: var(--accent-deep); }
+.on-inverse a:not(.btn):not(.card-category):hover, .link-arrow--inverse:hover { color: var(--accent-spark); }   /* rule: link hover is raspberry pink, also on dark sections */
+
+/* Buttons: deep-blue outline and label on hover / keyboard focus */
+.btn--primary:hover, .btn--secondary:hover, .btn--inverse:hover,
+.btn--primary:focus-visible, .btn--secondary:focus-visible, .btn--inverse:focus-visible { border-color: var(--accent-deep); color: var(--accent-deep); }
+
+/* Icon buttons: deep-blue outline + icon on hover (no grey "slab" shadow) */
+.tab:hover { box-shadow: none; border-color: var(--accent-deep); color: var(--accent-deep); }
+.tab[aria-selected="true"]:hover { color: #fff; }
+.faq-item__q:hover .faq-item__toggle { border-color: var(--accent-deep); color: var(--accent-deep); }
+.helper-row:hover { box-shadow: var(--shadow-plate), 0 0 0 1.5px var(--accent-deep); }
+
+/* Footer: links, social icons and language switch turn raspberry pink on hover (colour only, no background) */
+.site-footer a.footer-col__line:hover, .site-footer .footer-social__link:hover,
+.site-footer .footer__legal a:hover, .site-footer .lang-switch a:hover { color: var(--accent-spark); opacity: 1; }
+.site-footer .footer-social__link:hover .icon { color: var(--accent-spark); }
+
+/* Hero: description --text-secondary; the proof line (rating, price, years) and the category facts --text-tertiary */
+.hero__lead, .cat-hero__lead { color: var(--text-secondary); }
+.hero__proof, .cat-hero__facts { color: var(--text-tertiary); }
+
+/* Slider controls: disabled = light blue and inert (no hover); active hover = light-blue fill + deep-blue outline and arrow.
+   The "1 / 4" counter is light blue too. */
+.slider-controls__btn:disabled:hover { box-shadow: none; border-color: var(--decor-slab); color: var(--decor-slab); background: var(--bg-page); }
+.slider-controls__btn:not(:disabled):hover { background: var(--decor-slab-light); box-shadow: none; border-color: var(--accent-deep); color: var(--accent-deep); }
+.slider-controls__counter { color: var(--decor-slab); }
+.slider-controls__current { color: var(--text-secondary); }   /* current slide number: medium blue, the rest stays light blue */
+
+/* Hero colours (composition): the side bar is decor/slab-light, the text plate stays light blue,
+   the slab behind the photo is decor/slab. */
+:root { --hero-bar: var(--decor-slab-light); --hero-slab: var(--decor-slab); }  
+.hero__media::before, .hero__plate::before, .cat-hero__media::before, .cat-hero::before, .cat-hero__plate::before { background: var(--hero-bar); }
+.hero__slab, .cat-hero__slab { background: var(--hero-slab); }
+
+/* White cards on the white page: a hairline in decor/slab-light keeps their shape (cards on slab bands or with a shadow do not need it) */
+.review, .visit__panel { border: 1.5px solid var(--decor-slab-light); }
+
+/* Primary buttons: deep-blue button, raspberry-pink block with a deep-blue chevron.
+   Hover / focus: the block stays and the button is not filled. A row of pink chevrons runs across the deep-blue button (behind the white label),
+   fading out at both ends. */
+.btn--primary {
+  --blk: var(--accent-spark);
+  --row-x: calc(4px + var(--btn-block) + 4px);   /* the chevron row starts right after the pink block */
+  --tile-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20' viewBox='0 0 30 20'%3E%3Cpath d='M10 3L18 10l-8 7' fill='none' stroke='%23c2188f' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E");   /* same colour as --accent-spark: keep the two in step */
+}
+/* the chevron of the block is drawn on the block itself, so ::after is free for the hover row */
+.btn--primary::before { background: var(--chev) center / 22px 16px no-repeat, var(--accent-spark); }
+.btn--primary::after { opacity: 0; transition: opacity 0.2s ease; }
+
+.btn--primary:hover, .btn--primary:focus-visible { color: #fff; }
+.btn--primary:hover::before, .btn--primary:focus-visible::before {
+  width: var(--btn-block); background: var(--chev) center / 22px 16px no-repeat, var(--accent-spark); animation: none;
+  box-shadow: -4px 0 0 var(--action-primary);   /* keeps the running chevrons off the very left edge */
+}
+.btn--primary:hover::after, .btn--primary:focus-visible::after {
+  opacity: 1; left: var(--row-x); right: 0; width: auto;
+  background: var(--tile-pink) 0 center / 30px 20px repeat-x;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  animation: btn-march 1s linear infinite;
+}
+@keyframes btn-march { to { background-position: 30px center; } }
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary:hover, .btn--primary:focus-visible { border-color: var(--accent-spark); }   /* no motion: a pink outline instead */
+  .btn--primary:hover::after, .btn--primary:focus-visible::after { animation: none; opacity: 0; }
+}
+.btn--primary:disabled { background-image: none; animation: none; }
+
+/* Secondary + white buttons: the block with its chevron stays as it is (it does not grow), the outline stays deep blue and deep-blue chevrons run
+   across the button behind the label (the same running row as the primary button, in blue). */
+.btn--secondary, .btn--inverse {
+  --row-x: calc(4px + var(--btn-block) + 4px);
+  --tile-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20' viewBox='0 0 30 20'%3E%3Cpath d='M10 3L18 10l-8 7' fill='none' stroke='%23001965' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E");
+}
+.btn--secondary::before, .btn--inverse::before { background: var(--chev) center / 22px 16px no-repeat, var(--blk); }
+.btn--secondary::after, .btn--inverse::after { opacity: 0; transition: opacity 0.2s ease; }
+.btn--secondary:hover, .btn--inverse:hover, .btn--secondary:focus-visible, .btn--inverse:focus-visible { border-color: var(--accent-deep); color: var(--accent-deep); }
+.btn--secondary:hover::before, .btn--inverse:hover::before, .btn--secondary:focus-visible::before, .btn--inverse:focus-visible::before {
+  width: var(--btn-block); background: var(--chev) center / 22px 16px no-repeat, var(--blk); animation: none;
+  box-shadow: -4px 0 0 var(--bg-page);
+}
+.btn--secondary:hover::after, .btn--inverse:hover::after, .btn--secondary:focus-visible::after, .btn--inverse:focus-visible::after {
+  opacity: 0.3; left: var(--row-x); right: 0; width: auto;   /* lighter than on the deep-blue button, so the label stays easy to read */
+  background: var(--tile-pink) 0 center / 30px 20px repeat-x;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  animation: btn-march 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--secondary:hover::after, .btn--inverse:hover::after, .btn--secondary:focus-visible::after, .btn--inverse:focus-visible::after { animation: none; opacity: 0; }
+}
+
+/* Floating / sticky WhatsApp and back-to-top: the same look. No outline, no fill, no halo: just the raspberry-pink glyph
+   (it reads on light and dark sections). On hover a deep-blue beam runs through the glyph. */
+.floating-chat, .floating-chat:hover, .floating-chat:focus-visible, .floating-chat:active,
+.sticky-bar__chat, .sticky-bar__chat:hover, .sticky-bar__chat:focus-visible {
+  background: transparent; border: 0; box-shadow: none; transform: none; filter: none;
+}
+.floating-chat .icon, .sticky-bar__chat .icon { display: none; }
+.floating-chat::before, .sticky-bar__chat::before {
+  content: ""; display: block; width: 40px; height: 40px; background-color: var(--accent-spark);
+  -webkit-mask: url("../images/icons/messenger.svg") center / contain no-repeat; mask: url("../images/icons/messenger.svg") center / contain no-repeat;
+}
+.sticky-bar__chat::before { width: 34px; height: 34px; }
+.floating-chat:hover::before, .floating-chat:focus-visible::before, .sticky-bar__chat:hover::before, .sticky-bar__chat:focus-visible::before {
+  background-image: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(0, 25, 101, 0.95) 50%, transparent 70%, transparent 100%);
+  background-size: 300% 100%; animation: btn-beam 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-chat:hover::before, .floating-chat:focus-visible::before, .sticky-bar__chat:hover::before, .sticky-bar__chat:focus-visible::before { animation: none; background-image: none; background-color: var(--accent-deep); }
+}
+
+/* Burger / close button of the mobile menu: pink on hover like the other icons */
+.menu-button:hover, .menu-button:focus-visible { color: var(--accent-spark); }
+
+/* Disabled buttons: plain, no block and no chevrons (kept last so hover rules above cannot bring them back) */
+.btn--primary:disabled::before, .btn--primary:disabled::after, .btn--secondary:disabled::before, .btn--secondary:disabled::after,
+.btn--inverse:disabled::before, .btn--inverse:disabled::after { display: none; }

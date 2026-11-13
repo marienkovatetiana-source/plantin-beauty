@@ -1,0 +1,87 @@
+/* Home hero — layered composition (03 · Layered sections)
+   mobile 375: photo 335×420 at x40 (to the right edge), slab −16/+16, bar 40 wide, plate overlaps photo by 84
+   tablet 768: photo 600×640 at x168, slab −24/+24, plate 440 wide at x40, bottom 40 above photo bottom
+   desktop 1440: photo 1118×810 at x322, plate 700 at x82 / y180, bar 82×360 */
+.hero { --slab: 14px; position: relative; padding-bottom: 72px; }
+
+.hero__media { position: relative; height: 420px; margin-left: 40px; }
+.hero__media::before { /* decor bar (decor/slab-light) */
+  content: ""; position: absolute; top: 0; left: -40px; width: 40px; height: 100%;
+  background: var(--decor-slab-light);
+}
+.hero__slab { position: absolute; inset: var(--slab) auto auto calc(-1 * var(--slab)); width: 100%; height: 100%; background: var(--decor-slab); }
+.hero__photo { position: absolute; inset: 0; overflow: hidden; }
+/* Photo is a zoomed crop of the original: width Z% of the box, focal point centred (translate in own %) */
+.hero__photo img {
+  position: absolute; left: 50%; top: 50%;
+  width: 145%; max-width: none; height: auto;
+  transform: translate(calc(-50% + var(--mx, 0px)), calc(-45% + var(--my, 0px)));
+}
+
+.hero__plate {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-3);
+  margin: -84px var(--spacing-4) 0;
+  padding: var(--spacing-6) var(--spacing-5);
+  background: var(--bg-page);
+  box-shadow: var(--shadow-plate);
+}
+.hero__eyebrow { color: var(--text-tertiary); }
+.hero__title { color: var(--text-primary); }
+.hero__lead { color: var(--text-secondary); }
+
+.hero__proof { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--spacing-3); font-size: 14px; line-height: 1.45; }
+.hero__proof-extra { display: none; }
+
+.hero__cta { display: flex; flex-wrap: wrap; gap: var(--spacing-3); width: 100%; padding-top: var(--spacing-1); }
+.hero__cta .btn { flex: 0 0 auto; min-width: 0; }   /* natural width; wraps to a second row on very narrow screens */
+@media (max-width: 359px) { .hero__cta .btn { flex: 1 1 100%; } }
+
+@media (min-width: 768px) {
+  .hero { --slab: 24px; height: 736px; padding-bottom: 0; }
+  .hero__media { position: absolute; top: 0; right: 0; left: 168px; height: 640px; margin: 0; }
+  .hero__media::before { display: none; }
+  .hero__photo img { width: 125%; transform: translate(calc(-38.4% + var(--mx, 0px)), calc(-41% + var(--my, 0px))); }
+
+  .hero__plate {
+    position: absolute; left: 40px; bottom: 136px; width: min(700px, calc(50% + 56px)); margin: 0;   /* 440 at 768; grows so the plate always reaches the middle of the photo */
+    gap: var(--spacing-4); padding: 36px;
+  }
+  .hero__plate::before { /* decor bar (decor/slab-light) */
+    content: ""; position: absolute; right: 100%; top: 40px; bottom: 40px; width: 40px;
+    background: var(--decor-slab-light);
+  }
+  .hero__proof { font-size: 16px; font-weight: 500; line-height: 1.4; }
+  .hero__proof-extra { display: block; flex-basis: 100%; }
+  .hero__cta { width: auto; gap: var(--spacing-4); padding-top: 0; }
+  .hero__cta .btn { flex: none; }
+}
+
+@media (min-width: 1320px) {
+  .hero {
+    --gutter: max(40px, calc((100% - 1200px) / 2));
+    --plate-left: max(16px, calc(var(--gutter) - 38px));
+    --slab: 32px;
+    height: 900px;
+  }
+  /* photo stops at the right edge of a 1440 stage; only the decor (bar, page background) stretches beyond it */
+  .hero__media { left: calc(var(--plate-left) + 240px); right: max(0px, calc((100% - 1440px) / 2)); height: 810px; }
+  .hero__photo img { width: 108%; transform: translate(calc(-43.5% + var(--mx, 0px)), calc(-48.5% + var(--my, 0px))); }
+
+  .hero__plate {
+    left: var(--plate-left); top: 180px; bottom: auto; width: 700px;
+    gap: var(--spacing-5); padding: 44px 48px 48px;
+  }
+  /* bar runs from the left screen edge (x = 0) to the plate; 100vw + clip, because a % inside --plate-left would be measured against the plate, not the page */
+  .hero { overflow-x: clip; }
+  .hero__plate::before { top: 60px; bottom: 28px; width: 100vw; }
+  .hero__lead { font-size: 18px; }
+  .hero__proof { flex-wrap: nowrap; column-gap: var(--spacing-6); white-space: nowrap; }
+  .hero__proof-sep { display: none; }
+  .hero__proof-extra { display: block; flex-basis: auto; }
+  .hero__cta { padding-top: var(--spacing-2); }
+}
+
+/* Button label: "WhatsApp" on mobile, "WhatsApp us" from tablet */
+.hero__cta-us { display: none; }
+@media (min-width: 768px) { .hero__cta-us { display: inline; } }

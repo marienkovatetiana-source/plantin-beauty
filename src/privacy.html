@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header}}
+
+  <main id="main">
+    <section class="plate-hero" aria-labelledby="privacy-title">
+      <div class="plate-hero__plate">
+        <p class="plate-hero__eyebrow label-s">Plantin Beauty Studio</p>
+        <h1 class="plate-hero__title" id="privacy-title">Privacy &amp; cookies</h1>
+        <p class="plate-hero__lead">We collect as little as we can, and only to run bookings, courses and this website. Last updated 12 November 2026.</p>
+      </div>
+    </section>
+
+    <section class="pol-cancel" aria-label="Privacy policy">
+      <div class="container privacy">
+        <div class="privacy__sec">
+          <h2 class="h2">Who we are</h2>
+          <div class="privacy__body">
+          <p>Plantin Beauty Studio, Plantinkaai 1a, 2000 Antwerpen, Belgium, is responsible for your data. Contact: <a href="tel:+32468264014">+32 468 26 40 14</a> or <a href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp</a>.</p>
+          </div>
+        </div>
+
+        <div class="privacy__sec">
+          <h2 class="h2">What we collect and why</h2>
+          <div class="privacy__body">
+          <ul class="bullet-list bullet-list--light">
+            <li><span><strong>Treatment bookings.</strong> Made on Treatwell, which handles your name, contact details and booking. We see them only to prepare your visit.</span></li>
+            <li><span><strong>Course applications.</strong> Name, phone, email and chosen course, to confirm dates and arrange payment.</span></li>
+            <li><span><strong>Online course purchase.</strong> Name and email, to send you the course link. Payment is handled by our payment provider; we never see your card details.</span></li>
+            <li><span><strong>Messages.</strong> If you write to us on WhatsApp or Instagram, we keep the conversation, and any photos you send, to answer you.</span></li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="privacy__sec">
+          <h2 class="h2">How long we keep it</h2>
+          <div class="privacy__body">
+          <p>Booking and course data for as long as needed to serve you and meet accounting rules (up to 7 years for invoices). Messages and photos are deleted within 12 months of your last visit.</p>
+          </div>
+        </div>
+
+        <div class="privacy__sec">
+          <h2 class="h2">Who sees it</h2>
+          <div class="privacy__body">
+          <p>Only our team and the services we use: Treatwell (bookings), our payment provider, WhatsApp and Instagram (messages), and our website host. We never sell your data.</p>
+          </div>
+        </div>
+
+        <div class="privacy__sec">
+          <h2 class="h2">Your rights</h2>
+          <div class="privacy__body">
+          <p>Under the GDPR you can ask to see, correct, delete or move your data, and object to how we use it. Message us and we answer within 30 days. You can also complain to the Belgian Data Protection Authority (<a href="https://www.dataprotectionauthority.be/" target="_blank" rel="noopener">dataprotectionauthority.be</a>).</p>
+          </div>
+        </div>
+
+        <div class="privacy__sec">
+          <h2 class="h2" id="cookies">Cookies</h2>
+          <div class="privacy__body">
+          <p>On your first visit we ask for your choice. Your answer is saved in your browser (<code>plantin-cookies</code>), so we do not ask again.</p>
+          <ul class="bullet-list bullet-list--light">
+            <li><span><strong>Necessary.</strong> Always on. They remember your cookie choice and keep forms and checkout working. They do not track you.</span></li>
+            <li><span><strong>Analytics.</strong> Off unless you accept. They show us, without naming you, which pages are visited, so we can improve the site.</span></li>
+          </ul>
+          <p>You can change your choice at any time by clearing this site’s data in your browser; the banner then appears again.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+</body>
+</html>

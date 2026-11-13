@@ -1,0 +1,155 @@
+/* Academy page
+   Also holds the pieces the Academy page and the course pages share: wide hero, light note box, white-card grid.
+   Desktop layout switches on at 1320 (same as the rest of the site). */
+
+/* ───────── Hero: Academy + course pages ─────────
+   Built on .cat-hero (category.css). Differences from the Nails hero: plate 640 wide, buttons stacked on mobile.
+   Academy: hero 760, photo 678 tall, plate y150, decor bar y200 × 320 · dark background on mobile */
+.cat-hero__crumbs { margin: 0; }
+.cat-hero--wide .cat-hero__cta { flex-direction: column; }
+.cat-hero--wide .cat-hero__cta .btn { flex: none; width: 100%; }
+.cat-hero--wide .cat-hero__photo img { object-position: 50% 45%; }
+
+.cat-hero--academy { --slab: 12px; --hero-slab: var(--decor-slab-on-dark); background: var(--bg-inverse); }   /* mobile: dark section, slab on dark */
+.cat-hero--academy .cat-hero__title { font-size: 26px; line-height: 1.18; }
+.cat-hero--academy .cat-hero__photo img { object-position: 50% 30%; }
+
+@media (min-width: 768px) {
+  .cat-hero--wide .cat-hero__crumbs { font-size: 14px; }
+  .cat-hero--wide .cat-hero__cta { flex-direction: row; }
+  .cat-hero--wide .cat-hero__cta .btn { width: auto; }
+  .cat-hero--academy { --slab: 20px; --hero-slab: var(--decor-slab); background: none; }
+  .cat-hero--academy .cat-hero__title { font-size: 36px; line-height: 1.15; }
+}
+
+@media (min-width: 1320px) {
+  .cat-hero--wide .cat-hero__plate { width: 640px; }
+  .cat-hero--academy { --slab: 28px; height: 760px; }
+  .cat-hero--academy::before { top: 200px; height: 320px; }
+  .cat-hero--academy .cat-hero__media { height: 678px; }
+  .cat-hero--academy .cat-hero__plate { top: 150px; }
+  .cat-hero--academy .cat-hero__title { font-size: 52px; }
+}
+
+/* ───────── White card (Why learn here · course "Day" cards) ───────── */
+.feature-card { display: flex; flex-direction: column; gap: 6px; padding: 28px var(--spacing-8); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.feature-card__title { font-family: var(--font-display); font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.feature-card__text { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+/* ───────── 02 Why learn here ─────────
+   mobile 1 column · tablet 2 · desktop 3 over a light band that starts 60px below the first row */
+.acad-why { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); }
+.acad-why .container { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.acad-why__grid { position: relative; display: grid; grid-template-columns: 1fr; gap: var(--spacing-3); }
+
+@media (min-width: 768px) {
+  .acad-why { padding-block: 72px; }
+  .acad-why .container { gap: var(--spacing-8); }
+  .acad-why__grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+}
+
+@media (min-width: 1320px) {
+  .acad-why { padding-block: 120px 97px; }
+  .acad-why .container { gap: 56px; }
+  .acad-why__grid { grid-template-columns: repeat(3, 1fr); }
+  .acad-why__grid::before { content: ""; position: absolute; z-index: -1; left: calc(50% - 50vw); width: 100vw; top: 60px; bottom: -97px; background: var(--decor-slab-light); }
+}
+
+/* ───────── 03 Courses ─────────
+   mobile: 3 cards stacked (327 + slab) · tablet: 3 columns, plate 70% · desktop: 384-wide cards, middle one 96px lower, over a light band */
+.acad-courses { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); }
+.acad-courses .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.acad-courses__grid { position: relative; display: grid; grid-template-columns: 1fr; gap: var(--spacing-6); }
+.acad-courses .card-category { width: calc(100% - 16px); }
+.acad-courses .card-category__photo { height: 291px; }
+.acad-courses__plate-title { font-family: var(--font-display); font-size: 12px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; }
+
+@media (min-width: 768px) {
+  .acad-courses { padding-block: 72px; }
+  .acad-courses .container { gap: var(--spacing-8); }
+  .acad-courses__grid { grid-template-columns: repeat(3, 1fr); column-gap: var(--spacing-8); align-items: start; }
+  .acad-courses .card-category { width: auto; gap: var(--spacing-6); }
+  .acad-courses .card-category__photo { height: 300px; }
+  .acad-courses .card-category__plate { width: 70%; }
+}
+
+@media (min-width: 1320px) {
+  .acad-courses { padding-block: 120px; }
+  .acad-courses .container { gap: 88px; }
+  .acad-courses__grid { column-gap: var(--spacing-6); }
+  .acad-courses__grid::before { content: ""; position: absolute; z-index: -1; left: calc(50% - 50vw); width: 100vw; top: 130px; height: 300px; background: var(--decor-slab-light); }
+  .acad-courses .card-category { gap: var(--spacing-8); }
+  .acad-courses .card-category__photo { height: 431px; }
+  .acad-courses .card-category__plate { width: 50%; }
+  .acad-courses .card-category:nth-child(2) { margin-top: 96px; }
+}
+
+/* ───────── 04 Your Own Nails (online course) ─────────
+   mobile: head, photo, text, list, button · desktop: photo left (420) over a slate band, text right (560) */
+.acad-online { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.acad-online__layout { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.acad-online .section-head__eyebrow { color: var(--text-on-inverse-muted); }
+.acad-online .card-work { width: calc(100% - 16px); }
+.acad-online .card-work__photo { height: 231px; }
+.acad-online .card-work__title { color: var(--text-on-inverse); }
+.acad-online .card-work { --slab: 10px; --slab-color: var(--decor-slab-on-dark); }
+.acad-online .card-work__details { color: var(--text-on-inverse-muted); }
+.acad-online .card-work__title { color: var(--text-on-inverse); }
+.acad-online__lead { font-size: 16px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+.acad-online__list { gap: 14px; }
+.acad-online__buy { width: 100%; }
+
+@media (min-width: 768px) {
+  .acad-online { padding-block: 72px; }
+  .acad-online__layout { gap: var(--spacing-8); }
+  .acad-online .card-work { --slab: 16px; width: 420px; max-width: calc(100% - var(--slab)); }
+  .acad-online .card-work__photo { height: 420px; }
+  .acad-online__lead { font-size: 18px; }
+  .acad-online__buy { width: auto; align-self: flex-start; }
+}
+
+@media (min-width: 1320px) {
+  .acad-online { padding-block: 120px; }
+  .acad-online__layout { display: grid; grid-template-columns: 420px 560px; column-gap: 152px; row-gap: 0; align-items: start; grid-template-rows: auto auto auto 1fr; }
+  .acad-online .card-work { --slab: 16px; grid-column: 1; grid-row: 1 / span 5; width: 100%; }
+  .acad-online .card-work__photo { height: 391px; }   /* the whole card (photo + caption) is 463 tall */
+  .acad-online .card-work__caption { margin-top: 0; }
+  .acad-online__head { grid-column: 2; grid-row: 1; }
+  .acad-online__lead { grid-column: 2; grid-row: 2; margin-top: 50px; }
+  .acad-online__list { grid-column: 2; grid-row: 3; margin-top: 19px; }
+  .acad-online__buy { grid-column: 2; grid-row: 4; justify-self: start; margin-top: 40px; }
+}
+
+/* ───────── Light note box (white callout on a light-grey section) ───────── */
+.note-box--light { background: var(--bg-surface); color: var(--text-primary); }
+.note-box--light .note-box__text { color: var(--text-secondary); }
+.note-box .link-arrow { padding-block: var(--spacing-2) 0; }
+
+/* ───────── 05–06 Private training · Next dates ───────── */
+.acad-notes { background: var(--bg-page); padding-block: var(--spacing-12); }
+.acad-notes__grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-4); }
+.acad-notes .note-box { height: 100%; }
+
+@media (min-width: 768px) {
+  .acad-notes { padding-block: 72px; }
+  .acad-notes__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1320px) {
+  .acad-notes { padding-block: 120px; }
+  .acad-notes__grid { gap: 40px; }
+}
+
+/* ───────── 07 FAQ + contact buttons ───────── */
+.faq__actions { display: flex; flex-direction: column; gap: var(--spacing-3); margin-top: var(--spacing-6); }
+.faq__actions .btn { width: 100%; }
+
+@media (min-width: 768px) {
+  .faq__actions { flex-direction: row; gap: var(--spacing-4); margin-top: var(--spacing-8); }
+  .faq__actions .btn { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .faq__actions { grid-column: 1; grid-row: 2; flex-direction: column; gap: var(--spacing-4); width: 260px; margin-top: 78px; }
+  .faq__actions .btn { width: 100%; }
+}

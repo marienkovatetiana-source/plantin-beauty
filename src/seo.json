@@ -1,0 +1,107 @@
+{
+  "404": {
+    "title": "Page not found | Plantin Beauty Studio",
+    "description": "Plantin Beauty Studio, Plantinkaai 1a, Antwerp.",
+    "keywords": "",
+    "noindex": true,
+    "type": "website"
+  },
+  "academy": {
+    "title": "Plantin Academy — nail, lash and permanent make-up courses in Antwerp | Plantin Beauty Studio",
+    "description": "Hands-on beauty courses in Antwerp from masters with 10+ years in the studio: Manicure Pro, lash extensions, permanent make-up and an online nails course. Small groups, real models, certificate.",
+    "keywords": "beauty academy Antwerp, nail course, lash extension course, permanent make-up course, online nails course, certificate",
+    "noindex": false,
+    "type": "website"
+  },
+  "checkout": {
+    "title": "Checkout — Your Own Nails online course | Plantin Beauty Studio",
+    "description": "Plantin Beauty Studio, Plantinkaai 1a, Antwerp.",
+    "keywords": "",
+    "noindex": true,
+    "type": "website"
+  },
+  "course-lash-extensions": {
+    "title": "Lash extensions course in Antwerp — 2 to 5 days, small group, certificate | Plantin Academy",
+    "description": "Lash extensions course in Antwerp: 2–5 days of hands-on training for beginners and lash artists. Up to 4 people, real models, materials and certificate included. From €160.",
+    "keywords": "lash extension course Antwerp, lash artist training, certificate",
+    "noindex": false,
+    "type": "website"
+  },
+  "course-manicure-pro": {
+    "title": "Manicure Pro course in Antwerp — 5 days, small group, certificate | Plantin Academy",
+    "description": "Manicure Pro: a 5-day hands-on manicure course in Antwerp for beginners and beauty pros. Up to 6 people, real models from day 3, materials and certificate included. €400.",
+    "keywords": "manicure course Antwerp, Manicure Pro, nail technician training, certificate",
+    "noindex": false,
+    "type": "website"
+  },
+  "course-permanent-make-up": {
+    "title": "Permanent make-up course in Antwerp — 2 to 5 days, small group, certificate | Plantin Academy",
+    "description": "Permanent make-up course in Antwerp: 2–5 days of hands-on training for beginners and beauty pros. Up to 4 people, real models, materials and certificate included. From €160.",
+    "keywords": "permanent make-up course Antwerp, PMU training, certificate",
+    "noindex": false,
+    "type": "website"
+  },
+  "face-body": {
+    "title": "Face & Body in Antwerp — facials, peelings & body care | Plantin Beauty Studio",
+    "description": "Facials, peelings and body care on Plantinkaai, Antwerp. Clear prices from €50 and a calm, hygienic studio.",
+    "keywords": "facial Antwerp, peeling, body care, face and body treatments, beauty studio Plantinkaai",
+    "noindex": false,
+    "type": "website"
+  },
+  "index": {
+    "title": "Plantin Beauty Studio — nails, lashes, brows & permanent make-up in Antwerp",
+    "description": "Nails, lashes, brows and permanent make-up on Plantinkaai, in the heart of Antwerp. Every master has 10+ years of experience.",
+    "keywords": "nail salon Antwerp, manicure Antwerp, gel nails, BIAB, lash extensions, brow lamination, permanent make-up, beauty studio Plantinkaai",
+    "noindex": false,
+    "type": "website"
+  },
+  "lashes-brows": {
+    "title": "Lashes & Brows in Antwerp — lash extensions, lamination & brow shaping | Plantin Beauty Studio",
+    "description": "Lash extensions, lash and brow lamination and brow shaping on Plantinkaai, Antwerp. Clear prices from €15 and a 7-day guarantee.",
+    "keywords": "lash extensions Antwerp, lash lamination, brow lamination, brow shaping, lashes and brows, Plantinkaai",
+    "noindex": false,
+    "type": "website"
+  },
+  "nails": {
+    "title": "Nails in Antwerp — manicure, gel polish, BIAB & gel extensions | Plantin Beauty Studio",
+    "description": "Hygienic Russian manicure, gel polish, BIAB, gel extensions and pedicure on Plantinkaai, Antwerp. Clear prices from €40 and a 7-day guarantee.",
+    "keywords": "nails Antwerp, manicure, Russian manicure, gel polish, BIAB, gel extensions, pedicure, nail salon Plantinkaai",
+    "noindex": false,
+    "type": "website"
+  },
+  "payment-not-completed": {
+    "title": "Payment not completed — Your Own Nails | Plantin Beauty Studio",
+    "description": "Plantin Beauty Studio, Plantinkaai 1a, Antwerp.",
+    "keywords": "",
+    "noindex": true,
+    "type": "website"
+  },
+  "permanent-make-up": {
+    "title": "Permanent make-up in Antwerp — brows, lips & eyeliner | Plantin Beauty Studio",
+    "description": "Permanent make-up for brows, lips and eyeliner on Plantinkaai, Antwerp. Prices from €139, healed-result touch-up included.",
+    "keywords": "permanent make-up Antwerp, PMU, microblading, lip blush, eyeliner tattoo, brows",
+    "noindex": false,
+    "type": "website"
+  },
+  "privacy": {
+    "title": "Privacy & cookies | Plantin Beauty Studio",
+    "description": "How Plantin Beauty Studio handles your personal data and cookies: what we collect, why, how long we keep it and your rights under the GDPR.",
+    "keywords": "privacy policy, cookies, GDPR, Plantin Beauty Studio",
+    "noindex": false,
+    "type": "website"
+  },
+  "salon-policy": {
+    "title": "Salon policy — cancellations, payment and guarantee | Plantin Beauty Studio",
+    "description": "Simple rules for bookings at Plantin Beauty Studio in Antwerp: free cancellation, late cancellation and no-show fees, prepayment, running late and our 7-day guarantee.",
+    "keywords": "salon policy, cancellation policy, no-show fee, 7-day guarantee, Plantin Beauty Studio",
+    "noindex": false,
+    "type": "website"
+  },
+  "thank-you": {
+    "title": "Payment received — Your Own Nails | Plantin Beauty Studio",
+    "description": "Plantin Beauty Studio, Plantinkaai 1a, Antwerp.",
+    "keywords": "",
+    "noindex": true,
+    "type": "website"
+  }
+}

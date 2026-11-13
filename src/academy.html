@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header academyCurrent=true}}
+
+  <main id="main">
+    <!-- 01 Academy hero -->
+    <section class="cat-hero cat-hero--wide cat-hero--academy" aria-labelledby="academy-title">
+      <div class="cat-hero__media">
+        <span class="cat-hero__slab" aria-hidden="true"></span>
+        <div class="cat-hero__photo">
+          <img src="images/academy-hero.jpg" sizes="(min-width: 1320px) 1118px, (min-width: 768px) 600px, 335px" alt="Close-up of a master in blue gloves working on a client’s eye during a permanent make-up course" width="2000" height="2598" fetchpriority="high">
+        </div>
+      </div>
+
+      <div class="cat-hero__plate">
+        <p class="cat-hero__crumbs label-s">Plantin Academy</p>
+        <h1 class="cat-hero__title" id="academy-title">Learn the craft. Start earning.</h1>
+        <p class="cat-hero__lead">Hands-on courses from masters with 10+ years in the studio — for beginners starting a new career and pros adding a new skill.</p>
+        <p class="cat-hero__facts">
+          <span>small groups</span><span class="cat-hero__sep" aria-hidden="true">·</span>
+          <span>real models</span><span class="cat-hero__sep" aria-hidden="true">·</span>
+          <span>certificate</span>
+        </p>
+        <div class="cat-hero__cta">
+          <a class="btn btn--primary" href="#courses">See courses <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Why learn here -->
+    <section class="acad-why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Why us</p>
+          <h2 class="h2" id="why-title">Why learn here</h2>
+        </div>
+        <ul class="acad-why__grid">
+          <li class="feature-card"><h3 class="feature-card__title">Working masters</h3><p class="feature-card__text">10+ years each, still with clients every day.</p></li>
+          <li class="feature-card"><h3 class="feature-card__title">Small groups</h3><p class="feature-card__text">Up to 6 people for nails, up to 4 for lashes and permanent make-up.</p></li>
+          <li class="feature-card"><h3 class="feature-card__title">Real models</h3><p class="feature-card__text">From day 3 you practise on real clients.</p></li>
+          <li class="feature-card"><h3 class="feature-card__title">Certificate</h3><p class="feature-card__text">A European-format certificate when you finish.</p></li>
+          <li class="feature-card"><h3 class="feature-card__title">3 months of support</h3><p class="feature-card__text">Send your teacher questions and photos after the course.</p></li>
+          <li class="feature-card"><h3 class="feature-card__title">Materials included</h3><p class="feature-card__text">Everything you need during the course.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 Courses -->
+    <section class="acad-courses" id="courses" aria-labelledby="courses-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Courses</p>
+          <h2 class="h2" id="courses-title">Choose your course</h2>
+        </div>
+        <div class="acad-courses__grid">
+          <a class="card-category" href="course-manicure-pro.html">
+            <div class="card-category__photo">
+              <img src="images/course-manicure-pro.jpg" sizes="(min-width: 1320px) 384px, (min-width: 768px) 208px, 327px" alt="Gloved hands filing a client’s nail with a pink gel base" width="1514" height="2076" loading="lazy" style="object-position: 50% 35%">
+              <div class="card-category__plate">
+                <span class="card-category__title acad-courses__plate-title">Manicure Pro</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">5 days · €400</p>
+          </a>
+          <a class="card-category" href="course-lash-extensions.html">
+            <div class="card-category__photo">
+              <img src="images/course-lash-extensions.jpg" sizes="(min-width: 1320px) 384px, (min-width: 768px) 208px, 327px" alt="Master applying lash extensions with tweezers" width="574" height="861" loading="lazy">
+              <div class="card-category__plate">
+                <span class="card-category__title acad-courses__plate-title">Lash extensions</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">2–5 days · from €160</p>
+          </a>
+          <a class="card-category" href="course-permanent-make-up.html">
+            <div class="card-category__photo">
+              <img src="images/course-permanent-make-up.jpg" sizes="(min-width: 1320px) 384px, (min-width: 768px) 208px, 327px" alt="Client lying down during a permanent make-up procedure" width="574" height="861" loading="lazy">
+              <div class="card-category__plate">
+                <span class="card-category__title acad-courses__plate-title">Permanent make&#8209;up</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">2–5 days · from €160</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Your Own Nails (online course) -->
+    <section class="acad-online on-inverse" id="online" aria-labelledby="online-title">
+      <div class="container acad-online__layout">
+        <div class="section-head acad-online__head">
+          <p class="section-head__eyebrow label-s">Online</p>
+          <h2 class="h2" id="online-title">Your Own Nails</h2>
+        </div>
+
+        <figure class="card-work acad-online__photo">
+          <div class="card-work__photo"><img src="images/course-your-own-nails.jpg" sizes="(min-width: 1320px) 420px, (min-width: 768px) 420px, 327px" alt="Hand doing a gel manicure at home with a nail file and a black gel bottle" width="1032" height="1170" loading="lazy"></div>
+          <figcaption class="card-work__caption">
+            <span class="card-work__title label-s">Online course</span>
+            <span class="card-work__details body-s">lifetime access · €15</span>
+          </figcaption>
+        </figure>
+
+        <p class="acad-online__lead">Do your own nails at home. Step-by-step video lessons and an honest guide to materials — what works and what doesn’t.</p>
+        <ul class="bullet-list acad-online__list">
+          <li>Step-by-step video lessons</li>
+          <li>Guide to good and bad materials</li>
+          <li>Lifetime access: watch as often as you like</li>
+        </ul>
+        <a class="btn btn--inverse acad-online__buy" href="checkout.html">Buy the course · €15 <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      </div>
+    </section>
+
+    <!-- 05–06 Private training · Next dates -->
+    <section class="acad-notes" aria-label="Private training and next group dates">
+      <div class="container acad-notes__grid">
+        <div class="note-box note-box--light">
+          <h2 class="note-box__title">Private training</h2>
+          <p class="note-box__text">Prefer to learn one-to-one? We plan the dates and programme around you. Price on request.</p>
+          <a class="link-arrow" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">WhatsApp us</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+        <div class="note-box note-box--light">
+          <h2 class="note-box__title">Next group dates</h2>
+          <p class="note-box__text">Want to know when the next group starts? Message or call us — we’ll tell you the dates and free places.</p>
+          <a class="link-arrow" href="tel:+32468264014"><span class="link-arrow__text">Call +32 468 26 40 14</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FAQ -->
+    <section class="faq cat-faq acad-faq" aria-labelledby="faq-title" data-faq-closed>
+      <div class="container faq__layout">
+        <div class="section-head faq__head">
+          <p class="section-head__eyebrow label-s">FAQ</p>
+          <h2 class="h2" id="faq-title">Academy questions</h2>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Do I need any experience?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">No. The courses start from the basics, so complete beginners are welcome. If you already work in beauty, tell us and we will adjust the pace.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Are materials included?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Yes, everything you need during the course. Afterwards you can buy a ready starter kit at the studio or get our list of recommended materials and shops.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Is the certificate recognised?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">You receive a European-format certificate when you finish. Rules for working in beauty differ by country, so ask us if you are unsure.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Can I pay in instalments?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Full payment is due before the course starts. If that is a problem, write to us on WhatsApp and we will look for a solution.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>What if I can’t come?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Cancellation is free up to 48 h before the course. Message us and we will move you to the next group.</p>
+          </details>
+        </div>
+
+        <div class="faq__actions">
+          <a class="btn btn--primary" href="tel:+32468264014">Call us</a>
+          <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+</body>
+</html>

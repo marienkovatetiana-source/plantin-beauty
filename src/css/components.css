@@ -1,0 +1,180 @@
+/* Buttons: M 48 on mobile, L 56 from tablet. Radius 8. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  height: 48px;
+  padding-inline: var(--spacing-6);
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.25s ease 0.12s;
+}
+.btn .icon { width: 20px; height: 20px; flex: none; }
+
+.btn--primary { background: var(--action-primary); color: #fff; }
+.btn--secondary { border-color: var(--border-control); color: var(--text-primary); }   /* border-control (5.3:1) at rest; deep blue on hover / focus (accent.css) */
+
+/* Interaction states: hover 3px slab · pressed 8px slab · focus 8px slab + outline */
+.btn:hover { box-shadow: var(--state-hover); }
+.btn--primary:hover { background: var(--action-primary-hover); }
+.btn:active { box-shadow: var(--state-pressed); }
+.btn--primary:active { background: var(--action-primary-pressed); }
+.btn:focus-visible { box-shadow: var(--state-pressed); outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.btn--inverse { background: var(--bg-page); color: var(--text-primary); }
+.on-inverse .btn:focus-visible { outline-color: #fff; }
+
+@media (min-width: 768px) {
+  .btn { height: 56px; padding-inline: var(--spacing-8); }
+}
+
+
+/* Language switch: two 44×44 links, active one underlined */
+.lang-switch { display: flex; align-items: center; font-family: var(--font-display); font-size: 14px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; }
+.lang-switch a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--text-secondary); }
+.lang-switch a[aria-current="true"] { color: var(--text-primary); text-decoration: underline; text-underline-position: from-font; }
+.lang-switch a:hover { color: var(--text-accent); }
+.lang-switch__slash { color: var(--text-secondary); }
+
+/* Section head: eyebrow + h2 (eyebrow is decorative, title is the <h2>) */
+.section-head { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.section-head__eyebrow { color: var(--text-tertiary); }
+
+/* Icons come from one sprite (partials/sprite.html, built by scripts/sprite.mjs): <svg class="icon"><use href="#name"/></svg>.
+   Strokes/fills are currentColor, so the colour follows CSS `color` (and hover). */
+.icon { display: block; flex: none; }
+
+/* Photo slabs: offset = 4 % of the shorter side of the photo, rounded to even, min 10px.
+   --slab (offset), --slab-hover and --slab-color are set per section; colour defaults to the "group" level (decor-slab-soft). */
+/* Card / Category — whole card is one link. Photo + slab (hover: larger slab), dark plate flush left, 50% wide */
+.card-category { --slab: 12px; --slab-hover: 16px; position: relative; display: flex; flex-direction: column; gap: var(--spacing-8); }
+.card-category__photo {
+  position: relative; height: 291px; background: var(--bg-placeholder);
+  box-shadow: var(--slab) var(--slab) 0 var(--slab-color, var(--decor-slab-soft)); transition: box-shadow 0.2s ease;
+}
+.card-category__photo img { width: 100%; height: 100%; object-fit: cover; }
+.card-category__plate { border-radius: var(--radius-s);
+  position: absolute; left: 0; top: 50%; width: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; gap: var(--spacing-2);
+  padding: 10px 12px;
+  background: var(--bg-page); color: var(--text-primary); border: 1.5px solid transparent;   /* white label at rest, text and arrow --text-primary; --action-primary with white text on hover / focus */
+  box-shadow: var(--shadow-label);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+.card-category__title { flex: 1; min-width: 0; }
+.card-category__meta { color: var(--text-secondary); }
+.card-category:hover .card-category__photo { box-shadow: var(--slab-hover) var(--slab-hover) 0 var(--slab-color, var(--decor-slab-soft)); }
+.card-category:hover .card-category__plate, .card-category:focus-visible .card-category__plate { background: var(--action-primary); color: var(--text-on-inverse); box-shadow: var(--shadow-raised); }
+.card-category:focus-visible { outline-offset: 8px; }
+
+@media (min-width: 1320px) {
+  .card-category { --slab: 14px; --slab-hover: 20px; }
+  .card-category__photo { height: 331px; }
+  .card-category__plate { padding: 14px 18px; }
+}
+
+/* Card / Work — non-clickable photo, slab behind, title + details under it. Light by default; dark overrides live in the section css */
+.card-work { --slab: 12px; display: flex; flex-direction: column; gap: var(--spacing-8); }
+.card-work__photo { background: var(--bg-placeholder); box-shadow: var(--slab) var(--slab) 0 var(--slab-color, var(--decor-slab-soft)); }
+@media (min-width: 768px) { .card-work { --slab: 14px; } }
+@media (min-width: 1320px) { .card-work { --slab: 16px; } }
+.card-work__photo img { width: 100%; height: 100%; object-fit: cover; }
+.card-work__caption { display: flex; flex-direction: column; gap: var(--spacing-1); }
+.card-work__details { color: var(--text-secondary); }
+/* Photo captions: Inter 500, 16px, sentence case; on dark sections white */
+.card-work__caption .label-s, .card-work__title {
+  font-family: var(--font-text); font-size: 16px; font-weight: 500; line-height: 1.4; letter-spacing: 0; text-transform: none; color: var(--text-primary);
+}
+
+/* Standalone link with arrow: underlined text, 12px vertical padding (45px tap height) */
+.link-arrow { display: inline-flex; align-items: center; gap: var(--spacing-2); padding-block: var(--spacing-3); font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--text-primary); }
+.link-arrow__text { text-decoration: underline; text-underline-position: from-font; }
+.link-arrow .icon { width: 16px; height: 16px; }
+.link-arrow:hover { color: var(--text-accent); }
+
+/* Slider controls: counter + prev / next 48×48 */
+.slider-controls { display: flex; align-items: center; gap: var(--spacing-4); }
+.slider-controls__counter { color: var(--text-primary); }
+.slider-controls__btn { border-radius: var(--radius-s);
+  display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+  background: var(--bg-page); border: 1.5px solid var(--border-strong); color: var(--text-primary);
+  transition: box-shadow 0.2s ease;
+}
+.slider-controls__btn .icon { width: 20px; height: 20px; }
+.slider-controls__btn:hover { box-shadow: var(--state-hover); }
+.slider-controls__btn:active { box-shadow: var(--state-pressed); }
+.slider-controls__btn:focus-visible { box-shadow: var(--state-pressed); outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.slider-controls__btn:disabled { box-shadow: none; border-color: var(--decor-slab); color: var(--decor-slab); cursor: default; }   /* disabled: outline and arrow both light blue */
+
+
+/* Scrollers clip absolutely positioned children (e.g. .visually-hidden text) only if they are positioned themselves;
+   without this, hidden text inside a card far to the right stretches the whole page sideways on mobile */
+.treatments__carousel, .work__gallery, .work__list { position: relative; }
+
+/* ===== Buttons: one design for all variants (inspired by Aaron Iker's "Button Hover Animation") =====
+   At rest a small block with a chevron sits at the left. On hover / keyboard focus the block grows across the whole button
+   and a row of soft chevrons runs behind the label. The arrow <svg> in the HTML is hidden; the chevron is drawn in CSS.
+   primary = dark button · secondary = outlined · inverse = white (on dark sections).
+   prefers-reduced-motion is handled in motion.css. */
+.btn { --chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='16' viewBox='0 0 22 16'%3E%3Cpath d='M7.5 2.5L13 8l-5.500 5.500' fill='none' stroke='%23001965' stroke-width='2.6' stroke-linecap='square'/%3E%3C/svg%3E"); }
+.btn--primary, .btn--secondary, .btn--inverse {
+  --btn-h: 48px;
+  --btn-block: calc(var(--btn-h) - 11px);          /* block = button - 4px inset x2 - 1.5px border x2 */
+  --blk: var(--decor-slab);                         /* block at rest (light buttons) */
+  --blk-hover: var(--decor-slab-light);             /* block when it fills the button */
+  position: relative; isolation: isolate; overflow: hidden;
+  padding-left: calc(4px + var(--btn-block) + 10px); padding-right: 12px;
+  white-space: normal; height: auto; min-height: var(--btn-h); padding-block: 6px; line-height: 1.2;   /* a long label wraps instead of being clipped */
+}
+.btn--primary { --blk: var(--decor-slab-light); }
+.btn--primary > .icon, .btn--secondary > .icon, .btn--inverse > .icon { display: none; }
+
+.btn--primary::before, .btn--secondary::before, .btn--inverse::before {          /* the block */
+  content: ""; position: absolute; z-index: -2; top: 4px; bottom: 4px; left: 4px; width: var(--btn-block);
+  background: var(--blk); border-radius: calc(var(--radius-s) - 3px);
+  transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1), background-color 0.3s ease;
+}
+.btn--primary::after, .btn--secondary::after, .btn--inverse::after {             /* the chevron(s) */
+  content: ""; position: absolute; z-index: -1; top: 4px; bottom: 4px; left: calc(4px + (var(--btn-block) - 22px) / 2); width: 22px;
+  background: var(--chev) 0 center / 22px 16px repeat-x;
+  transition: left 0.5s cubic-bezier(0.65, 0, 0.35, 1), width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn--primary:hover, .btn--secondary:hover, .btn--inverse:hover,
+.btn--primary:focus-visible, .btn--secondary:focus-visible, .btn--inverse:focus-visible { box-shadow: none; }
+/* Hover / focus: the block fills the button and a darker beam of light runs through it (same idea as the logo).
+   The chevron stays where it is, as a static arrow. */
+.btn--primary:hover::before, .btn--secondary:hover::before, .btn--inverse:hover::before,
+.btn--primary:focus-visible::before, .btn--secondary:focus-visible::before, .btn--inverse:focus-visible::before {
+  width: calc(100% - 8px);
+  background-color: var(--blk-hover);
+  background-image: linear-gradient(105deg, transparent 0%, transparent 32%, rgba(0, 25, 101, 0.34) 50%, transparent 68%, transparent 100%);
+  background-size: 300% 100%;
+  animation: btn-beam 1.8s ease-in-out infinite;
+}
+.btn--primary:hover, .btn--primary:focus-visible { background: var(--action-primary); color: var(--action-primary); }   /* label turns dark on the light block */
+.btn--primary:active, .btn--secondary:active, .btn--inverse:active { box-shadow: none; transform: scale(0.98); }
+.btn--primary:active { background: var(--action-primary); }
+
+/* Disabled: plain, no block */
+.btn--primary:disabled, .btn--secondary:disabled, .btn--inverse:disabled { padding-left: var(--spacing-6); padding-right: var(--spacing-6); }
+.btn--primary:disabled > .icon, .btn--secondary:disabled > .icon { display: block; }
+
+@keyframes btn-beam { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary:hover::before, .btn--secondary:hover::before, .btn--inverse:hover::before,
+  .btn--primary:focus-visible::before, .btn--secondary:focus-visible::before, .btn--inverse:focus-visible::before { animation: none; background-image: none; }
+}
+@media (min-width: 768px) {
+  .btn--primary, .btn--secondary, .btn--inverse { --btn-h: 56px; padding-left: calc(4px + var(--btn-block) + 10px); padding-right: var(--spacing-6); }
+  .btn--primary:disabled, .btn--secondary:disabled, .btn--inverse:disabled { padding-left: var(--spacing-8); padding-right: var(--spacing-8); }
+}
+@media (max-width: 359px) {   /* very narrow phones: a little tighter */
+  .btn--primary, .btn--secondary, .btn--inverse { font-size: 15px; padding-left: calc(4px + var(--btn-block) + 8px); padding-right: 10px; }
+}

@@ -1,0 +1,33 @@
+/* Cookie banner: first visit only, bottom of the viewport, does not block the page.
+   Mobile: Accept → Only necessary → Settings stacked. Desktop: text, Settings, Only necessary, Accept in a row. */
+.cookie {
+  position: fixed; z-index: 70; left: var(--spacing-4); right: var(--spacing-4); bottom: var(--spacing-4);
+  display: flex; flex-direction: column; gap: var(--spacing-4);
+  padding: var(--spacing-5) var(--spacing-6); max-width: 1200px; margin-inline: auto;
+  background: var(--bg-page); border: 1px solid var(--border-strong); box-shadow: var(--shadow-raised);
+}
+.cookie[hidden] { display: none; }
+.cookie__text { font-size: 14px; line-height: 1.45; }
+.cookie__actions { display: flex; flex-direction: column; align-items: stretch; gap: var(--spacing-3); }
+.cookie__settings { align-self: center; order: 3; }
+.cookie__accept { order: 1; }
+.cookie__necessary { order: 2; }
+.cookie__settings { background: none; cursor: pointer; }
+.cookie__settings:hover { color: var(--text-accent); }
+
+@media (min-width: 768px) {
+  .cookie { left: var(--spacing-10); right: var(--spacing-10); bottom: var(--spacing-6); flex-direction: row; align-items: center; gap: var(--spacing-8); }
+  .cookie__text { flex: 1; }
+  .cookie__actions { flex-direction: row; align-items: center; gap: var(--spacing-4); }
+  .cookie__settings { order: 0; align-self: auto; }
+  .cookie__necessary { order: 1; }
+  .cookie__accept { order: 2; }
+  .cookie .btn { height: 48px; }
+}
+@media (min-width: 1320px) { .cookie { left: 0; right: 0; } }
+
+.cookie-dialog { position: fixed; inset: 0; z-index: 120; display: flex; align-items: center; justify-content: center; padding: var(--spacing-4); background: rgba(23, 26, 31, 0.5); }
+.cookie-dialog[hidden] { display: none; }
+.cookie-dialog__panel { display: flex; flex-direction: column; gap: var(--spacing-4); width: 100%; max-width: 480px; padding: var(--spacing-6); background: var(--bg-page); border: 1px solid var(--border-strong); box-shadow: var(--shadow-raised); }
+.cookie-dialog__actions { display: flex; gap: var(--spacing-3); }
+.cookie-dialog__actions .btn { flex: 1; height: 48px; }

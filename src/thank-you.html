@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header}}
+
+  <main id="main">
+    <!-- 01 Payment received. Name, email and order number come from checkout (js/checkout.js); the plain text below is the fallback -->
+    <section class="plate-hero" aria-labelledby="ty-title">
+      <div class="plate-hero__plate">
+        <p class="plate-hero__eyebrow label-s">Payment received<span data-order-id></span></p>
+        <h1 class="plate-hero__title" id="ty-title">You’re in<span data-order-name></span></h1>
+        <p class="plate-hero__lead">We’ve sent the course link to <span data-order-email>your email address</span>. Open the course now, or any time from that email.</p>
+        <div class="plate-hero__cta">
+          <a class="btn btn--primary" href="#youtube">Open the course on YouTube <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          <a class="btn btn--secondary" href="academy.html">Back to the academy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 What's next -->
+    <section class="ty-next" aria-labelledby="ty-next-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">What’s next</p>
+          <h2 class="h2" id="ty-next-title">Three easy steps</h2>
+        </div>
+        <ol class="ty-steps">
+          <li class="day-card"><span class="day-card__day">Step 1</span><h3 class="day-card__title">Open the playlist</h3><p class="day-card__text">Use the button above or the link in your email. No YouTube account needed.</p></li>
+          <li class="day-card"><span class="day-card__day">Step 2</span><h3 class="day-card__title">Start with lesson 1</h3><p class="day-card__text">Preparation and hygiene first, then colour. Pause and repeat as often as you need.</p></li>
+          <li class="day-card"><span class="day-card__day">Step 3</span><h3 class="day-card__title">Ask us anything</h3><p class="day-card__text">Stuck on a step? Send us a photo on WhatsApp and a master will reply.</p></li>
+        </ol>
+        <div class="note-box note-box--light ty-note">
+          <h2 class="note-box__title">Didn’t get the email?</h2>
+          <p class="note-box__text">Check your spam folder. Still nothing after 10 minutes? WhatsApp us and we’ll resend the link.</p>
+          <a class="link-arrow" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">WhatsApp us</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+</body>
+</html>

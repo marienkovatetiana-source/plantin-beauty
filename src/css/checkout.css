@@ -1,0 +1,84 @@
+/* Online course pages: checkout & thank you. Desktop layout switches on at 1320.
+   Thank you / Payment not completed reuse .plate-hero (policy.css). */
+
+/* ───────── Checkout ───────── */
+.co { background: var(--bg-page); padding-block: var(--spacing-8) var(--spacing-12); }
+.co .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.co__head { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.co__crumbs { display: flex; flex-wrap: wrap; gap: 0 0.8em; color: var(--text-secondary); white-space: pre-wrap; }
+.co__crumbs a:hover { color: var(--text-accent); text-decoration: underline; }
+.co__title { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.18; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.co__columns { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.co-form { display: flex; flex-direction: column; gap: var(--spacing-5); min-width: 0; }
+.co-form__step { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.co-form__note { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.co-form__pay { align-self: stretch; }
+.co-form fieldset { display: flex; flex-direction: column; gap: var(--spacing-5); min-width: 0; padding: 0; border: 0; }
+.co-form legend { padding: 0; margin-bottom: var(--spacing-5); }
+.co-form .choices { gap: var(--spacing-4); }
+
+/* Short summary above the form (mobile / tablet) */
+.co-brief { display: flex; flex-direction: column; gap: var(--spacing-2); padding: var(--spacing-4); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.co-brief__row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--spacing-4); font-family: var(--font-display); font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.co-brief__price { flex: none; letter-spacing: 0; }
+.co-brief__text { font-size: 12px; line-height: 1.4; color: var(--text-secondary); }
+
+/* Full order summary (desktop) */
+.co-summary { display: none; }
+
+@media (min-width: 768px) {
+  .co { padding-block: var(--spacing-12) 72px; }
+  .co .container { gap: var(--spacing-8); }
+  .co__title { font-size: 32px; }
+  .co__columns { gap: var(--spacing-8); }
+  .co-form { max-width: 560px; }
+  .co-form__step { font-size: 18px; }
+  .co-form__pay { align-self: flex-start; }
+  .co-brief { padding: var(--spacing-5) var(--spacing-6); max-width: 560px; }
+  .co-brief__row { font-size: 18px; }
+  .co-brief__text { font-size: 14px; }
+}
+
+@media (min-width: 1320px) {
+  .co { padding-block: 64px 120px; }
+  .co .container { gap: 40px; }
+  .co__crumbs { font-size: 12px; }
+  .co__title { font-size: 40px; line-height: 1.2; }
+  .co__columns { flex-direction: row; align-items: flex-start; gap: 80px; }
+  .co-form { flex: 1; max-width: none; gap: var(--spacing-6); }
+  .co-form fieldset { gap: var(--spacing-6); }
+  .co-form legend { margin-bottom: var(--spacing-6); }
+  .co-brief { display: none; }
+
+  .co-summary { display: flex; flex-direction: column; flex: none; gap: var(--spacing-4); width: 420px; padding: var(--spacing-8); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+  .co-summary__photo { height: 200px; background: var(--bg-placeholder); }
+  .co-summary__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .co-summary__label { color: var(--text-secondary); }
+  .co-summary__title { font-family: var(--font-display); font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+  .co-summary__text { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+  .co-summary .bullet-list { gap: var(--spacing-2); }
+  .co-summary__total { display: flex; align-items: center; justify-content: space-between; padding-top: var(--spacing-4); border-top: 1px solid var(--border-subtle); font-family: var(--font-display); font-size: 18px; line-height: 1.3; }
+  .co-summary__total span:first-child { letter-spacing: 0.05em; text-transform: uppercase; }
+  .co-summary__vat { font-size: 12px; line-height: 1.4; color: var(--text-secondary); margin-top: calc(-1 * var(--spacing-2)); }
+}
+
+/* ───────── Thank you · Payment not completed ───────── */
+.ty-next { background: var(--bg-page); padding-block: 0 var(--spacing-12); }
+.ty-next .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.ty-steps { display: grid; grid-template-columns: 1fr; gap: var(--spacing-4); counter-reset: step; }
+.ty-note { background: transparent; }
+.ty-note .link-arrow { padding-block: var(--spacing-2) 0; }
+
+@media (min-width: 768px) {
+  .ty-next { padding-block: 0 72px; }
+  .ty-next .container { gap: var(--spacing-8); }
+  .ty-steps { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-6); }
+  .ty-note { max-width: 420px; }
+}
+
+@media (min-width: 1320px) {
+  .ty-next { padding-block: 40px 120px; }
+  .ty-next .container { gap: 40px; }
+  .ty-next .section-head { margin-bottom: 0; }
+}

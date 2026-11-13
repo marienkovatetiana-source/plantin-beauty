@@ -1,0 +1,20 @@
+/* Header logo: deep blue by default; on hover / keyboard focus a raspberry-pink beam of light runs across it.
+   The visible mark is the logo SVG used as a mask over a coloured background, so the colour and the beam are pure CSS.
+   The <img> stays in the page (invisible) for the alt text and the layout box. The footer keeps its light logo. */
+.site-header__logo { position: relative; }
+.site-header__logo img { opacity: 0; }
+.site-header__logo::before {
+  content: ""; position: absolute; left: 0; top: 50%; width: 100%; aspect-ratio: 108 / 30.3706; transform: translateY(-50%);
+  background: var(--accent-deep);
+  -webkit-mask: url("../images/plantin-logo-dark.svg") center / 100% 100% no-repeat;
+  mask: url("../images/plantin-logo-dark.svg") center / 100% 100% no-repeat;
+}
+.site-header__logo:hover::before, .site-header__logo:focus-visible::before {
+  background: linear-gradient(105deg, var(--accent-deep) 0%, var(--accent-deep) 28%, var(--accent-spark) 50%, var(--accent-deep) 72%, var(--accent-deep) 100%);
+  background-size: 300% 100%;
+  animation: logo-beam 1.8s ease-in-out infinite;
+}
+@keyframes logo-beam { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .site-header__logo:hover::before, .site-header__logo:focus-visible::before { animation: none; background: var(--accent-deep); }
+}

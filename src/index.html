@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header}}
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <span class="hero__slab" aria-hidden="true"></span>
+        <div class="hero__photo">
+          <img src="images/hero-home.jpg" sizes="(min-width: 1320px) 1190px, (min-width: 768px) 860px, 560px" alt="Hand with blue gel nails and pink French tips" width="1437" height="1916" fetchpriority="high">
+        </div>
+      </div>
+
+      <div class="hero__plate">
+        <p class="hero__eyebrow label-s">Because simple is beautiful</p>
+        <h1 class="hero__title display-l" id="hero-title">Your Rituals.<br>Our Expertise.</h1>
+        <p class="hero__lead body-m">Nails, lashes, brows and permanent make-up on Plantinkaai, in the heart of Antwerp. Every master has 10+ years of experience.</p>
+        <p class="hero__proof">
+          <span>★ 4.9 · 170+ reviews</span>
+          <span class="hero__proof-sep" aria-hidden="true">·</span>
+          <span>from €40</span>
+          <span class="hero__proof-extra">10+ years, every master</span>
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span>WhatsApp<span class="hero__cta-us"> us</span></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="treatments" id="treatments" aria-labelledby="treatments-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Treatments</p>
+          <h2 class="h2" id="treatments-title">What we do best</h2>
+        </div>
+        <div class="treatments__carousel" data-carousel>
+          <a class="card-category card-category--nails" href="nails.html">
+            <div class="card-category__photo">
+              <img src="images/treatment-nails.jpg" sizes="(min-width: 1320px) 552px, (min-width: 768px) 336px, 303px" alt="Long almond nails with a dark green glitter design" width="1200" height="800" loading="lazy" style="object-position: 50% 15%">
+              <div class="card-category__plate">
+                <span class="card-category__title treatments__plate-title">Nails</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">from €40 · up to 2 h</p>
+          </a>
+          <a class="card-category card-category--face" href="face-body.html">
+            <div class="card-category__photo">
+              <img src="images/treatment-face.jpg" sizes="(min-width: 1320px) 552px, (min-width: 768px) 336px, 303px" alt="Face treatment applied with a brush" width="1200" height="800" loading="lazy">
+              <div class="card-category__plate">
+                <span class="card-category__title treatments__plate-title">Face &amp; Body</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">from €50 · up to 1 h</p>
+          </a>
+          <a class="card-category card-category--lashes" href="lashes-brows.html">
+            <div class="card-category__photo">
+              <img src="images/treatment-lashes.jpg" sizes="(min-width: 1320px) 552px, (min-width: 768px) 336px, 303px" alt="Lash extensions being applied with tweezers" width="1200" height="800" loading="lazy">
+              <div class="card-category__plate">
+                <span class="card-category__title treatments__plate-title">Lashes &amp; Brows</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">from €15 · up to 2 h</p>
+          </a>
+          <a class="card-category card-category--pmu" href="permanent-make-up.html">
+            <div class="card-category__photo">
+              <img src="images/treatment-pmu.jpg" sizes="(min-width: 1320px) 552px, (min-width: 768px) 336px, 303px" alt="Permanent make-up artist working on a client’s lips" width="1200" height="800" loading="lazy">
+              <div class="card-category__plate">
+                <span class="card-category__title treatments__plate-title">Permanent make&#8209;up</span>
+                <svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg>
+              </div>
+            </div>
+            <p class="card-category__meta body-s">from €139 · up to 3 h</p>
+          </a>
+        </div>
+        <div class="slider-controls">
+          <p class="slider-controls__counter label-m" aria-live="polite" data-carousel-counter>1 / 4</p>
+          <button class="slider-controls__btn" type="button" aria-label="Previous treatment" data-carousel-prev><svg class="icon icon--arrow-left" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow-left"/></svg></button>
+          <button class="slider-controls__btn" type="button" aria-label="Next treatment" data-carousel-next><svg class="icon icon--arrow-right" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="not-sure" aria-labelledby="not-sure-title">
+      <div class="container">
+        <div class="cta-banner on-inverse">
+          <div class="cta-banner__copy">
+            <h2 class="cta-banner__title h4" id="not-sure-title">Not sure what to book?</h2>
+            <p class="cta-banner__text body-m">Send us a photo on WhatsApp. We’ll tell you which treatment fits and how long it takes.</p>
+          </div>
+          <a class="btn btn--inverse" href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us" id="about" aria-labelledby="why-us-title">
+      <div class="container">
+        <div class="why-us__layout">
+          <div class="section-head">
+            <p class="section-head__eyebrow label-s">Why us</p>
+            <h2 class="h2" id="why-us-title">Why book with us</h2>
+          </div>
+
+          <figure class="card-work">
+            <div class="card-work__photo">
+              <img src="images/studio-interior.jpg" sizes="(min-width: 1320px) 440px, (min-width: 768px) 688px, 311px" alt="Nail studio interior with two tan chairs, black workstations and a large plant by the window" width="1200" height="895" loading="lazy">
+            </div>
+            <figcaption class="card-work__caption">
+              <span class="label-s">Clean and sterile</span>
+              <span class="card-work__details body-s">sterilised after every client</span>
+            </figcaption>
+          </figure>
+
+          <ul class="why-us__stats">
+            <li class="stat"><p class="stat__number">10+</p><p class="stat__label">years of experience — every master, no juniors</p></li>
+            <li class="stat"><p class="stat__number">7</p><p class="stat__label">days of guarantee: chipped or lifted, we fix it free</p></li>
+            <li class="stat"><p class="stat__number">4</p><p class="stat__label">languages: English, Nederlands, Русский, Lietuvių</p></li>
+          </ul>
+
+          <ul class="why-us__reasons">
+            <li class="reason">
+              <svg class="reason__icon" width="40" height="40" aria-hidden="true" focusable="false"><use href="#sparkle"/></svg>
+              <div class="reason__body">
+                <h3 class="reason__title">Premium brands</h3>
+                <p class="reason__text">Nails of the Day, Jelly Gelly, Moon, Suda, Lovely, Medik8, Gaube Cosmetics.</p>
+              </div>
+            </li>
+            <li class="reason">
+              <svg class="reason__icon" width="40" height="40" aria-hidden="true" focusable="false"><use href="#cup"/></svg>
+              <div class="reason__body">
+                <h3 class="reason__title">A calm visit</h3>
+                <p class="reason__text">Coffee or tea while we take care of you. Quiet studio, no rush.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Our work &amp; clients</p>
+          <h2 class="h2" id="work-title">Real work, real clients</h2>
+        </div>
+
+        <div class="work__main">
+          <div class="work__gallery" data-carousel>
+            <figure class="card-work">
+              <div class="card-work__photo"><img src="images/work-french-manicure.jpg" sizes="(min-width: 1320px) 400px, (min-width: 768px) 351px, 327px" alt="Short natural nails with thin white line art, hand in a light blue satin sleeve" width="1125" height="1288" loading="lazy"></div>
+              <figcaption class="card-work__caption">
+                <span class="card-work__title label-s">Nude line art</span>
+                <span class="card-work__details body-s">our work · short natural nails</span>
+              </figcaption>
+            </figure>
+            <figure class="card-work">
+              <div class="card-work__photo"><img src="images/work-gel-polish.jpg" sizes="(min-width: 1320px) 300px, (min-width: 768px) 351px, 327px" alt="Almond nails in matte pastel yellow and lilac with a fine black script detail" width="1600" height="2125" loading="lazy"></div>
+              <figcaption class="card-work__caption">
+                <span class="card-work__title label-s">Gel polish</span>
+                <span class="card-work__details body-s">our work · matte finish</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="slider-controls">
+            <p class="slider-controls__counter label-m" aria-live="polite" data-carousel-counter>1 / 2</p>
+            <button class="slider-controls__btn" type="button" aria-label="Previous photo" data-carousel-prev><svg class="icon icon--arrow-left" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow-left"/></svg></button>
+            <button class="slider-controls__btn" type="button" aria-label="Next photo" data-carousel-next><svg class="icon icon--arrow-right" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+          </div>
+          <a class="link-arrow" href="https://www.instagram.com/beauty.studio.antwerp/" target="_blank" rel="noopener"><span class="link-arrow__text">More on Instagram<span class="work__handle"> @beauty.studio.antwerp</span></span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg><span class="visually-hidden"> (opens in new tab)</span></a>
+        </div>
+
+        <div class="work__reviews">
+          <div class="rating">
+            <p class="rating__score">4.9</p>
+            <div class="rating__meta">
+              <p class="rating__stars" aria-hidden="true">★★★★★</p>
+              <span class="visually-hidden">Rated 4.9 out of 5</span>
+              <p class="rating__count">170+ reviews on Treatwell</p>
+            </div>
+          </div>
+          <ul class="work__list" aria-label="Client reviews">
+              <li class="review">
+                <figure>
+                  <div class="review__top">
+                    <p class="review__who label-s">Roxane · Gel nails</p>
+                    <p class="review__stars" aria-hidden="true">★★★★★</p>
+                    <span class="visually-hidden">Rated 5 out of 5</span>
+                  </div>
+                  <blockquote class="review__quote">“Perfectly done nails and fast! Thank you!”</blockquote>
+                  <figcaption class="review__source label-s">Treatwell</figcaption>
+                </figure>
+              </li>
+              <li class="review">
+                <figure>
+                  <div class="review__top">
+                    <p class="review__who label-s">Evelien · Pedicure</p>
+                    <p class="review__stars" aria-hidden="true">★★★★★</p>
+                    <span class="visually-hidden">Rated 5 out of 5</span>
+                  </div>
+                  <blockquote class="review__quote">“My feet are super soft after the pedicure.”</blockquote>
+                  <figcaption class="review__source label-s">Treatwell</figcaption>
+                </figure>
+              </li>
+              <li class="review">
+                <figure>
+                  <div class="review__top">
+                    <p class="review__who label-s">Bertha · Gel nails</p>
+                    <p class="review__stars" aria-hidden="true">★★★★★</p>
+                    <span class="visually-hidden">Rated 5 out of 5</span>
+                  </div>
+                  <blockquote class="review__quote">“Very satisfied, I’ll definitely come back.”</blockquote>
+                  <figcaption class="review__source label-s">Treatwell</figcaption>
+                </figure>
+              </li>
+          </ul>
+          <a class="link-arrow" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener"><span class="link-arrow__text">Read all reviews on Treatwell</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg><span class="visually-hidden"> (opens in new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="masters" aria-labelledby="masters-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Team</p>
+          <h2 class="h2" id="masters-title">Meet our team</h2>
+        </div>
+
+        <figure class="team-photo">
+          <span class="team-photo__frame"><img src="images/team/group.jpg" sizes="(min-width: 1320px) 768px, (min-width: 768px) 688px, 327px" alt="The Plantin Beauty Studio team posing together with donuts and lollipops" width="2400" height="1600" loading="lazy"></span>
+        </figure>
+
+        <div class="masters__aside">
+          <ul class="masters__list">
+            <li class="master">
+              <img class="master__avatar" src="images/team/tetiana.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h3 class="master__name">Tetiana</h3>
+                <p class="master__role">Nails · 10+ years · nail art</p>
+              </div>
+            </li>
+            <li class="master">
+              <img class="master__avatar" src="images/team/adriana.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h3 class="master__name">Adriana</h3>
+                <p class="master__role">Nails · 10+ years · speaks Dutch</p>
+              </div>
+            </li>
+            <li class="master">
+              <img class="master__avatar" src="images/team/renata.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h3 class="master__name">Renata</h3>
+                <p class="master__role">Lashes, Brows &amp; Face · 12+ years</p>
+              </div>
+            </li>
+            <li class="master">
+              <img class="master__avatar" src="images/team/vesta.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h3 class="master__name">Vesta</h3>
+                <p class="master__role">Permanent make-up · 10+ years</p>
+              </div>
+            </li>
+            <li class="master">
+              <img class="master__avatar" src="images/team/daria.jpg" sizes="56px" alt="" width="56" height="56" loading="lazy">
+              <div class="master__text">
+                <h3 class="master__name">Daria</h3>
+                <p class="master__role">Studio administrator · bookings &amp; questions</p>
+              </div>
+            </li>
+          </ul>
+          <p class="masters__note">Our masters’ certificates are on display in the studio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="academy on-inverse" aria-labelledby="academy-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Academy</p>
+          <h2 class="h2" id="academy-title">Learn the craft. Start earning.</h2>
+        </div>
+
+        <figure class="card-work">
+          <div class="card-work__photo"><img src="images/academy-nails.jpg" sizes="(min-width: 1320px) 500px, (min-width: 768px) 688px, 327px" alt="Long stiletto nails in mint green gel, held up close to the camera" width="978" height="800" loading="lazy"></div>
+          <figcaption class="card-work__caption">
+            <span class="card-work__title label-s">Plantin Academy</span>
+            <span class="card-work__details body-s">small groups · certificate</span>
+          </figcaption>
+        </figure>
+
+        <p class="academy__lead">Hands-on courses from masters with 10+ years in the studio — for beginners starting a new career and pros adding a new skill.</p>
+
+                <ul class="academy__courses">
+            <li><a class="course" href="course-manicure-pro.html">
+              <span class="course__name">Manicure Pro</span>
+              <span class="course__meta">5 days · up to 6 people</span>
+              <span class="course__price">€400</span>
+              <span class="course__arrow icon icon--arrow-s" aria-hidden="true"></span>
+            </a></li>
+            <li><a class="course" href="course-lash-extensions.html">
+              <span class="course__name">Lash extensions</span>
+              <span class="course__meta">2–5 days · up to 4 people</span>
+              <span class="course__price">from €160</span>
+              <span class="course__arrow icon icon--arrow-s" aria-hidden="true"></span>
+            </a></li>
+            <li><a class="course" href="course-permanent-make-up.html">
+              <span class="course__name">Permanent make-up</span>
+              <span class="course__meta">2–5 days · up to 4 people</span>
+              <span class="course__price">from €160</span>
+              <span class="course__arrow icon icon--arrow-s" aria-hidden="true"></span>
+            </a></li>
+            <li><a class="course" href="academy.html#online">
+              <span class="course__name">Your Own Nails · online</span>
+              <span class="course__meta">video course · lifetime access</span>
+              <span class="course__price">€15</span>
+              <span class="course__arrow icon icon--arrow-s" aria-hidden="true"></span>
+            </a></li>
+        </ul>
+
+        <a class="btn btn--inverse" href="academy.html">Explore the academy <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      </div>
+    </section>
+
+    <section class="visit" id="contact" aria-labelledby="visit-title">
+      <div class="container">
+        <div class="visit__head">
+          <div class="section-head">
+            <p class="section-head__eyebrow label-s">Visit us</p>
+            <h2 class="h2" id="visit-title">Find us on Plantinkaai</h2>
+          </div>
+          <a class="link-arrow" href="https://www.google.com/maps/dir/?api=1&destination=Plantinkaai+1a,+2000+Antwerpen,+Belgium" target="_blank" rel="noopener"><span class="link-arrow__text">Open in Google Maps</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg><span class="visually-hidden"> (opens in new tab)</span></a>
+        </div>
+
+        <div class="visit__layout">
+          <figure class="card-work visit__map">
+            <div class="card-work__photo"><img src="images/visit-map.jpg" sizes="(min-width: 1320px) 640px, (min-width: 768px) 657px, 327px" alt="Map: Plantin Beauty Studio on Plantinkaai, Antwerp" width="1400" height="1015" loading="lazy"></div>
+            <figcaption class="card-work__caption">
+              <span class="card-work__title label-s">Antwerpen · 2000</span>
+              <span class="card-work__details body-s">Plantinkaai 1a</span>
+            </figcaption>
+          </figure>
+
+          <div class="visit__panel">
+            <h3 class="visit__panel-title">Book in under a minute</h3>
+            <dl class="info-list">
+              <div class="info-row"><dt>Address</dt><dd>Plantinkaai 1a, 2000 Antwerpen</dd></div>
+              <div class="info-row"><dt>Hours</dt><dd>Mon–Fri 10–19 · Sat 10–17</dd></div>
+              <div class="info-row"><dt>Contact</dt><dd><a href="tel:+32468264014">+32 468 26 40 14</a> · <a href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp</a></dd></div>
+              <div class="info-row"><dt>Access</dt><dd>Ground floor, step-free · Groenplaats tram 10 min</dd></div>
+              <div class="info-row"><dt>Parking</dt><dd>Paid car park across the street</dd></div>
+              <div class="info-row"><dt>Payment</dt><dd>Card, Payconiq, QR code, cash</dd></div>
+            </dl>
+            <div class="visit__cta">
+              <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book online <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+              <a class="btn btn--secondary" href="https://wa.me/32468264014" target="_blank" rel="noopener">WhatsApp us</a>
+            </div>
+            <p class="visit__note">Prefer not to create an account? Call or WhatsApp us.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="container faq__layout">
+        <div class="section-head faq__head">
+          <p class="section-head__eyebrow label-s">FAQ</p>
+          <h2 class="h2" id="faq-title">Good to know</h2>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>How do I book?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Book online through Treatwell in under a minute, or message us on WhatsApp.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Can I book without<span class="faq-item__more"> creating</span> an account?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Yes. Call or WhatsApp us and we will book you in.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>How can I pay?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Card, Payconiq, QR code or cash.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Is the studio easy to reach?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Ground floor, step-free. Tram to Groenplaats, then about 10 minutes on foot.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>What if I need to cancel?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Free cancellation up to 24 hours before your visit. Later than that we charge 50% of the treatment price; a no-show is charged in full.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>What does the 7-day guarantee cover?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">The details are in our salon policy.</p>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-item__q"><span>Where can I park?</span><span class="faq-item__toggle" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">There is a paid car park across the street.</p>
+          </details>
+        </div>
+
+        <a class="link-arrow faq__policy" href="salon-policy.html"><span class="link-arrow__text">Read the salon policy</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+
+        <div class="faq__help">
+          <h3 class="faq__help-title">Didn't find your answer?</h3>
+          <p class="faq__help-text">Write to us on WhatsApp and we'll answer your question.</p>
+          <a class="link-arrow link-arrow--inverse" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">Ask on WhatsApp</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* Home · 06 Masters ("Meet our team")
+   group photo with the slab offset to the bottom-left, list of masters with square avatars
+   mobile: photo, list (1 column), note · tablet: list in 2 columns · desktop: photo left (768), list + note right (360) */
+.masters { background: var(--bg-page); padding-block: var(--spacing-12); --slab: 10px; }
+.masters .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.masters__aside { display: flex; flex-direction: column; gap: var(--spacing-6); }
+
+.team-photo { position: relative; margin: 0 0 var(--slab) var(--slab); width: calc(100% - var(--slab)); height: 218px; }
+.team-photo::before { content: ""; position: absolute; left: calc(-1 * var(--slab)); top: var(--slab); width: 100%; height: 100%; background: var(--decor-slab); }
+.team-photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+
+.masters__list { display: grid; grid-template-columns: 1fr; }
+.master { display: flex; align-items: center; gap: var(--spacing-4); padding-block: var(--spacing-4); border-bottom: 1px solid var(--border-subtle); }
+.master__avatar { flex: none; width: 56px; height: 56px; object-fit: cover; }
+.master__text { display: flex; flex-direction: column; gap: var(--spacing-1); min-width: 0; }
+.master__name { font-family: var(--font-display); font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.master__role { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.masters__note { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .masters { padding-block: 72px; --slab: 18px; }
+  .masters .container, .masters__aside { gap: var(--spacing-8); }
+  .team-photo { height: 443px; }
+  .masters__list { grid-template-columns: 1fr 1fr; column-gap: var(--spacing-4); }
+  .master:last-child:nth-child(odd) { grid-column: 1 / -1 }
+}
+
+@media (min-width: 1320px) {
+  .masters { padding-block: var(--spacing-30); --slab: 22px; }
+  .masters .container { display: grid; grid-template-columns: 768px 360px; column-gap: 72px; row-gap: 78px; align-items: start; }
+  .masters .section-head { grid-column: 1 / -1; }
+  .team-photo { grid-column: 1; margin-left: 0; width: 768px; height: 528px; }
+  .masters__aside { grid-column: 2; gap: var(--spacing-6); }
+  .masters__list { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,15 @@
+/* Container + sections */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--side-padding) * 2);
+  margin-inline: auto;
+  padding-inline: var(--side-padding);
+}
+/* Desktop (≥1320): content is exactly 1200 and centred at any width; side padding grows from 52 to 120 at 1440.
+   % padding is measured against the parent width, which excludes the scrollbar. */
+@media (min-width: 1320px) {
+  .container { max-width: none; padding-inline: calc((100% - var(--container-max)) / 2); }
+}
+.section { padding-block: var(--section-padding); }
+.section--page { background: var(--bg-page); }
+.section--inverse { background: var(--bg-inverse); color: var(--text-on-inverse); }

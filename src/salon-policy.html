@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header}}
+
+  <main id="main">
+    <!-- 01 Intro -->
+    <section class="plate-hero" aria-labelledby="policy-title">
+      <div class="plate-hero__plate">
+        <p class="plate-hero__eyebrow label-s">Plantin Beauty Studio</p>
+        <h1 class="plate-hero__title" id="policy-title">Salon policy</h1>
+        <p class="plate-hero__lead">When you book, a master keeps that time only for you. These simple rules keep it fair for you, for other clients and for our team.</p>
+      </div>
+    </section>
+
+    <!-- 02 Cancelling -->
+    <section class="pol-cancel" aria-labelledby="cancel-title">
+      <div class="container pol-cancel__layout">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Cancelling</p>
+          <h2 class="h2" id="cancel-title">Cancelling or changing</h2>
+        </div>
+        <p class="pol-cancel__why">Why? A last-minute free slot almost never gets filled, and your master is paid for that time either way.</p>
+
+        <table class="pol-table">
+          <thead>
+            <tr>
+              <td><span class="visually-hidden">Rule</span></td>
+              <th scope="col">Treatments</th>
+              <th scope="col">Courses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Free cancellation</th>
+              <td data-label="Treatments">up to 24 h before</td>
+              <td data-label="Courses">up to 48 h before</td>
+            </tr>
+            <tr>
+              <th scope="row">Late cancellation</th>
+              <td data-label="Treatments">less than 24 h: 50% of the price</td>
+              <td data-label="Courses">—</td>
+            </tr>
+            <tr>
+              <th scope="row">No-show, no message</th>
+              <td data-label="Treatments">100% of the price</td>
+              <td data-label="Courses">—</td>
+            </tr>
+            <tr>
+              <th scope="row">Payment</th>
+              <td data-label="Treatments">at the studio</td>
+              <td data-label="Courses">in full before the course starts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 03 Fees · prepayment · running late -->
+    <section class="pol-rules on-inverse" aria-label="Fees, prepayment and running late">
+      <div class="container pol-rules__grid">
+        <div class="pol-rules__item">
+          <h2 class="pol-rules__title">How fees are charged</h2>
+          <p>A late-cancellation or no-show fee is added to your next booking. If you have no next booking, we send an invoice.</p>
+        </div>
+        <div class="pol-rules__item">
+          <h2 class="pol-rules__title">Prepayment</h2>
+          <p>Prepaying online through Treatwell is optional. After a no-show without a reason, prepayment becomes required for your next bookings.</p>
+        </div>
+        <div class="pol-rules__item">
+          <h2 class="pol-rules__title">Running late?</h2>
+          <p>Message us on WhatsApp. If there’s not enough time for the full treatment, we’ll suggest a shorter one or a new time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Guarantee -->
+    <section class="pol-guarantee" aria-labelledby="guarantee-title">
+      <div class="container pol-guarantee__layout">
+        <div class="section-head">
+          <p class="section-head__eyebrow label-s">Guarantee</p>
+          <h2 class="h2" id="guarantee-title">7-day guarantee</h2>
+        </div>
+        <p class="pol-guarantee__text">If your nails chip or lift, or your lashes come off, within 7 days of your visit, we fix it for free. Just message us a photo. After 7 days, corrections are charged separately.</p>
+        <div class="pol-guarantee__not">
+          <h3 class="pol-guarantee__not-title">The guarantee doesn’t cover</h3>
+          <ul class="bullet-list bullet-list--light">
+            <li>Damage from a knock or accident</li>
+            <li>Removing or picking off the work yourself</li>
+            <li>Not following the aftercare advice for permanent make-up or facials</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Questions -->
+    <section class="pol-questions" aria-label="Questions about the rules">
+      <div class="container">
+        <div class="note-box">
+          <h2 class="note-box__title">Questions about the rules?</h2>
+          <p class="note-box__text">Message or call us — we’re happy to explain.</p>
+          <a class="link-arrow link-arrow--inverse" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">WhatsApp us</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+</body>
+</html>

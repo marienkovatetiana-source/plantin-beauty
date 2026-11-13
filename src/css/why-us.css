@@ -1,0 +1,75 @@
+/* Home · 03 Not sure (CTA banner) + 04 Why us (dark section)
+   03: mobile/tablet vertical banner (button full width) · desktop horizontal banner
+   04: mobile 1 column · tablet photo on top, 3 stats, 2 reasons · desktop photo left (440), content right (680) */
+
+/* ---------- 03 · CTA banner ---------- */
+.not-sure { background: var(--bg-page); padding-block: var(--spacing-12); }
+.cta-banner {
+  display: flex; flex-direction: column; align-items: center; gap: var(--spacing-5); text-align: center;
+  padding: var(--spacing-8) var(--spacing-5);
+  background: var(--bg-inverse); color: var(--text-on-inverse);
+}
+.cta-banner__copy { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-2); max-width: 760px; }
+.cta-banner__title { font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; }
+.cta-banner__text { color: var(--text-on-inverse-muted); }
+.cta-banner .btn { width: auto; align-self: center; }   /* regular button size, never stretched across the banner */
+
+@media (min-width: 768px) {
+  .not-sure { padding-block: 72px; }
+}
+
+@media (min-width: 1320px) {
+  .not-sure { padding-block: 60px; }
+  /* desktop: text on the left, button on the right */
+  .cta-banner { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--spacing-12); padding: 40px var(--spacing-12); text-align: left; }
+  .cta-banner__copy { flex: 1; min-width: 0; align-items: flex-start; max-width: none; }
+  .cta-banner__title { font-size: 32px; line-height: 1.18; letter-spacing: 0.05em; }
+}
+
+/* ---------- 04 · Why us ---------- */
+.why-us { background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.why-us__layout { display: flex; flex-direction: column; gap: var(--spacing-6); }
+
+.why-us .section-head__eyebrow { color: var(--text-on-inverse-muted); }
+
+/* Card / Work on dark: overrides of the base component (components.css) */
+.why-us .card-work { --slab: 10px; --slab-color: var(--decor-slab-on-dark); width: calc(100% - var(--slab)); }
+.why-us .card-work__photo { height: 251px; }
+.why-us .card-work__details { color: var(--text-on-inverse-muted); }
+.why-us .card-work__caption .label-s { color: var(--text-on-inverse); }
+
+/* Stats: 2px top rule, big number, label */
+.why-us__stats { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.stat { display: flex; flex-direction: column; gap: var(--spacing-2); padding-top: var(--spacing-4); border-top: 2px solid var(--gray-500); }
+.stat__number { font-family: var(--font-display); font-size: 32px; line-height: 1.18; letter-spacing: 0.05em; text-transform: uppercase; }
+.stat__label { font-size: 14px; line-height: 1.45; letter-spacing: -0.005em; /* keeps the 3rd label on 2 lines in a 200px column */ color: var(--text-on-inverse-muted); }
+
+/* Reasons: line icon in the accent blue next to a title and a short text */
+.why-us__reasons { display: flex; flex-direction: column; gap: var(--spacing-6); margin-top: var(--spacing-2); }
+.reason { display: flex; align-items: flex-start; gap: var(--spacing-4); }
+.reason__icon { flex: none; width: 40px; height: 40px; color: var(--decor-slab); }
+.reason__body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.reason__title { font-family: var(--font-display); font-size: 18px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.reason__text { font-size: 15px; line-height: 1.5; color: var(--text-on-inverse-muted); }
+
+@media (min-width: 768px) {
+  .why-us { padding-block: 72px; }
+  .why-us__layout { gap: var(--spacing-8); }
+  .why-us .card-work { --slab: 14px; width: 100%; }
+  .why-us .card-work__photo { height: 368px; }
+
+  .why-us__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
+  .stat__number { font-size: 60px; line-height: 1.15; letter-spacing: 0.05em; }
+  .why-us__reasons { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (min-width: 1320px) {
+  .why-us { padding-block: var(--spacing-30); }
+  /* photo card on the left spans all rows; head / stats / reasons stack on the right (gap 56) */
+  .why-us__layout { display: grid; grid-template-columns: 440px 680px; grid-template-rows: auto auto auto 1fr; column-gap: var(--spacing-20); row-gap: 56px; align-items: start; }
+  .why-us .card-work { --slab: 18px; grid-column: 1; grid-row: 1 / span 4; }
+  .why-us .card-work__photo { height: 468px; }
+  .why-us__layout > .section-head { grid-column: 2; grid-row: 1; }
+  .why-us__stats { grid-column: 2; grid-row: 2; gap: var(--spacing-10); }
+  .why-us__reasons { grid-column: 2; grid-row: 3; }
+}

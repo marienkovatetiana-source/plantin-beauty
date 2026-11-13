@@ -1,0 +1,62 @@
+/* Home · 08 Visit
+   mobile 375: head, link, map card, book panel (CTAs stacked)
+   tablet 768: same stack, panel padding 36, CTAs in a row
+   desktop 1320+: map card 640 left, book panel 600 overlapping it (−40) and shifted down 42, light slab band behind */
+.visit { background: var(--bg-page); padding-block: var(--spacing-12); }
+.visit .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.visit__head { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-6); }
+.visit__layout { display: flex; flex-direction: column; gap: var(--spacing-6); }
+
+/* Map card: slab sticks out 16px to the right, so the card is 16px narrower */
+.visit__map { --slab: 10px; --slab-color: var(--decor-slab); width: calc(100% - var(--slab)); height: 303px; }
+.visit__map .card-work__photo { flex: 1; min-height: 0; }
+.visit__map .card-work__photo img { object-position: 50% 55%; }
+
+/* Book panel */
+.visit__panel { display: flex; flex-direction: column; gap: var(--spacing-1); padding: var(--spacing-6) var(--spacing-5); background: var(--bg-surface); }
+.visit__panel-title { font-family: var(--font-display); font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* Info rows: 96px label + value (dl) */
+.info-list { display: flex; flex-direction: column; gap: var(--spacing-1); }
+.info-row { display: flex; align-items: baseline; gap: var(--spacing-4); padding: var(--spacing-3) var(--spacing-1); border-bottom: 1px solid var(--border-subtle); }
+.info-row dt { flex: none; width: 96px; font-family: var(--font-text); font-size: 13px; line-height: 1.4; letter-spacing: 0; text-transform: none; color: var(--text-secondary); }
+.info-row dd { flex: 1; min-width: 0; font-size: 16px; line-height: 1.5; }
+.info-row a { text-decoration: underline; text-underline-position: from-font; }
+.info-row a:hover { color: var(--text-accent); }
+
+.visit__cta { display: flex; flex-direction: column; gap: var(--spacing-3); padding-top: var(--spacing-4); }
+.visit__cta .btn { width: 100%; }
+.visit__note { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .visit { padding-block: 72px; }
+  .visit .container { gap: var(--spacing-8); }
+  .visit__head, .visit__layout { gap: var(--spacing-8); }
+  .visit__map { --slab: 14px; width: calc(100% - var(--slab)); height: 403px; }
+  .visit__panel { padding: 36px; }
+  .visit__panel-title { font-size: 32px; line-height: 1.18; }
+  .visit__cta { flex-direction: row; gap: var(--spacing-4); padding-top: 20px; }
+  .visit__cta .btn { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .visit { padding-block: var(--spacing-30); }
+  .visit .container { gap: 72px; }
+  .visit__head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .visit__head .link-arrow { margin-bottom: -7px; }
+
+  .visit__layout { position: relative; display: grid; grid-template-columns: 640px 560px; align-items: start; gap: 0; }
+  /* light slab band behind the map card, bleeds to the left viewport edge */
+  .visit__layout::before {
+    content: ""; position: absolute; z-index: 0; top: 104px; height: 312px;
+    left: calc(50% - 50vw); width: calc(50vw - 280px); background: var(--decor-slab-light);
+  }
+  .visit__map, .visit__panel { position: relative; z-index: 1; }
+  .visit__map { --slab: 18px; width: 640px; height: 543px; }
+  .visit__panel {
+    width: 600px; margin: 42px 0 0 -40px; padding: 44px 48px 48px;
+    box-shadow: 0 8px 12px rgba(44, 51, 58, 0.14);
+  }
+  .visit__panel-title { margin-bottom: 16px; }
+  .visit__cta { padding-top: var(--spacing-6); }
+}

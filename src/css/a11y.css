@@ -1,0 +1,21 @@
+/* Accessibility: tap targets of at least 44 px (07 · Accessibility). Loaded after the component styles. */
+.link-arrow { min-height: 44px; }
+
+@media (min-width: 768px) {
+  /* Footer text links keep compact 32px rows (WCAG 2.2 minimum is 24px) */
+  .footer-col__line, .footer-social__link { display: flex; align-items: center; min-height: 32px; }
+  .footer-col__panel, .footer-social__list { gap: 0; }
+  .footer-col__panel > :last-child { margin-bottom: -6px; }   /* the 32px row is 6px taller than its text: no extra air under the last line */
+  .footer-social__link { justify-content: flex-start; width: fit-content; height: auto; }
+  a.footer-col__line { width: fit-content; }
+  .footer-social__list > :last-child { margin-bottom: -6px; }
+  .footer__legal a { display: flex; align-items: center; min-height: 32px; }
+}
+@media (min-width: 1320px) {
+  .site-nav__link { min-height: 44px; padding-top: 12px; padding-bottom: 6px; }
+  .site-header__phone { display: flex; align-items: center; min-height: 44px; }
+  .footer-social__link { justify-content: center; width: 48px; height: 48px; min-height: 0; }
+  .footer-social__list > :last-child { margin-bottom: 0; }
+}
+
+.site-header__logo { display: inline-flex; align-items: center; min-height: 44px; }

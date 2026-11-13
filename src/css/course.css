@@ -1,0 +1,152 @@
+/* Course page template (Manicure Pro)
+   Hero: .cat-hero--wide (academy-page.css). Desktop layout switches on at 1320. */
+
+/* Check-box list item (Result · Who it's for) */
+.check-list { display: flex; flex-direction: column; gap: var(--spacing-4); }
+.check-list li { display: flex; align-items: center; gap: var(--spacing-4); font-size: 18px; line-height: 1.5; color: var(--text-primary); }
+.check-list li::before { content: ""; flex: none; width: 40px; height: 40px; background: url("../images/icons/check-box.svg") center / contain no-repeat; }
+
+.cat-hero--course .cat-hero__facts { font-size: 16px; font-weight: 500; line-height: 1.4; }
+
+/* ───────── 02 Result · Day by day ───────── */
+.course-result { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-12); }
+.course-result .container { display: flex; flex-direction: column; gap: var(--spacing-4); }
+.course-result__format { margin-top: var(--spacing-8); }
+.course-days { position: relative; display: grid; grid-template-columns: 1fr; gap: var(--spacing-4); counter-reset: day; }
+.day-card { display: flex; flex-direction: column; gap: var(--spacing-2); padding: 28px var(--spacing-8); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.day-card__day { font-family: var(--font-display); font-size: 14px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); }
+.day-card__title { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.2; letter-spacing: 0.05em; text-transform: uppercase; }
+.day-card__text { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .course-result { padding-block: 72px; }
+  .course-result .container { gap: var(--spacing-6); }
+  .course-result__format { margin-top: var(--spacing-10); }
+  .course-days { grid-template-columns: repeat(3, 1fr); }
+  .day-card { padding: var(--spacing-6); }
+}
+
+@media (min-width: 1320px) {
+  .course-result { padding-block: 120px; }
+  .course-result .container { display: grid; grid-template-columns: 440px 680px; column-gap: 80px; row-gap: 0; align-items: start; }
+  .course-result .section-head { grid-column: 1; }
+  .course-result .check-list { grid-column: 2; grid-row: 1; margin-top: 4px; }
+  .course-result__format { grid-column: 1; grid-row: 2; margin-top: 96px; }
+  .course-days { grid-column: 1 / -1; grid-row: 3; margin-top: 78px; grid-template-columns: repeat(3, 368px); justify-content: space-between; }
+  .day-card { padding: 28px var(--spacing-8); }
+  /* light band: starts 60px below the cards' top, 180 tall, bleeds to both edges */
+  .course-days::before { content: ""; position: absolute; z-index: -1; left: calc(50% - 50vw); width: 100vw; top: 60px; height: 180px; background: var(--decor-slab-light); }
+}
+
+/* ───────── 03–04 What's included · Payback ───────── */
+.course-incl { background: var(--bg-inverse); color: var(--text-on-inverse); padding-block: var(--spacing-12); }
+.course-incl__grid { display: flex; flex-direction: column; gap: var(--spacing-8); }
+.course-incl__title { margin-bottom: 14px; font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: 0.05em; text-transform: uppercase; }
+.course-incl .bullet-list { gap: 14px; }
+
+.payback { display: flex; flex-direction: column; gap: 10px; padding: var(--spacing-6) var(--spacing-5); background: var(--bg-surface); color: var(--text-primary); }
+.payback__label { font-family: var(--font-display); font-size: 12px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); }
+.payback__title { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.18; letter-spacing: 0.05em; text-transform: uppercase; }
+.payback__text { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .course-incl { padding-block: 72px; }
+  .course-incl__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--spacing-8); align-items: start; }
+  .course-incl__title { font-size: 18px; margin-bottom: var(--spacing-4); }
+  .course-incl .bullet-list { gap: var(--spacing-4); }
+  .payback { padding: var(--spacing-8); box-shadow: var(--shadow-plate); }
+  .payback__title { font-size: 32px; }
+  .payback__text { font-size: 16px; line-height: 1.5; }
+  .payback__label { font-size: 14px; }
+}
+
+@media (min-width: 1320px) {
+  .course-incl { padding-block: 120px; }
+  .course-incl__grid { grid-template-columns: 520px 560px; justify-content: space-between; column-gap: 0; }
+  .course-incl__grid--single { grid-template-columns: 1fr; }
+  .payback { gap: 12px; padding: 40px 48px 44px; }
+  .payback__title { font-size: 52px; line-height: 1.15; letter-spacing: 0.05em; white-space: nowrap; }
+}
+
+/* ───────── 05 Who it's for ───────── */
+.course-who { background: var(--bg-page); padding-block: var(--spacing-12); }
+.course-who .container { display: flex; flex-direction: column; gap: 14px; }
+.course-who .check-list { gap: 14px; }
+
+@media (min-width: 768px) {
+  .course-who { padding-block: 72px; }
+  .course-who .container { gap: var(--spacing-6); }
+  .course-who .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4) var(--spacing-6); }
+}
+
+@media (min-width: 1320px) {
+  .course-who { padding-block: 120px; }
+  .course-who .container { display: grid; grid-template-columns: 440px 680px; column-gap: 80px; align-items: start; }
+  .course-who .check-list { margin-top: 4px; }
+}
+
+/* ───────── 06 Starter kit ─────────
+   mobile: head, photo, text · desktop: photo left (520) over a slate band, head + text right (600) */
+.course-kit { position: relative; isolation: isolate; overflow-x: clip; background: var(--bg-page); padding-block: var(--spacing-2) var(--spacing-12); }
+.course-kit__layout { display: flex; flex-direction: column; gap: var(--spacing-5); }
+.course-kit .card-work { width: calc(100% - 16px); }
+.course-kit .card-work__photo { height: 231px; }
+.course-kit .card-work { --slab: 10px; --slab-color: var(--decor-slab); }
+.course-kit .card-work__title { color: var(--text-primary); }
+.course-kit__text { font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  .course-kit { padding-block: 40px 72px; }
+  .course-kit__layout { gap: var(--spacing-8); }
+  .course-kit .card-work { --slab: 14px; width: 420px; max-width: calc(100% - var(--slab)); }
+  .course-kit .card-work__photo { height: 340px; }
+  .course-kit__text { font-size: 18px; }
+}
+
+@media (min-width: 1320px) {
+  .course-kit { padding-block: 120px; }
+  .course-kit__layout { display: grid; grid-template-columns: 520px 600px; column-gap: 72px; align-items: start; grid-template-rows: auto 1fr; }
+  .course-kit::before { content: ""; position: absolute; z-index: -1; left: 0; top: 190px; width: calc(50vw - 390px); height: 320px; background: var(--decor-slab-light); }
+  .course-kit .card-work { --slab: 18px; grid-column: 1; grid-row: 1 / span 2; width: 100%; }
+  .course-kit .card-work__photo { height: 456px; }
+  .course-kit .section-head { grid-column: 2; grid-row: 1; }
+  .course-kit__text { grid-column: 2; grid-row: 2; margin-top: 40px; }
+}
+
+/* ───────── 07 Next group dates (dark note box) ───────── */
+.course-dates { background: var(--bg-page); padding-block: var(--spacing-2) var(--spacing-12); }
+@media (min-width: 768px) { .course-dates { padding-block: 0 72px; } }
+@media (min-width: 1320px) { .course-dates { padding-block: 0 120px; } }
+
+/* ───────── 08 FAQ + apply panel ───────── */
+.course-apply { margin-top: var(--spacing-8); }
+.apply-panel { display: flex; flex-direction: column; align-items: stretch; gap: 14px; padding: var(--spacing-6) var(--spacing-5); background: var(--bg-surface); box-shadow: var(--shadow-plate); }
+.apply-panel__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.apply-panel__title { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.18; letter-spacing: 0.05em; text-transform: uppercase; }
+.apply-panel__text { font-weight: 500; font-size: 16px; line-height: 1.4; }
+.apply-panel__copy .link-arrow { padding-block: var(--spacing-3); }
+.apply-panel__actions { display: flex; flex-direction: column; gap: var(--spacing-3); order: -1; }
+.apply-panel__actions .btn { width: 100%; }
+/* mobile order: title, text, buttons, policy link */
+.apply-panel__copy { display: contents; }
+.apply-panel__title { order: -3; }
+.apply-panel__text { order: -2; }
+.apply-panel__actions { order: -1; }
+.apply-panel .link-arrow { align-self: flex-start; order: 1; }
+
+@media (min-width: 768px) {
+  .course-apply { margin-top: var(--spacing-10); }
+  .apply-panel { padding: 36px; gap: var(--spacing-5); }
+  .apply-panel__title { font-size: 32px; }
+  .apply-panel__actions { flex-direction: row; gap: var(--spacing-4); }
+  .apply-panel__actions .btn { width: auto; }
+}
+
+@media (min-width: 1320px) {
+  .course-apply { margin-top: 110px; }
+  .apply-panel { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "title actions" "text actions" "link actions"; column-gap: var(--spacing-10); row-gap: 12px; align-items: center; padding: 48px 56px; }
+  .apply-panel__title { grid-area: title; order: 0; align-self: end; }
+  .apply-panel__text { grid-area: text; order: 0; }
+  .apply-panel .link-arrow { grid-area: link; order: 0; align-self: start; }
+  .apply-panel__actions { grid-area: actions; order: 0; }
+}

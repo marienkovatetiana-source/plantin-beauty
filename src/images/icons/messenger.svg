@@ -1,0 +1,8 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon/messenger">
+<path d="M3.5 9C3.5 7.067 5.067 5.5 7 5.5H23C24.933 5.5 26.5 7.067 26.5 9V17.6C26.5 19.533 24.933 21.1 23 21.1H13.4L8.4 25V21.1H7C5.067 21.1 3.5 19.533 3.5 17.6V9Z" stroke="#3B4A5E" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="10.4" cy="13.3" r="1.45" fill="#3B4A5E"/>
+<circle cx="15" cy="13.3" r="1.45" fill="#3B4A5E"/>
+<circle cx="19.6" cy="13.3" r="1.45" fill="#3B4A5E"/>
+</g>
+</svg>

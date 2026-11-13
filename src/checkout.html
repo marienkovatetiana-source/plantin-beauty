@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{> seo}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  {{> header}}
+
+  <!-- no floating WhatsApp button and no sticky bar on checkout: nothing should pull attention away from paying -->
+  <main id="main">
+    <section class="co" aria-labelledby="co-title">
+      <div class="container">
+        <div class="co__head">
+          <nav aria-label="Breadcrumb">
+            <p class="co__crumbs label-s">
+              <a href="academy.html">Academy</a><span aria-hidden="true">/</span><a href="academy.html#online">Your Own Nails</a><span aria-hidden="true">/</span><span aria-current="page">Checkout</span>
+            </p>
+          </nav>
+          <h1 class="co__title" id="co-title">Checkout</h1>
+        </div>
+
+        <!-- short summary (mobile, tablet) -->
+        <div class="co-brief">
+          <p class="co-brief__row"><span>Your Own Nails · Online</span><span class="co-brief__price">€15</span></p>
+          <p class="co-brief__text">Video lessons in a private YouTube playlist · VAT included</p>
+        </div>
+
+        <div class="co__columns">
+          <form class="co-form" novalidate data-checkout>
+            <h2 class="co-form__step">1 · Your details</h2>
+
+            <div class="field" data-field>
+              <label class="field__label" for="co-name">Full name</label>
+              <input class="field__input" id="co-name" name="name" type="text" autocomplete="name" placeholder="e.g. Sofie Peeters" required aria-describedby="co-name-error">
+              <p class="field__error" id="co-name-error">Please enter your name.</p>
+            </div>
+            <div class="field" data-field>
+              <label class="field__label" for="co-email">Email</label>
+              <input class="field__input" id="co-email" name="email" type="email" autocomplete="email" placeholder="e.g. sofie@mail.be" required aria-describedby="co-email-help co-email-error">
+              <p class="field__help" id="co-email-help">We’ll send the course link to this address.</p>
+              <p class="field__error" id="co-email-error">Please enter a valid email address, like sofie@mail.be.</p>
+            </div>
+
+            <fieldset id="payment">
+              <legend class="co-form__step">2 · Payment method</legend>
+              <div class="choices">
+                <label class="choice">
+                  <input class="choice__input" type="radio" name="payment" value="bancontact" checked>
+                  <span class="choice__radio" aria-hidden="true"></span>
+                  <span class="choice__text"><span class="choice__title">Bancontact</span><span class="choice__meta">Belgian bank card or the Bancontact app</span></span>
+                </label>
+                <label class="choice">
+                  <input class="choice__input" type="radio" name="payment" value="card">
+                  <span class="choice__radio" aria-hidden="true"></span>
+                  <span class="choice__text"><span class="choice__title">Card</span><span class="choice__meta">Visa, Mastercard</span></span>
+                </label>
+                <label class="choice">
+                  <input class="choice__input" type="radio" name="payment" value="wallet">
+                  <span class="choice__radio" aria-hidden="true"></span>
+                  <span class="choice__text"><span class="choice__title">Apple Pay / Google Pay</span><span class="choice__meta">On supported phones and browsers</span></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="check">
+              <input class="check__input" type="checkbox" name="withdrawal" required>
+              <span class="check__box" aria-hidden="true"></span>
+              <span class="check__text">I want access right away and understand that I lose my 14-day right of withdrawal once the course link is sent.</span>
+            </label>
+
+            <button class="btn btn--primary co-form__pay" type="submit" disabled>Pay €15 <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></button>
+            <p class="co-form__note">You’ll finish the payment on our provider’s secure page and come straight back here.</p>
+          </form>
+
+          <!-- full order summary (desktop) -->
+          <aside class="co-summary" aria-label="Order summary">
+            <div class="co-summary__photo"><img src="images/course-your-own-nails.jpg" sizes="420px" alt="Hand doing a gel manicure at home with a nail file and a black gel bottle" width="1032" height="1170" loading="lazy"></div>
+            <p class="co-summary__label label-s">Online course</p>
+            <h2 class="co-summary__title">Your Own Nails</h2>
+            <p class="co-summary__text">Do your own nails at home: step-by-step video lessons and an honest guide to materials.</p>
+            <ul class="bullet-list bullet-list--light">
+              <li>Video lessons in a private YouTube playlist</li>
+              <li>Guide to good and bad materials</li>
+              <li>Watch at your own pace, as often as you like</li>
+            </ul>
+            <p class="co-summary__total"><span>Total</span><span>€15</span></p>
+            <p class="co-summary__vat">VAT included · one-time payment</p>
+            <a class="link-arrow" href="https://wa.me/32468264014" target="_blank" rel="noopener"><span class="link-arrow__text">Questions? WhatsApp us</span><svg class="icon icon--arrow-s" width="16" height="16" aria-hidden="true" focusable="false"><use href="#arrow-small"/></svg></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+</body>
+</html>

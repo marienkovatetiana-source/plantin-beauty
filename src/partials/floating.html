@@ -1,0 +1,19 @@
+  <!-- Floating WhatsApp (tablet/desktop, ≥768); below 768 the sticky bar has its own button -->
+  <a class="floating-chat" href="https://wa.me/32468264014" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="icon" width="34" height="34" aria-hidden="true" focusable="false"><use href="#messenger"/></svg></a>
+
+  <!-- Back to top (tablet/desktop): sits above the floating WhatsApp button; js/to-top.js shows it after some scrolling -->
+  <button class="to-top to-top--float" type="button" aria-label="Back to top" data-to-top><span class="to-top__mark" aria-hidden="true"></span></button>
+
+  <!-- Mobile sticky actions: appear after the hero has scrolled out (js/sticky-bar.js) -->
+  <div class="sticky-bar" data-sticky-bar>
+    <button class="to-top to-top--sticky" type="button" aria-label="Back to top" data-to-top><span class="to-top__mark" aria-hidden="true"></span></button>
+    <a class="sticky-bar__chat" href="https://wa.me/32468264014" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="icon" width="30" height="30" aria-hidden="true" focusable="false"><use href="#messenger"/></svg></a>
+    <div class="sticky-bar__bar">
+      {{#if applyBar}}
+      
+      <a class="btn btn--primary" href="#apply" data-apply-open>Apply <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      {{else}}
+      <a class="btn btn--primary" href="https://www.treatwell.be/en/place/plantin-beauty/" target="_blank" rel="noopener">Book now <svg class="icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      {{/if}}
+    </div>
+  </div>

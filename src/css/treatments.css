@@ -1,0 +1,59 @@
+/* Home · 02 Treatments
+   mobile: scroll-x carousel (cards 303) · tablet: grid 2×2 · desktop: two staggered columns over a light slab band */
+.treatments { background: var(--bg-page); padding-block: var(--spacing-12); }
+.treatments .container { display: flex; flex-direction: column; gap: var(--spacing-6); }
+
+
+.treatments__carousel {
+  display: flex; gap: var(--spacing-4);
+  /* 16px right padding keeps the last slab visible; bleeds to the viewport edge */
+  margin-right: calc(-1 * var(--side-padding)); padding: 0 var(--spacing-4) 12px 0;
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.treatments__carousel::-webkit-scrollbar { display: none; }
+.treatments__carousel .card-category { gap: var(--spacing-6); flex: none; width: 303px; scroll-snap-align: start; }   /* slab 12 / hover 16 (default) */
+.treatments__carousel .card-category__photo { height: 341px; }
+.treatments__carousel .card-category__plate { width: 50%; }
+/* Mobile order: Nails, Lashes, Face, Permanent. Tablet/desktop: Nails, Face, Lashes, Permanent */
+.treatments__carousel .card-category--lashes { order: 2; }
+.treatments__carousel .card-category--face { order: 3; }
+.treatments__carousel .card-category--pmu { order: 4; }
+
+.treatments__plate-title { font-family: var(--font-display); font-size: 12px; line-height: 1.3; letter-spacing: 0.15em; text-transform: uppercase; }
+
+@media (min-width: 768px) {
+  .treatments { padding-block: 72px; }
+  .treatments .container { gap: var(--spacing-8); }
+  .treatments .slider-controls { display: none; }
+
+  .treatments__carousel {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px 16px;
+    margin-right: 0; padding: 0; overflow: visible;
+  }
+  .treatments__carousel .card-category { width: auto; }
+  .treatments__carousel .card-category__photo { height: 291px; }
+  .treatments__carousel .card-category--lashes, .treatments__carousel .card-category--face, .treatments__carousel .card-category--pmu { order: 0; }
+}
+
+@media (min-width: 1320px) {
+  .treatments { padding-block: var(--spacing-30); }
+  .treatments .container { gap: 72px; }
+  .treatments__carousel {
+    position: relative; grid-template-columns: 1fr 1fr; column-gap: var(--spacing-24); row-gap: 41px;
+    padding-bottom: 96px; /* room for the right column's 96px offset */
+  }
+  /* Slab band (decor/slab-light) behind the cards, bleeds to the left viewport edge, ends mid right column */
+  .treatments__carousel::before {
+    content: ""; position: absolute; z-index: 0; top: 186px; height: 528px;
+    left: calc(50% - 50vw); right: calc(25% - 24px); background: var(--decor-slab-light);
+  }
+  .treatments__carousel .card-category { position: relative; z-index: 1; }
+  .treatments__carousel .card-category__photo { height: 331px; }
+  /* Right column is shifted down by 96 */
+  .treatments__carousel .card-category--lashes, .treatments__carousel .card-category--pmu { top: 96px; }
+  .treatments__carousel .card-category--lashes { grid-column: 2; grid-row: 1; }
+  .treatments__carousel .card-category--pmu { grid-column: 2; grid-row: 2; }
+  .treatments__carousel .card-category--nails { grid-column: 1; grid-row: 1; }
+  .treatments__carousel .card-category--face { grid-column: 1; grid-row: 2; }
+  .treatments__plate-title { font-size: 18px; letter-spacing: 0.05em; }
+}

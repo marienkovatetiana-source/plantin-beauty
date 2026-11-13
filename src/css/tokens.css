@@ -1,0 +1,92 @@
+/* Design tokens: names match the variables in the Figma file (bg/page → --bg-page) */
+:root {
+  /* Colour */
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;  /* cards: white (palette bg/surface) */
+  --bg-muted: #ced4da;
+  --bg-placeholder: #dde1e5;
+  --bg-inverse: #2f3a5c;   /* ink/900 */
+
+  --text-primary: #263241;
+  --text-secondary: #4e5774;   /* descriptions, secondary text (7.1:1 on white) */
+  --text-tertiary: #4e67bc;    /* eyebrows, hints, small captions, hero proof line, category facts, breadcrumbs (5.3:1 on white, 5.0:1 on #f4f9ff) */
+  --text-on-inverse: #ffffff;
+  --text-on-inverse-muted: #b9c6f5;   /* secondary text on dark sections (6.6:1 on #2f3a5c) */
+  --text-accent: #4e67bc;
+
+  --border-subtle: #f4f9ff;   /* dividers: the lightest palette colour, barely visible */
+  --border-control: #4e67bc;  /* secondary button border at rest (5.3:1) */
+  --border-default: #6e7b88;
+  --border-strong: #001965;
+  --gray-500: rgba(141, 164, 239, 0.55);   /* dividers on dark sections */
+  --gray-700: rgba(141, 164, 239, 0.3);
+
+  --action-primary: #001965;
+  --action-primary-hover: #001965;
+  --action-primary-pressed: #001965;
+
+  --decor-slab: #8da4ef;            /* accent slabs, Why us icons, block in secondary/inverse buttons. Never for text */
+  --decor-slab-light: #f4f9ff;      /* side plate of hero, bands behind card groups, review/Visit frame, menu row hover */
+  --decor-slab-soft: #b9c6f5;       /* photo slabs in groups */
+  --decor-slab-on-dark: #4e67bc;    /* photo slabs on dark sections */
+  --accent-spark: #c2188f;  /* raspberry pink: ONLY the chevron block of primary buttons, their hover chevrons and the logo beam (the one exception to the palette, besides #001965). */
+  --accent-deep: #001965;   /* hover accent: menu, button outline + label, chevrons, icon outlines */
+
+  --focus-ring: #001965;
+  --feedback-error: #b02a2a;
+
+  /* Spacing (spacing/1 … spacing/30) */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-30: 120px;
+
+  /* Corner system: see css/radius.css (8px controls, 12px surfaces) */
+  --radius-s: 8px;
+  --radius-m: 12px;
+
+  /* Effects */
+  --slab-xs: 8px 8px 0 var(--decor-slab);
+  --slab-s: 12px 12px 0 var(--decor-slab);
+  --slab-m: 16px 16px 0 var(--decor-slab);
+  --slab-l: 24px 24px 0 var(--decor-slab);
+  --shadow-plate: 0 8px 24px rgba(44, 51, 58, 0.14);
+  --shadow-label: 0 6px 18px rgba(20, 24, 28, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --shadow-raised: 0 14px 36px rgba(44, 51, 58, 0.24);
+  --state-hover: 3px 3px 0 var(--decor-slab);
+  --state-pressed: 8px 8px 0 var(--decor-slab);
+
+  /* Fonts */
+  --font-display: "Anonymous Pro", ui-monospace, monospace;
+  --font-text: "Inter", system-ui, sans-serif;
+
+  /* Layout: mobile first */
+  --container-max: 1200px;
+  --side-padding: 16px;
+  --section-padding: 48px;
+  --header-height: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --side-padding: 40px;
+    --section-padding: 72px;
+  }
+}
+
+@media (min-width: 1320px) {
+  :root {
+    --side-padding: 120px;
+    --section-padding: 120px;
+    --header-height: 88px;
+  }
+}
