@@ -1,5 +1,5 @@
 /* Footer (dark)
-   mobile 375: brand, two accordions (Visit us / Contact), social icons, legal links, copyright + language; bottom space for the sticky bar
+   mobile 375: brand, two accordions (Visit us / Contact), social icons, legal links, copyright; bottom space for the sticky bar
    tablet 768–1319: 2 columns — left: logo + tagline + social icons (48px zones), right: Visit us and Contact; one bottom row
    desktop 1320+: 4 equal columns, Follow as icon links */
 .site-footer {
@@ -48,7 +48,7 @@ a.footer-col__line:hover { text-decoration: underline; text-underline-position: 
 .footer-social__link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .footer-social__text { display: none; }
 
-/* Bottom: mobile = legal row (44px taps), then © + language */
+/* Bottom: mobile = legal row (44px taps), then © */
 .footer__bottom {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; row-gap: var(--spacing-1);
   padding-top: var(--spacing-2); border-top: 1px solid var(--gray-500);
@@ -61,11 +61,6 @@ a.footer-col__line:hover { text-decoration: underline; text-underline-position: 
 .footer__legal a:hover { color: var(--text-on-inverse-muted); }
 .footer__copy { font-size: 12px; line-height: 1.4; color: var(--text-on-inverse-muted); white-space: nowrap; }
 
-/* Language switch on dark */
-.lang-switch--inverse a { color: var(--text-on-inverse-muted); }
-.lang-switch--inverse a[aria-current="true"] { color: var(--text-on-inverse); }
-.lang-switch--inverse a:hover { color: var(--text-on-inverse); }
-.lang-switch--inverse .lang-switch__slash { color: var(--text-on-inverse-muted); }
 
 @media (min-width: 768px) {
   .site-footer { padding-top: var(--spacing-20); padding-bottom: var(--spacing-10); }
@@ -90,7 +85,6 @@ a.footer-col__line:hover { text-decoration: underline; text-underline-position: 
   .footer__bottom { flex-wrap: nowrap; justify-content: flex-start; gap: var(--spacing-6); padding-top: var(--spacing-6); }
   .footer__legal { order: 0; flex-basis: auto; gap: var(--spacing-6); }
   .footer__legal a { padding: 0; font-size: 12px; font-weight: 400; line-height: 1.4; }
-  .footer__bottom .lang-switch { margin-left: auto; }
 }
 
 @media (min-width: 1320px) {

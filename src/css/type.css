@@ -23,8 +23,3 @@ body { font-weight: 450; }
 /* Eyebrows: 14px at every width */
 .section-head__eyebrow, .hero__eyebrow, .plate-hero__eyebrow { font-size: 14px; }
 
-/* Language switch: bigger, bold, clearly active/inactive */
-.lang-switch { font-size: 15px; font-weight: 700; }
-.lang-switch a[aria-current="true"] { color: var(--accent-deep); text-decoration-thickness: 2px; text-underline-offset: 5px; }
-.lang-switch__slash { color: var(--text-secondary); font-weight: 400; }
-.lang-switch--inverse a[aria-current="true"] { color: var(--text-on-inverse); }   /* footer (dark): the active language stays white */

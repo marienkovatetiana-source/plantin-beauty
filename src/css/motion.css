@@ -13,7 +13,7 @@
 }
 
 /* ───────── 1. hover / state ───────── */
-.lang-switch a, .link-arrow, .cat-hero__crumbs a, .co__crumbs a, .cookie__settings, .site-header__phone,
+.link-arrow, .cat-hero__crumbs a, .co__crumbs a, .cookie__settings, .site-header__phone,
 .info-row a, .footer__legal a, a.footer-col__line, .footer-social__link {
   transition: color var(--motion-fast) ease, opacity var(--motion-fast) ease;
 }

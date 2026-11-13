@@ -4,7 +4,7 @@
 
 /* Menu + links */
 .site-nav__link:hover, .site-nav__link[aria-expanded="true"],
-.site-header__phone:hover, .lang-switch a:hover, .link-arrow:hover, .cat-hero__crumbs a:hover { color: var(--accent-spark); }   /* every link: raspberry pink on hover */
+.site-header__phone:hover, .link-arrow:hover, .cat-hero__crumbs a:hover { color: var(--accent-spark); }   /* every link: raspberry pink on hover */
 .site-nav__link:hover::after, .site-nav__link[aria-expanded="true"]::after { background: var(--accent-spark); }
 .menu-row:hover, .menu-row:focus-visible { background: var(--decor-slab-light); box-shadow: inset 4px 0 0 var(--accent-deep); color: var(--accent-deep); }
 .menu-row:hover .menu-row__meta { color: var(--accent-deep); }
@@ -20,9 +20,9 @@
 .faq-item__q:hover .faq-item__toggle { border-color: var(--accent-deep); color: var(--accent-deep); }
 .helper-row:hover { box-shadow: var(--shadow-plate), 0 0 0 1.5px var(--accent-deep); }
 
-/* Footer: links, social icons and language switch turn raspberry pink on hover (colour only, no background) */
+/* Footer: links and social icons turn raspberry pink on hover (colour only, no background) */
 .site-footer a.footer-col__line:hover, .site-footer .footer-social__link:hover,
-.site-footer .footer__legal a:hover, .site-footer .lang-switch a:hover { color: var(--accent-spark); opacity: 1; }
+.site-footer .footer__legal a:hover { color: var(--accent-spark); opacity: 1; }
 .site-footer .footer-social__link:hover .icon { color: var(--accent-spark); }
 
 /* Hero: description --text-secondary; the proof line (rating, price, years) and the category facts --text-tertiary */
