@@ -149,3 +149,7 @@ vite.config.ts.timestamp-*
 .turbo
 src/images/gen
 .DS_Store
+
+# local working notes, not published
+salon-docs/
+.claude/
